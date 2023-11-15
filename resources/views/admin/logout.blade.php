@@ -1,6 +1,33 @@
-@extends('Template.templateadmin')
-@section('content')
+<!doctype html>
+<html lang="en">
 
+    
+<!-- Mirrored from themesdesign.in/dason-laravel/layouts/default/auth-logout.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2023 06:32:14 GMT -->
+<head>
+
+        <meta charset="utf-8" />
+        <title>Log Out | Dason - Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- preloader css -->
+        <link rel="stylesheet" href="assets/css/preloader.min.css" type="text/css" />
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body data-topbar="dark">
+
+    <!-- <body data-layout="horizontal"> -->
         <div class="auth-page">
             <div class="container-fluid p-0">
                 <div class="row g-0">
@@ -10,7 +37,7 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="index.html" class="d-block auth-logo">
-                                            <img src="{{ asset('template1/theme/assets/images/logo-sm.svg') }}" alt="" height="28"> <span class="logo-txt">Admin</span>
+                                            <img src="assets/images/logo-sm.svg" alt="" height="28"> <span class="logo-txt">Dason</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">
@@ -22,14 +49,14 @@
                                             </div>
 
                                             <div class="mt-4 pt-2">
-                                                <h5>Kamu Telah Logout</h5>
-                                                <p class="text-muted font-size-15"> Terima Kasih Telah Berkunjung <span class="fw-semibold text-dark">Admin</span></p>
+                                                <h5>You are Logged Out</h5>
+                                                <p class="text-muted font-size-15">Thank you for using <span class="fw-semibold text-dark">Dason</span></p>
                                                 <div class="mt-4">
                                                     <a href="auth-login.html" class="btn btn-primary w-100 waves-effect waves-light">Sign In</a>
                                                 </div>
                                             </div>
                                         </div>
-
+                                    
                                         <div class="mt-5 text-center">
                                             <p class="text-muted mb-0">Don't have an account ? <a href="auth-register.html"
                                                     class="text-primary fw-semibold"> Signup</a> </p>
@@ -66,13 +93,13 @@
                                         <div id="reviewcarouselIndicators" class="carousel slide" data-bs-ride="carousel">
                                             <div class="carousel-indicators auth-carousel carousel-indicators-rounded justify-content-center mb-0">
                                                 <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-                                                    <img src="{{ asset('template1/theme/assets/images/users/avatar-1.jpg') }}" class="avatar-md img-fluid rounded-circle d-block" alt="...">
+                                                    <img src="assets/images/users/avatar-1.jpg" class="avatar-md img-fluid rounded-circle d-block" alt="...">
                                                 </button>
                                                 <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2">
-                                                    <img src="{{ asset('template1/theme/assets/images/users/avatar-2.jpg') }}" class="avatar-md img-fluid rounded-circle d-block" alt="...">
+                                                    <img src="assets/images/users/avatar-2.jpg" class="avatar-md img-fluid rounded-circle d-block" alt="...">
                                                 </button>
                                                 <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="2" aria-label="Slide 3">
-                                                    <img src="{{ asset('template1/theme/assets/images/users/avatar-3.jpg') }}" class="avatar-md img-fluid rounded-circle d-block" alt="...">
+                                                    <img src="assets/images/users/avatar-3.jpg" class="avatar-md img-fluid rounded-circle d-block" alt="...">
                                                 </button>
                                             </div>
                                             <!-- end carouselIndicators -->
@@ -144,21 +171,23 @@
             <!-- end container fluid -->
         </div>
 
-@endsection
 
-@push('scripts')
         <!-- JAVASCRIPT -->
-        <script src="{{ asset('template1/theme/assets/libs/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/metismenu/metisMenu.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/simplebar/simplebar.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/node-waves/waves.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/feather-icons/feather.min.js') }}"></script>
+        <script src="assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="assets/libs/feather-icons/feather.min.js"></script>
         <!-- pace js -->
-        <script src="{{ asset('template1/theme/assets/libs/pace-js/pace.min.js') }}"></script>
+        <script src="assets/libs/pace-js/pace.min.js"></script>
         <!-- password addon init -->
-        <script src="{{ asset('template1/theme/assets/js/pages/pass-addon.init.js') }}"></script>
+        <script src="assets/js/pages/pass-addon.init.js"></script>
 
-        <script src="{{ asset('template1/theme/assets/js/pages/feather-icon.init.js') }}"></script>
+        <script src="assets/js/pages/feather-icon.init.js"></script>
 
-@endpush
+    </body>
+
+
+<!-- Mirrored from themesdesign.in/dason-laravel/layouts/default/auth-logout.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2023 06:32:14 GMT -->
+</html>
