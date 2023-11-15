@@ -8,7 +8,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/logoposyandu1.png') }}">
 
     <!-- plugin css -->
     <link href="{{ asset('template1/theme/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}"
@@ -247,67 +247,62 @@
                         value="vertical">
                     <label class="form-check-label" for="layout-vertical">Vertical</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout" id="layout-horizontal"
-                        value="horizontal">
-                    <label class="form-check-label" for="layout-horizontal">Horizontal</label>
-                </div>
 
-                <h6 class="mt-4 mb-3 pt-2">Layout Mode</h6>
+                <h6 class="mt-4 mb-3 pt-2">Warna Tata Letak</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-mode" id="layout-mode-light"
                         value="light">
-                    <label class="form-check-label" for="layout-mode-light">Light</label>
+                    <label class="form-check-label" for="layout-mode-light">Terang</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-mode" id="layout-mode-dark"
                         value="dark">
-                    <label class="form-check-label" for="layout-mode-dark">Dark</label>
+                    <label class="form-check-label" for="layout-mode-dark">Gelap</label>
                 </div>
 
-                <h6 class="mt-4 mb-3 pt-2">Layout Width</h6>
+                <h6 class="mt-4 mb-3 pt-2">Ukuran Tata Letak</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-width" id="layout-width-fuild"
                         value="fuild" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
-                    <label class="form-check-label" for="layout-width-fuild">Fluid</label>
+                    <label class="form-check-label" for="layout-width-fuild">Cairan</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-width" id="layout-width-boxed"
                         value="boxed"
                         onchange="document.body.setAttribute('data-layout-size', 'boxed'),document.body.setAttribute('data-sidebar-size', 'sm')">
-                    <label class="form-check-label" for="layout-width-boxed">Boxed</label>
+                    <label class="form-check-label" for="layout-width-boxed">Kemas</label>
                 </div>
 
-                <h6 class="mt-4 mb-3 pt-2">Layout Position</h6>
+                <h6 class="mt-4 mb-3 pt-2">Posisi Tata Letak</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-position" id="layout-position-fixed"
                         value="fixed" onchange="document.body.setAttribute('data-layout-scrollable', 'false')">
-                    <label class="form-check-label" for="layout-position-fixed">Fixed</label>
+                    <label class="form-check-label" for="layout-position-fixed">Tetap</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-position"
                         id="layout-position-scrollable" value="scrollable"
                         onchange="document.body.setAttribute('data-layout-scrollable', 'true')">
-                    <label class="form-check-label" for="layout-position-scrollable">Scrollable</label>
+                    <label class="form-check-label" for="layout-position-scrollable">Gulir</label>
                 </div>
 
-                <h6 class="mt-4 mb-3 pt-2">Topbar Color</h6>
+                <h6 class="mt-4 mb-3 pt-2">Warna Topbar</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-light"
                         value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
-                    <label class="form-check-label" for="topbar-color-light">Light</label>
+                    <label class="form-check-label" for="topbar-color-light">Terang</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-dark"
                         value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
-                    <label class="form-check-label" for="topbar-color-dark">Dark</label>
+                    <label class="form-check-label" for="topbar-color-dark">Gelap</label>
                 </div>
 
-                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Size</h6>
+                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Ukuran Sidebar</h6>
 
                 <div class="form-check sidebar-setting">
                     <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default"
@@ -325,39 +320,24 @@
                     <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
                 </div>
 
-                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Color</h6>
+                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Warna Sidebar</h6>
 
                 <div class="form-check sidebar-setting">
                     <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-light"
                         value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
-                    <label class="form-check-label" for="sidebar-color-light">Light</label>
+                    <label class="form-check-label" for="sidebar-color-light">Terang</label>
                 </div>
                 <div class="form-check sidebar-setting">
                     <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-dark"
                         value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
-                    <label class="form-check-label" for="sidebar-color-dark">Dark</label>
+                    <label class="form-check-label" for="sidebar-color-dark">Gelap</label>
                 </div>
                 <div class="form-check sidebar-setting">
                     <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-brand"
                         value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
-                    <label class="form-check-label" for="sidebar-color-brand">Brand</label>
+                    <label class="form-check-label" for="sidebar-color-brand">Biru</label>
                 </div>
-
-                <h6 class="mt-4 mb-3 pt-2">Direction</h6>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr"
-                        value="ltr">
-                    <label class="form-check-label" for="layout-direction-ltr">LTR</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-rtl"
-                        value="rtl">
-                    <label class="form-check-label" for="layout-direction-rtl">RTL</label>
-                </div>
-
             </div>
-
         </div> <!-- end slimscroll-menu-->
     </div>
     <!-- /Right-bar -->

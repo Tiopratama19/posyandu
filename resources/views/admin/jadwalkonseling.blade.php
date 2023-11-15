@@ -91,12 +91,12 @@
                                                     <select class="form-control form-select" name="category"
                                                         id="event-category">
                                                         <option selected> --Pilih-- </option>
-                                                        <option value="bg-danger">Danger</option>
-                                                        <option value="bg-success">Success</option>
-                                                        <option value="bg-primary">Primary</option>
-                                                        <option value="bg-info">Info</option>
-                                                        <option value="bg-dark">Dark</option>
-                                                        <option value="bg-warning">Warning</option>
+                                                        <option value="bg-danger">Kesehatan Mental</option>
+                                                        <option value="bg-success">Kesehatan Fisik</option>
+                                                        <option value="bg-primary">Kesehatan Sosial</option>
+                                                        <option value="bg-info">Kesehatan</option>
+                                                        <option value="bg-dark">Kesehatan Spiritual</option>
+                                                        <option value="bg-warning">Kesehatan Reproduksi</option>
                                                     </select>
                                                     <div class="invalid-feedback">Please select a valid event category
                                                     </div>

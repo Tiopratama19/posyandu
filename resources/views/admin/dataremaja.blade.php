@@ -1,6 +1,19 @@
 @extends('Template.templateadmin')
 @section('content')
 
+@push('css')
+    <!-- DataTables -->
+    <link href="{{ asset('template1/theme/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
+@endpush
+
+
                 <div class="page-content">
                     <div class="container-fluid">
 
@@ -516,29 +529,14 @@
                                 <!-- End Page-content -->
 @endsection
 
-@push('css')
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/core/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/daygrid/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/bootstrap/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/timegrid/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('template1/theme/assets/libs/%40fullcalendar/core/main.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/%40fullcalendar/bootstrap/main.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/%40fullcalendar/daygrid/main.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/%40fullcalendar/timegrid/main.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/%40fullcalendar/interaction/main.min.js') }}"></script>
-
-    <!-- Calendar init -->
-    <script src="{{ asset('template1/theme/assets/js/pages/calendar.init.js') }}"></script>
-    <!-- Buttons examples -->
+    @push('scripts')
+        <!-- Required datatable js -->
+        <script src="{{ asset('template1/theme/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('template1/theme/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <!-- Buttons examples -->
         <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
+        </script>
         <script src="{{ asset('template1/theme/assets/libs/jszip/jszip.min.js') }}"></script>
         <script src="{{ asset('template1/theme/assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
         <script src="{{ asset('template1/theme/assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
@@ -546,5 +544,12 @@
         <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
         <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
 
-@endpush
+        <!-- Responsive examples -->
+        <script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}">
+        </script>
+        <script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}">
+        </script>
 
+        <!-- Datatable init js -->
+        <script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>
+    @endpush
