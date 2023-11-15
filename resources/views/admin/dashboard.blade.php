@@ -2,7 +2,6 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
@@ -12,7 +11,6 @@
                 </div>
             </div>
             <!-- end page title -->
-
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <!-- card -->
@@ -26,7 +24,6 @@
                                         <span class="counter-value" data-target="4000">0</span>
                                     </h4>
                                 </div>
-
                                 <div class="flex-shrink-0 text-end dash-widget">
                                     <div id="mini-chart1" data-colors='["#1c84ee", "#33c38e"]' class="apex-charts">
                                     </div>
@@ -35,7 +32,6 @@
                         </div><!-- end card body -->
                     </div><!-- end card -->
                 </div><!-- end col -->
-
                 <div class="col-xl-3 col-md-6">
                     <!-- card -->
                     <div class="card card-h-100">

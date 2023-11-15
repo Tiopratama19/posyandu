@@ -238,111 +238,65 @@
                                                 <tbody>
                                                     <tr>
                                                         <td style="width: 50px;"><img src="{{ asset('template1/theme/assets/images/users/avatar-2.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
-                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Daniel Canales</a></h5></td>
+                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Andri Alhudani</a></h5></td>
                                                         <td>
                                                             <div>
                                                                 <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Ketua</a>
                                                             </div>
                                                         </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="{{ asset('template1/theme/assets/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
+                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Lisma Laela Habsy</a></h5></td>
                                                         <td>
-                                                            <i class="mdi mdi-circle-medium font-size-18 text-success align-middle me-1"></i> Online
+                                                            <div>
+                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Sekretaris</a>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td><img src="{{ asset('template1/theme/assets/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
-                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Jennifer Walker</a></h5></td>
+                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Afifah Nurhanifah Fadholi</a></h5></td>
                                                         <td>
                                                             <div>
-                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">UI / UX</a>
+                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Bendahara</a>
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            <i class="mdi mdi-circle-medium font-size-18 text-warning align-middle me-1"></i> Buzy
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <div class="avatar-sm">
-                                                                <span class="avatar-title rounded-circle bg-primary text-white font-size-16">
-                                                                    C
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Carl Mackay</a></h5></td>
+                                                        <td><img src="{{ asset('template1/theme/assets/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
+                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Kanila Desta Gustina</a></h5></td>
                                                         <td>
                                                             <div>
-                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Backend</a>
+                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Divisi. Agama</a>
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            <i class="mdi mdi-circle-medium font-size-18 text-success align-middle me-1"></i> Online
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><img src="{{ asset('template1/theme/assets/images/users/avatar-4.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
-                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Janice Cole</a></h5></td>
+                                                        <td><img src="{{ asset('template1/theme/assets/images/users/qintar.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
+                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Qinthari Hasanah</a></h5></td>
                                                         <td>
                                                             <div>
-                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Frontend</a>
-                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">UI</a>
+                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Divisi. Humas</a>
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            <i class="mdi mdi-circle-medium font-size-18 text-success align-middle me-1"></i> Online
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <div class="avatar-sm">
-                                                                <span class="avatar-title rounded-circle bg-primary text-white font-size-16">
-                                                                    T
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Tony Brafford</a></h5></td>
+                                                        <td><img src="{{ asset('template1/theme/assets/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
+                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Septiani Nur Anisa</a></h5></td>
                                                         <td>
                                                             <div>
-                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Backend</a>
+                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Divisi. Konseling</a>
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            <i class="mdi mdi-circle-medium font-size-18 text-secondary align-middle me-1"></i> Offline
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <div class="avatar-sm">
-                                                                <span class="avatar-title rounded-circle bg-primary text-white font-size-16">
-                                                                    C
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Carl Mackay</a></h5></td>
+                                                        <td><img src="{{ asset('template1/theme/assets/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-sm" alt=""></td>
+                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Tio Moreno Pratama Bagi</a></h5></td>
                                                         <td>
                                                             <div>
-                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Backend</a>
+                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Divisi. Budaya</a>
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            <i class="mdi mdi-circle-medium font-size-18 text-success align-middle me-1"></i> Online
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="avatar-sm">
-                                                                <span class="avatar-title rounded-circle bg-primary text-white font-size-16">
-                                                                    C
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td><h5 class="font-size-14 m-0"><a href="javascript: void(0);" class="text-dark">Carl Mackay</a></h5></td>
-                                                        <td>
-                                                            <div>
-                                                                <a href="javascript: void(0);" class="badge bg-soft-primary text-primary font-size-11">Backend</a>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <i class="mdi mdi-circle-medium font-size-18 text-success align-middle me-1"></i> Online
                                                         </td>
                                                     </tr>
                                                 </tbody>
