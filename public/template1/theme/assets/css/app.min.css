@@ -5814,7 +5814,7 @@ body[data-layout-mode="dark"] .timeline .timeline-launch .timeline-box::after {
     border-color: #30373f transparent transparent #30373f;
 }
 .profile-user {
-    background-image: url(../images/profile-fotbarposyandu.jpg);
+    background-image: url(../images/profile-bg-1.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
