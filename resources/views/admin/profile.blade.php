@@ -102,9 +102,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="pt-3">
-                                                            <p class="text-muted">Aenean ornare mauris velit. Donec imperdiet, massa sit amet porta maximus, massa justo faucibus nisi,
-                                                                eget accumsan nunc ipsum nec lacus. Etiam dignissim turpis sit amet lectus porttitor eleifend. Maecenas ornare molestie metus eget feugiat.
-                                                                Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                                                            <p class="text-muted"></p>
 
                                                         </div>
                                                         <div class="position-relative mt-3">
@@ -113,111 +111,13 @@
                                                         <div class="pt-3">
                                                             <div class="d-flex align-items-center justify-content-between border-bottom pb-3">
                                                         </div>
-                                                            <p class="text-muted mt-4">Praesent fringilla neque vestibulum, consectetur arcu quis, rutrum arcu. Vivamus vitae pulvinar dolor,
-                                                                    sit amet lacinia dolor. Mauris tincidunt lacinia nisi, non molestie leo consequat a.
-                                                                    Sed varius lobortis leo, vitae venenatis tortor ullamcorper condimentum.</p>
+                                                            <p class="text-muted mt-4">Rapat kerja dengan anggota kader Posyandu Mentari.</p>
                                                         </div>
                                                     </div>
                                                     <!-- end blog post -->
                                             </div>
                                             <!-- end card body -->
                                         </div>
-                                        <!-- end card -->
-
-
-                                        <div class="card">
-                                            <div class="card-body">
-                                                    <div class="blog-post">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="avatar-lg me-3">
-                                                                <img src="{{ asset('template1/theme/assets/images/users/avatar-9.jpg') }}" alt="" class="img-fluid rounded-circle d-block">
-                                                            </div>
-                                                            <div class="flex-1">
-                                                                <h5 class="font-size-15 text-truncate"><a href="#" class="text-dark">Michael Smith</a></h5>
-                                                                <p class="font-size-13 text-muted mb-0">08 Mar, 2021</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pt-3">
-                                                            <ul class="list-inline">
-                                                                <li class="list-inline-item me-3">
-                                                                    <a href="javascript: void(0);" class="text-muted">
-                                                                        <i class="bx bx-purchase-tag-alt align-middle text-muted me-1"></i> Development
-                                                                    </a>
-                                                                </li>
-                                                                <li class="list-inline-item me-3">
-                                                                    <a href="javascript: void(0);" class="text-muted">
-                                                                        <i class="bx bx-comment-dots align-middle text-muted me-1"></i> 08 Comments
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <p class="text-muted">Aenean ornare mauris velit. Donec imperdiet, massa sit amet porta maximus, massa justo faucibus nisi,
-                                                                eget accumsan nunc ipsum nec lacus. Etiam dignissim turpis sit amet lectus porttitor eleifend. Maecenas ornare molestie metus eget feugiat.
-                                                                Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-
-                                                        </div>
-                                                        <div class="position-relative mt-3">
-                                                            <img src="{{ asset('template1/theme/assets/images/profile-bg-2.jpg') }}" alt="" class="img-thumbnail">
-                                                        </div>
-                                                        <div class="pt-3">
-                                                            <div class="d-flex align-items-center justify-content-between border-bottom pb-3">
-                                                                <div >
-                                                                    <ul class="list-inline mb-0">
-                                                                        <li class="list-inline-item me-3">
-                                                                            <a href="javascript: void(0);" class="text-muted">
-                                                                                <i class="bx bx-purchase-tag-alt text-muted me-1"></i> Project
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="list-inline-item me-3">
-                                                                            <a href="javascript: void(0);" class="text-muted">
-                                                                                <i class="bx bx-like align-middle text-muted me-1"></i> 12 Like
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-
-                                                                <div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-group">
-                                                                            <div class="avatar-group-item">
-                                                                                <a href="javascript: void(0);" class="d-inline-block">
-                                                                                    <img src="{{ asset('template1/theme/assets/images/users/avatar-4.jpg') }}" alt="" class="rounded-circle avatar-sm">
-                                                                                </a>
-                                                                            </div>
-                                                                            <div class="avatar-group-item">
-                                                                                <a href="javascript: void(0);" class="d-inline-block">
-                                                                                    <img src="{{ asset('template1/theme/assets/images/users/avatar-5.jpg') }}" alt="" class="rounded-circle avatar-sm">
-                                                                                </a>
-                                                                            </div>
-                                                                            <div class="avatar-group-item">
-                                                                                <a href="javascript: void(0);" class="d-inline-block">
-                                                                                    <img src="{{ asset('template1/theme/assets/images/users/avatar-7.jpg') }}" alt="" class="rounded-circle avatar-sm">
-                                                                                </a>
-                                                                            </div>
-                                                                            <div class="avatar-group-item">
-                                                                                <a href="javascript: void(0);" class="d-inline-block">
-                                                                                    <img src="{{ asset('template1/theme/assets/images/users/avatar-6.jpg') }}" alt="" class="rounded-circle avatar-sm">
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ms-2" >
-                                                                            <button type="button" class="btn btn-outline-primary btn-sm waves-effect">Share <i class="bx bx-share-alt align-middle ms-1"></i></button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <p class="text-muted mt-4">Praesent fringilla neque vestibulum, consectetur arcu quis, rutrum arcu. Vivamus vitae pulvinar dolor,
-                                                                    sit amet lacinia dolor. Mauris tincidunt lacinia nisi, non molestie leo consequat a.
-                                                                    Sed varius lobortis leo, vitae venenatis tortor ullamcorper condimentum.</p>
-
-                                                            <div class="mt-4 pt-2">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- end blog post -->
-                                            </div>
-                                            <!-- end card body -->
-                                        </div>
-                                        <!-- end card -->
                                     </div>
                                     <!-- end tab pane -->
                                 </div>
