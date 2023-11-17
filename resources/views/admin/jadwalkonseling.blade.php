@@ -27,8 +27,7 @@
                                     </div>
                                     <div id="external-events" class="mt-2">
                                         <br>
-                                        <p class="text-muted" style="font-size:15px">Klik kolom lalu tambahkan jadwal
-                                            konseling</p>
+                                        <p class="text-muted" style="font-size:15px">Klik kolom lalu tambahkan jadwal konseling</p>
                                     </div>
                                     <div class="row justify-content-center mt-5">
                                         <div class="col-lg-12 col-sm-6">
@@ -68,8 +67,7 @@
                                                     <input class="form-control" placeholder="Masukan nama kegiatan "
                                                         type="text" name="title" id="event-title" required
                                                         value="" />
-                                                    <div class="invalid-feedback">Please provide a valid event name
-                                                    </div>
+                                                    <div class="invalid-feedback">Mohon masukkan nama kaegiatan yang benar</div>
                                                 </div>
                                             </div>
                                             <div class="col-12">

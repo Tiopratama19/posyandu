@@ -32,7 +32,7 @@
 </head>
 
 <body data-topbar="dark">
-   @include('Template.header')
+@include('Template.header')
 
     <!-- ========== Left Sidebar Start ========== -->
     <div class="vertical-menu">

@@ -52,7 +52,7 @@ POSYANDU | Kegiatan Kader
                                             <th>Salary</th>
                                         </tr>
                                     </thead>
-                                   <tbody>
+                                    <tbody>
                                         <tr>
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
@@ -61,7 +61,7 @@ POSYANDU | Kegiatan Kader
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
                                         </tr>
-                                   </tbody>
+                                </tbody>
                                 </table>
                             </div>
                         </div>
