@@ -49,4 +49,3 @@ Route::prefix('admin')->group(function() {
         return view('admin.logout');
     });
 });
-
