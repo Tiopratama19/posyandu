@@ -1,5 +1,9 @@
 @extends('Template.templateadmin')
 @section('content')
+
+@push('title')
+POSYANDU | Jadwal Konseling
+@endpush
     <div class="page-content">
         <div class="container-fluid">
             <!-- start page title -->

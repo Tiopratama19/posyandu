@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LogoutadminController;
+use App\Http\Controllers\DataremajaController;
+use App\Http\Controllers\JadwalkonselingController;
+use App\Http\Controllers\KegiatankaderController;
+use App\Http\Controllers\LoginadminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProkerposyanduController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,35 +25,19 @@ Route::prefix('admin')->group(function() {
         return view('welcome');
     });
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    
+    Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index']);
+    
+    Route::get('/dataremaja', [DataremajaController::class, 'index']);
+    
+    Route::get('/prokerposyandu', [ProkerposyanduController::class, 'index']);
+    
+    Route::get('/profile', [ProfileController::class, 'index']);
 
-    Route::get('/jadwalkonseling', function () {
-        return view('admin.jadwalkonseling');
-    });
+    Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
+    
+    Route::get('/login', [LoginadminController::class, 'index']);
 
-    Route::get('/dataremaja', function () {
-        return view('admin.dataremaja');
-    });
-
-    Route::get('/prokerposyandu', function () {
-        return view('admin.prokerposyandu');
-    });
-
-    Route::get('/jumlahdata', function () {
-        return view('admin.jumlahdata');
-    });
-
-    Route::get('/profile', function () {
-        return view('admin.profile');
-    });
-
-    Route::get('/kegiatankader', function () {
-        return view('admin.kegiatankader');
-    });
-
-    Route::get('/logout', function () {
-        return view('admin.logout');
-    });
+    Route::get('/logout', [LogoutadminController::class, 'index']);
 });

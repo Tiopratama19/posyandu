@@ -1,6 +1,10 @@
 @extends('Template.templateadmin')
 @section('content')
 
+@push('title')
+POSYANDU | Proker Posyandu
+@endpush
+
 @push('css')
     <!-- DataTables -->
     <link href="{{ asset('template1/theme/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"

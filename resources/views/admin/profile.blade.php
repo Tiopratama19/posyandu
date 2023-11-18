@@ -1,6 +1,10 @@
 @extends('Template.templateadmin')
 @section('content')
 
+@push('title')
+POSYANDU | Profile
+@endpush
+
                 <div class="page-content">
                     <div class="container-fluid">
                         <div class="row">
