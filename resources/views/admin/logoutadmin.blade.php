@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-    
+
 <!-- Mirrored from themesdesign.in/dason-php/layouts/default/auth-logout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Nov 2023 03:57:08 GMT -->
 <head>
 
@@ -12,10 +12,10 @@
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/favicon.ico') }}">
-        
+
         <!-- preloader css -->
         <link rel="stylesheet" href="{{ asset('template1/theme/assets/css/preloader.min.css' ) }}" type="text/css" />
-        
+
         <!-- Bootstrap Css -->
         <link href="{{ asset('template1/theme/assets/css/bootstrap.min.css' ) }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
@@ -52,15 +52,15 @@
                                                 <h5>You are Logged Out</h5>
                                                 <p class="text-muted font-size-15">Thank you for using <span class="fw-semibold text-dark">Dason</span></p>
                                                 <div class="mt-4">
-                                                    <a href="auth-login.html" class="btn btn-primary w-100 waves-effect waves-light">Sign In</a>
+                                                    <a href="{{ url('/') }}" class="btn btn-primary w-100 waves-effect waves-light">Sign In</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    
-                                        <div class="mt-5 text-center">
+
+                                        {{-- <div class="mt-5 text-center">
                                             <p class="text-muted mb-0">Don't have an account ? <a href="auth-register.html"
                                                     class="text-primary fw-semibold"> Signup</a> </p>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="mt-4 mt-md-5 text-center">
                                         <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Dason   . Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
