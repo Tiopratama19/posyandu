@@ -1,9 +1,8 @@
 @extends('Template.templateadmin')
 @section('content')
-
-@push('title')
-POSYANDU | Jadwal Konseling
-@endpush
+    @push('title')
+        POSYANDU | Jadwal Konseling
+    @endpush
     <div class="page-content">
         <div class="container-fluid">
             <!-- start page title -->
@@ -31,7 +30,8 @@ POSYANDU | Jadwal Konseling
                                     </div>
                                     <div id="external-events" class="mt-2">
                                         <br>
-                                        <p class="text-muted" style="font-size:15px">Klik kolom lalu tambahkan jadwal konseling</p>
+                                        <p class="text-muted" style="font-size:15px">Klik kolom lalu tambahkan jadwal
+                                            konseling</p>
                                     </div>
                                     <div class="row justify-content-center mt-5">
                                         <div class="col-lg-12 col-sm-6">
@@ -63,15 +63,19 @@ POSYANDU | Jadwal Konseling
                                         aria-hidden="true"></button>
                                 </div>
                                 <div class="modal-body p-4">
-                                    <form class="needs-validation" name="event-form" id="form-event" novalidate>
+                                    <form class="needs-validation" name="event-form"
+                                        action="{{ url('admin/conseling/createOrUpdate') }}" method="post" id="form-event"
+                                        novalidate>
+                                        @csrf
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label">Nama Kegiatan</label>
                                                     <input class="form-control" placeholder="Masukan nama kegiatan "
-                                                        type="text" name="title" id="event-title" required
+                                                        type="text" name="name" id="event-title" required
                                                         value="" />
-                                                    <div class="invalid-feedback">Mohon masukkan nama kaegiatan yang benar</div>
+                                                    <div class="invalid-feedback">Mohon masukkan nama kaegiatan yang benar
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -80,17 +84,18 @@ POSYANDU | Jadwal Konseling
                                                     <select class="form-control form-select" name="category"
                                                         id="event-category">
                                                         <option selected> --Pilih-- </option>
-                                                        <option value="bg-danger">Kesehatan Mental</option>
-                                                        <option value="bg-success">Kesehatan Fisik</option>
-                                                        <option value="bg-primary">Kesehatan Sosial</option>
-                                                        <option value="bg-info">Kesehatan</option>
-                                                        <option value="bg-dark">Kesehatan Spiritual</option>
-                                                        <option value="bg-warning">Kesehatan Reproduksi</option>
+                                                        <option value="0">Kesehatan Mental</option>
+                                                        <option value="1">Kesehatan Fisik</option>
+                                                        <option value="2">Kesehatan Sosial</option>
+                                                        <option value="3">Kesehatan</option>
+                                                        <option value="4">Kesehatan Spiritual</option>
+                                                        <option value="5">Kesehatan Reproduksi</option>
                                                     </select>
                                                     <div class="invalid-feedback">Please select a valid event category
                                                     </div>
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="id">
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col-6">
@@ -135,4 +140,98 @@ POSYANDU | Jadwal Konseling
 
     <!-- Calendar init -->
     <script src="{{ asset('template1/theme/assets/js/pages/calendar.init.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var SITEURL = "{{ url('/admin/') }}";
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var calendar = $('#calendar').fullCalendar({
+                editable: true,
+                editable: true,
+                events: SITEURL + "/conseling/",
+                displayEventTime: true,
+                eventRender: function(event, element, view) {
+                    if (event.allDay === 'true') {
+                        event.allDay = true;
+                    } else {
+                        event.allDay = false;
+                    }
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function(event_start, event_end, allDay) {
+                    var event_name = prompt('Event Name:');
+                    if (event_name) {
+                        var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
+                        var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");
+                        $.ajax({
+                            url: SITEURL + "/calendar-crud-ajax",
+                            data: {
+                                event_name: event_name,
+                                event_start: event_start,
+                                event_end: event_end,
+                                type: 'create'
+                            },
+                            type: "POST",
+                            success: function(data) {
+                                displayMessage("Event created.");
+                                calendar.fullCalendar('renderEvent', {
+                                    id: data.id,
+                                    title: event_name,
+                                    start: event_start,
+                                    end: event_end,
+                                    allDay: allDay
+                                }, true);
+                                calendar.fullCalendar('unselect');
+                            }
+                        });
+                    }
+                },
+                eventDrop: function(event, delta) {
+                    var event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
+                    var event_end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
+                    $.ajax({
+                        url: SITEURL + '/calendar-crud-ajax',
+                        data: {
+                            title: event.event_name,
+                            start: event_start,
+                            end: event_end,
+                            id: event.id,
+                            type: 'edit'
+                        },
+                        type: "POST",
+                        success: function(response) {
+                            displayMessage("Event updated");
+                        }
+                    });
+                },
+                eventClick: function(event) {
+                    var eventDelete = confirm("Are you sure?");
+                    if (eventDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: SITEURL + '/calendar-crud-ajax',
+                            data: {
+                                id: event.id,
+                                type: 'delete'
+                            },
+                            success: function(response) {
+                                calendar.fullCalendar('removeEvents', event.id);
+                                displayMessage("Event removed");
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        function displayMessage(message) {
+            toastr.success(message, 'Event');
+        }
+    </script>
 @endpush
