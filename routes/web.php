@@ -10,7 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProkerposyanduController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-
+use App\Http\Controllers\Master\CounselingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,20 +21,21 @@ use App\Http\Controllers\Auth\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('/postLogin', [AuthController::class, 'postLogin'])->name('admin.login');
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout', [LogoutadminController::class, 'index'])->name('admin.logoutPage');
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
-    Route::prefix('admin')->group(function() {
+    Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.home');
         Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index']);
         Route::get('/dataremaja', [DataremajaController::class, 'index']);
         Route::get('/prokerposyandu', [ProkerposyanduController::class, 'index']);
         Route::get('/profile', [ProfileController::class, 'index']);
         Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
+        Route::get('/conseling', [CounselingController::class, 'index']);
+        Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
     });
 });
-
-
