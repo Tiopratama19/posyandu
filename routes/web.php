@@ -11,6 +11,8 @@ use App\Http\Controllers\ProkerposyanduController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Master\CounselingController;
+use App\Models\Dataremaja;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/profile', [ProfileController::class, 'index']);
         Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
         Route::get('/conseling', [CounselingController::class, 'index']);
+        Route::get('/tambah', [DataremajaController::class, 'tambah']);
+        Route::post('/insert', [DataremajaController::class, 'insert']);
         Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
     });
 });

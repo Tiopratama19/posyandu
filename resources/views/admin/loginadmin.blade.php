@@ -12,7 +12,7 @@
         <meta content="Themesbrand" name="author" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/logoposyandu1.png') }}">
 
         <!-- preloader css -->
         <link rel="stylesheet" href="{{ asset('template1/theme/assets/css/preloader.min.css') }}" type="text/css" />
@@ -38,13 +38,13 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="index.html" class="d-block auth-logo">
-                                            <img src="{{ asset('template1/theme/assets/images/logo-sm.svg') }}" alt="" height="28"> <span class="logo-txt">Dason</span>
+                                            <img src="{{ asset('template1/theme/assets/images/logoposyandu1.png') }}" alt="" height="28"> <span class="logo-txt">Posyandu Mentari</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">
                                         <div class="text-center">
                                             <h5 class="mb-0">Selamat Datang Kembali Admin</h5>
-                                            <p class="text-muted mt-2">Sign in to continue to Admin.</p>
+                                            <p class="text-muted mt-2">Masuk Untuk Jadi Admin.</p>
                                         </div>
                                         <form class="mt-4 pt-2" action="{{ url('/postLogin') }}" method="post">
                                             @csrf

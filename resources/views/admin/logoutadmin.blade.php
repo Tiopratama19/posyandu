@@ -6,12 +6,12 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Log Out | Dason - Admin & Dashboard Template</title>
+        <title>Log Out | Admin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/logoposyandu1.png') }}">
 
         <!-- preloader css -->
         <link rel="stylesheet" href="{{ asset('template1/theme/assets/css/preloader.min.css' ) }}" type="text/css" />
@@ -37,7 +37,7 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="index.html" class="d-block auth-logo">
-                                            <img src="{{ asset('template1/theme/assets/images/logo-sm.svg') }}" alt="" height="28"> <span class="logo-txt">Dason</span>
+                                            <img src="{{ asset('template1/theme/assets/images/logoposyandu1.png') }}" alt="" height="28"> <span class="logo-txt">Dason</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">
@@ -49,8 +49,8 @@
                                             </div>
 
                                             <div class="mt-4 pt-2">
-                                                <h5>You are Logged Out</h5>
-                                                <p class="text-muted font-size-15">Thank you for using <span class="fw-semibold text-dark">Dason</span></p>
+                                                <h5>Kamu Telah Logout</h5>
+                                                <p class="text-muted font-size-15">Terima Kasih Sudah Menggunakan<span class="fw-semibold text-dark">Dason</span></p>
                                                 <div class="mt-4">
                                                     <a href="{{ url('/') }}" class="btn btn-primary w-100 waves-effect waves-light">Sign In</a>
                                                 </div>
@@ -63,7 +63,7 @@
                                         </div> --}}
                                     </div>
                                     <div class="mt-4 mt-md-5 text-center">
-                                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Dason   . Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                        <p class="mb-0">© <script>Posyandu.write(new Date().getFullYear())</script> Admin   . Dibuat Oleh <i class="mdi mdi-heart text-danger"></i>Tio</p>
                                     </div>
                                 </div>
                             </div>

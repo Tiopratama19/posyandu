@@ -44,7 +44,7 @@ POSYANDU | Dashboard
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Total Tes HIV</span>
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Total Pengidap Anemia</span>
                                     <h4 class="mb-3">
                                         <span class="counter-value" data-target="1223">0</span>
                                     </h4>

@@ -6,7 +6,7 @@
 
 
 (@push('css')
-    <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('template1/theme/assets/images/users/logoposyandu1.png') }}">
 
     <!-- preloader css -->
     <link rel="stylesheet" href="{{ asset('template1/theme/assets/css/preloader.min.css') }}" type="text/css" />
