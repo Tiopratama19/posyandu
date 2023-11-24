@@ -12,28 +12,36 @@ use Illuminate\Support\Facades\Session;
 
 class CounselingController extends Controller
 {
+    public function index(Request $request)
+    {
+        if($request->ajax()) {
+            $data = Counseling::get(['id', 'name', 'category']);
+            return response()->json($data);
+        }
+    }
+
+
     function createOrUpdate(Request $request)
     {
-        dd($request->all());
         if (!empty($request->id)) {
-            // update 
+            // update
         } else {
             // create
             $cekCount = Counseling::whereName($request->name)
                 ->whereCategory($request->category)
                 ->count();
 
-            if ($cekCount = 0) {
+            if ($cekCount == 0) {
                 $newConseling = new Counseling;
                 $newConseling->name = $request->name;
                 $newConseling->category = $request->category;
                 $newConseling->save();
 
                 if ($newConseling) {
-                    return back()->with('success', 'Counseling created successfully!');
+                    return response()->json($newConseling);
                 }
             } else {
-                return back()->with('warning', 'Counseling is already exist!');
+                return response()->json(['status' => 'Counseling Is Already Exist']);
             }
         }
     }

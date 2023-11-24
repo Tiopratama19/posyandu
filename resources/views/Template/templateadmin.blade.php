@@ -100,7 +100,7 @@
 
 
     <!-- App js -->
-    <script src="{{ asset('template1') }}/theme/assets/js/app.js"></script>
+    <script src="{{ asset('template1/theme/assets/js/app.js') }}"></script>
 
     <!-- apexcharts -->
     <script src="{{ asset('template1/theme/assets/libs/apexcharts/apexcharts.min.js') }}"></script>

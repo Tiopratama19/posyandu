@@ -1,8 +1,20 @@
 @extends('Template.templateadmin')
+@push('title')
+POSYANDU | Jadwal Konseling
+@endpush
+
+@push('css')
+    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/core/main.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/daygrid/main.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/bootstrap/main.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/timegrid/main.min.css') }}" rel="stylesheet"
+        type="text/css" />
+@endpush
+
 @section('content')
-    @push('title')
-        POSYANDU | Jadwal Konseling
-    @endpush
     <div class="page-content">
         <div class="container-fluid">
             <!-- start page title -->
@@ -64,7 +76,7 @@
                                 </div>
                                 <div class="modal-body p-4">
                                     <form class="needs-validation" name="event-form"
-                                        action="{{ url('admin/conseling/createOrUpdate') }}" method="post" id="form-event"
+                                        method="post" id="form-event" enctype="multipart/form-data"
                                         novalidate>
                                         @csrf
                                         <div class="row">
@@ -120,17 +132,6 @@
     </div>
 @endsection
 
-@push('css')
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/core/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/daygrid/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/bootstrap/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('template1/theme/assets/libs/%40fullcalendar/timegrid/main.min.css') }}" rel="stylesheet"
-        type="text/css" />
-@endpush
-
 @push('scripts')
     <script src="{{ asset('template1/theme/assets/libs/%40fullcalendar/core/main.min.js') }}"></script>
     <script src="{{ asset('template1/theme/assets/libs/%40fullcalendar/bootstrap/main.min.js') }}"></script>
@@ -140,8 +141,6 @@
 
     <!-- Calendar init -->
     <script src="{{ asset('template1/theme/assets/js/pages/calendar.init.js') }}"></script>
-
-
     <script>
         $(document).ready(function() {
             var SITEURL = "{{ url('/admin/') }}";
@@ -150,88 +149,43 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            var calendar = $('#calendar').fullCalendar({
-                editable: true,
-                editable: true,
-                events: SITEURL + "/conseling/",
-                displayEventTime: true,
-                eventRender: function(event, element, view) {
-                    if (event.allDay === 'true') {
-                        event.allDay = true;
-                    } else {
-                        event.allDay = false;
+
+            function reset()
+            {
+                $('input').val('');
+            }
+
+            $('#form-event').on('submit', function (e) {
+                e.preventDefault();
+                $('#btn-save-event').html("Menyimpan...");
+                $('#btn-save-event').attr('disabled', true);
+                let data = $("#data-master").serialize();
+                let datax = new FormData(this);
+                // console.log(data[0].jenis_menu);
+                console.log(data);
+                $.ajax({
+                    type: "post",
+                    url: SITEURL + "/conseling/createOrUpdate",
+                    data: datax,
+                    dataType: "json",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        reset();
+                        $('#btn-save-event').html("Simpan");
+                        $('#btn-save-event').removeAttr('disabled');
+                        $("#event-modal").modal('hide');
+
+                    },
+                    error: function (e) {
+                        $('#btn-save-event').html(`Simpan`);
+                        $('#btn-save-event').removeAttr('disabled');
+
                     }
-                },
-                selectable: true,
-                selectHelper: true,
-                select: function(event_start, event_end, allDay) {
-                    var event_name = prompt('Event Name:');
-                    if (event_name) {
-                        var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
-                        var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");
-                        $.ajax({
-                            url: SITEURL + "/calendar-crud-ajax",
-                            data: {
-                                event_name: event_name,
-                                event_start: event_start,
-                                event_end: event_end,
-                                type: 'create'
-                            },
-                            type: "POST",
-                            success: function(data) {
-                                displayMessage("Event created.");
-                                calendar.fullCalendar('renderEvent', {
-                                    id: data.id,
-                                    title: event_name,
-                                    start: event_start,
-                                    end: event_end,
-                                    allDay: allDay
-                                }, true);
-                                calendar.fullCalendar('unselect');
-                            }
-                        });
-                    }
-                },
-                eventDrop: function(event, delta) {
-                    var event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
-                    var event_end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
-                    $.ajax({
-                        url: SITEURL + '/calendar-crud-ajax',
-                        data: {
-                            title: event.event_name,
-                            start: event_start,
-                            end: event_end,
-                            id: event.id,
-                            type: 'edit'
-                        },
-                        type: "POST",
-                        success: function(response) {
-                            displayMessage("Event updated");
-                        }
-                    });
-                },
-                eventClick: function(event) {
-                    var eventDelete = confirm("Are you sure?");
-                    if (eventDelete) {
-                        $.ajax({
-                            type: "POST",
-                            url: SITEURL + '/calendar-crud-ajax',
-                            data: {
-                                id: event.id,
-                                type: 'delete'
-                            },
-                            success: function(response) {
-                                calendar.fullCalendar('removeEvents', event.id);
-                                displayMessage("Event removed");
-                            }
-                        });
-                    }
-                }
+                });
             });
         });
 
-        function displayMessage(message) {
-            toastr.success(message, 'Event');
-        }
     </script>
 @endpush
