@@ -15,7 +15,7 @@ class DataremajaController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function($remaja){
                 return '<a href="#" class="btn btn-squared btn-info mr-2 mb-2" data-id="'.$remaja->id. '" data-bs-toggle="modal" data-bs-target="#modelId" id="buton_edit"><i class="fa fa-pencil-alt"></i> Edit</a>
-                        <a href="#" class="btn btn-squared btn-danger mr-2 mb-2" data-id="'.$remaja->id. '" id="button_hapus"><i class="fa fa-trash-alt"></i> Hapus</a> ';
+                        <a href="#" class="btn btn-squared btn-danger mr-2 mb-2" data-id="'.$remaja->id. '" id="buton_hapus"><i class="fa fa-trash-alt"></i> Hapus</a> ';
                 })
                 ->rawColumns(['action'])
                 ->make(true);
