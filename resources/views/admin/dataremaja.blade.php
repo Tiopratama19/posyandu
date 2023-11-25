@@ -64,7 +64,7 @@ POSYANDU | Data Remaja
                                                                 <td>{{$dataremaja->NIK}}</td>
                                                                 <td>{{$dataremaja->Nama}}</td>
                                                                 <td>{{$dataremaja->TempatLahir}}</td>
-                                                                <td>{{$dataremaja->TL}}</td>
+                                                                <td>{{$dataremaja->TanggalLahir}}</td>
                                                                 <td>{{$dataremaja->JenisKelamin}}</td>
                                                                 <td></td>
                                                             </tr>

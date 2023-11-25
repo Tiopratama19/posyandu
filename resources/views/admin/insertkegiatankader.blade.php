@@ -2,7 +2,7 @@
 @section('content')
 
 @push('title')
-POSYANDU | Input Data Remaja
+POSYANDU | Input Kegiatan Kader
 @endpush
 
 @push('css')
@@ -41,59 +41,30 @@ POSYANDU | Input Data Remaja
                                         <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
                                             textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
                                         <span style="float:right">
-                                        <a href="/admin/dataremaja" class="btn btn-danger">Kembali</a>
+                                        <a href="/admin/kegiatankader" class="btn btn-danger">Kembali</a>
                                         </span>
                                     </div>
                                     <div class="card-body p-4">
-        
                                         <div class="row">
-                                            <form action="/admin/insert" method="POST">
+                                            <form action="/admin/insertkegiatankader" method="POST">
                                             @csrf
                                             <div class="col-lg-6">
                                                 <div>
                                                     <div class="mb-3">
-                                                        <label for="example-text-input" class="form-label">NIK</label>
-                                                        <input class="form-control" name="NIK" type="text" value="" id="example-text-input">
+                                                        <label for="example-text-input" class="form-label">Tanggal</label>
+                                                        <input class="form-control" name="Tanggal" type="date" value="" id="example-text-input">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="example-search-input" class="form-label">Nama</label>
                                                         <input class="form-control" name="Nama" type="text" value="" id="example-search-input">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="example-search-input" class="form-label">Tempat Lahir</label>
-                                                        <input class="form-control" name="TempatLahir" type="text" value="" id="example-search-input">
+                                                        <label for="example-search-input" class="form-label">Jabatan</label>
+                                                        <input class="form-control" name="Jabatan" type="text" value="" id="example-search-input">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Tanggal Lahir</label>
-                                                        <input class="form-control" name="TanggalLahir" type="date" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-tel-input" class="form-label">Jenis Kelamin</label>
-                                                        <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Berat Badan</label>
-                                                        <input class="form-control" name="BB" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Tinggi Badan</label>
-                                                        <input class="form-control" name="TB" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Tablet Tambah Darah</label>
-                                                        <input class="form-control" name="TTD" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Lingkar Lengan Atas</label>
-                                                        <input class="form-control" name="LILA" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Lingkar Perut</label>
-                                                        <input class="form-control" name="LP" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Anemia</label>
-                                                        <input class="form-control" name="Anemia" type="text" value="" id="example-email-input">
+                                                        <label for="example-email-input" class="form-label">Uraian Kegiatan</label>
+                                                        <input class="form-control" name="UraianKegiatan" type="date" value="" id="example-email-input">
                                                     </div>
                                                     <span style="float:right">
                                                         <button type="Submit" class="btn btn-success">Submit</button>

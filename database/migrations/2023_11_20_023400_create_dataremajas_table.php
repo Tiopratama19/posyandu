@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('NIK');
             $table->string('Nama');
             $table->string('TempatLahir');
-            $table->string('TL');
+            $table->string('TanggalLahir');
             $table->string('JenisKelamin');
             $table->string('BB');
             $table->string('TB');

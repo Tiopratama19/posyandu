@@ -13,7 +13,7 @@ class DataremajaController extends Controller
     }
     //
     public function tambah (){
-        return view ('admin.insertdataremaja');
+        return view('admin.insertdataremaja');
     }
     public function insert(Request $request)
     {
