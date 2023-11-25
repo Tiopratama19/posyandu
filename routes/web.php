@@ -44,8 +44,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
         Route::post('/insertkegiatankader', [KegiatankaderController::class, 'insert']);
         Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
-
-
-        Route::get('/dataremaja', [DataremajaController::class, 'index']);
     });
 });
