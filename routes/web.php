@@ -35,12 +35,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.home');
         Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index']);
         Route::get('/dataremaja', [DataremajaController::class, 'index']);
-        Route::get('/prokerposyandu', [ProkerposyanduController::class, 'index']);
-        Route::get('/profile', [ProfileController::class, 'index']);
-        Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
-        Route::get('/conseling', [CounselingController::class, 'index']);
         Route::get('/tambah', [DataremajaController::class, 'tambah']);
         Route::post('/insert', [DataremajaController::class, 'insert']);
+        Route::get('/prokerposyandu', [ProkerposyanduController::class, 'index']);
+        Route::get('/insertprokerposyandu', [ProkerposyanduController::class, 'tambah']);
+        Route::get('/profile', [ProfileController::class, 'index']);
+        Route::get('/conseling', [CounselingController::class, 'index']);
+        Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
+        Route::post('/insertkegiatankader', [KegiatankaderController::class, 'insert']);
         Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
 
 

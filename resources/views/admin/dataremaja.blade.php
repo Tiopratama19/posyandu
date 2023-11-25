@@ -60,6 +60,19 @@ POSYANDU | Data Remaja
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+<<<<<<< HEAD
+=======
+                                                            @foreach ($tampildata as $dataremaja)
+                                                            <tr>
+                                                                <td>{{$dataremaja->NIK}}</td>
+                                                                <td>{{$dataremaja->Nama}}</td>
+                                                                <td>{{$dataremaja->TempatLahir}}</td>
+                                                                <td>{{$dataremaja->TanggalLahir}}</td>
+                                                                <td>{{$dataremaja->JenisKelamin}}</td>
+                                                                <td></td>
+                                                            </tr>
+                                                            @endforeach
+>>>>>>> 48320a422d02936647f22e350bb1e7ee72f96375
                                                             </tbody>
                                                         </table>
                                                     </div>
