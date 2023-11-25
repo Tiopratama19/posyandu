@@ -190,7 +190,6 @@
                             data: 'Anemia',
                             name: 'Anemia'
                         },
-
                         {
                             data: 'action',
                             name: 'action'
