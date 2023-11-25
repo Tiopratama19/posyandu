@@ -42,5 +42,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/tambah', [DataremajaController::class, 'tambah']);
         Route::post('/insert', [DataremajaController::class, 'insert']);
         Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
+
+
+        Route::get('/dataremaja', [DataremajaController::class, 'index']);
     });
 });

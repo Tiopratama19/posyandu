@@ -45,61 +45,63 @@ POSYANDU | Input Data Remaja
                                         </span>
                                     </div>
                                     <div class="card-body p-4">
-        
+
                                         <div class="row">
                                             <form action="/admin/insert" method="POST">
                                             @csrf
-                                            <div class="col-lg-6">
-                                                <div>
-                                                    <div class="mb-3">
-                                                        <label for="example-text-input" class="form-label">NIK</label>
-                                                        <input class="form-control" name="NIK" type="text" value="" id="example-text-input">
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-text-input" class="form-label">NIK</label>
+                                                            <input class="form-control" name="NIK" type="text" value="" id="example-text-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-search-input" class="form-label">Nama</label>
+                                                            <input class="form-control" name="Nama" type="text" value="" id="example-search-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-search-input" class="form-label">Tempat Lahir</label>
+                                                            <input class="form-control" name="TempatLahir" type="text" value="" id="example-search-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Tanggal Lahir</label>
+                                                            <input class="form-control" name="TL" type="date" value="" id="example-email-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-tel-input" class="form-label">Jenis Kelamin</label>
+                                                            <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Berat Badan</label>
+                                                            <input class="form-control" name="BB" type="text" value="" id="example-email-input">
+                                                        </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-search-input" class="form-label">Nama</label>
-                                                        <input class="form-control" name="Nama" type="text" value="" id="example-search-input">
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Tinggi Badan</label>
+                                                            <input class="form-control" name="TB" type="text" value="" id="example-email-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Tablet Tambah Darah</label>
+                                                            <input class="form-control" name="TTD" type="text" value="" id="example-email-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Lingkar Lengan Atas</label>
+                                                            <input class="form-control" name="LILA" type="text" value="" id="example-email-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Lingkar Perut</label>
+                                                            <input class="form-control" name="LP" type="text" value="" id="example-email-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Anemia</label>
+                                                            <input class="form-control" name="Anemia" type="text" value="" id="example-email-input">
+                                                        </div>
+                                                        <span style="float:right">
+                                                            <button type="Submit" class="btn btn-success">Submit</button>
+                                                        </span>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-search-input" class="form-label">Tempat Lahir</label>
-                                                        <input class="form-control" name="TempatLahir" type="text" value="" id="example-search-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Tanggal Lahir</label>
-                                                        <input class="form-control" name="TL" type="date" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-tel-input" class="form-label">Jenis Kelamin</label>
-                                                        <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Berat Badan</label>
-                                                        <input class="form-control" name="BB" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Tinggi Badan</label>
-                                                        <input class="form-control" name="TB" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Tablet Tambah Darah</label>
-                                                        <input class="form-control" name="TTD" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Lingkar Lengan Atas</label>
-                                                        <input class="form-control" name="LILA" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Lingkar Perut</label>
-                                                        <input class="form-control" name="LP" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-email-input" class="form-label">Anemia</label>
-                                                        <input class="form-control" name="Anemia" type="text" value="" id="example-email-input">
-                                                    </div>
-                                                    <span style="float:right">
-                                                        <button type="Submit" class="btn btn-success">Submit</button>
-                                                    </span>
                                                 </div>
-                                            </div>
                                             </form>
                                         </div>
                                     </div>
@@ -110,7 +112,7 @@ POSYANDU | Input Data Remaja
                 </div>
                 <!-- End Page-content -->
 
-                
+
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -137,5 +139,5 @@ POSYANDU | Input Data Remaja
         <script src="{{ asset('template1/themelibs/feather-icons/feather.min') }}"></script>
         <!-- pace js -->
         <script src="{{ asset('template1/themelibs/pace-js/pace.min') }}"></script>
-        <script src="{{ asset('template1/themejs/app') }}"></script> 
+        <script src="{{ asset('template1/themejs/app') }}"></script>
     @endpush

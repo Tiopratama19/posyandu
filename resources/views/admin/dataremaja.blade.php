@@ -50,6 +50,7 @@ POSYANDU | Data Remaja
                                                         <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                                             <thead>
                                                             <tr>
+                                                                <th>No</th>
                                                                 <th>NIK</th>
                                                                 <th>Nama</th>
                                                                 <th>Tempat Lahir</th>
@@ -59,16 +60,6 @@ POSYANDU | Data Remaja
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            @foreach ($tampildata as $dataremaja)
-                                                            <tr>
-                                                                <td>{{$dataremaja->NIK}}</td>
-                                                                <td>{{$dataremaja->Nama}}</td>
-                                                                <td>{{$dataremaja->TempatLahir}}</td>
-                                                                <td>{{$dataremaja->TL}}</td>
-                                                                <td>{{$dataremaja->JenisKelamin}}</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -104,4 +95,74 @@ POSYANDU | Data Remaja
 
         <!-- Datatable init js -->
         <script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>
+
+        <script>
+            $(document).ready(function () {
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var table = $('#datatable-buttons').dataTable({
+                    autoWidth: true,
+                    processing: true,
+                    serverSide: true,
+                    destroy: true,
+                    responsive: true,
+                    language: {
+                        processing: '<span style="color:#fff;">Mohon Tunggu...</span><i class="fe fe-refresh fa-spin fa-3x fa-fw" style="color:#2510A3;"></i>',
+                        sEmptyTable: "Tidak Ada Data Yang Tersedia Pada Tabel Ini",
+                        sLengthMenu: "Tampilkan _MENU_ Baris",
+                        sZeroRecords: "Tidak Ditemukan Data Yang Sesuai",
+                        sInfo: "Menampilkan _START_ Sampai _END_ Dari _TOTAL_ Baris",
+                        sInfoEmpty: "Menampilkan 0 Sampai 0 Dari 0 Baris",
+                        sInfoFiltered: "(disaring dari _MAX_ entri keseluruhan)",
+                        sInfoPostFix: "",
+                        sSearch: "Cari:",
+                        sUrl: "",
+                        oPaginate: {
+                            sFirst: "Pertama",
+                            sPrevious: "Sebelumnya",
+                            sNext: "Selanjutnya",
+                            sLast: "Terakhir",
+                        },
+                    },
+                    stateSave: true,
+                    order: [],
+                    ajax: `{{ url('admin/dataremaja') }}`,
+                    deferRender: true,
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex'
+                        },
+                        {
+                            data: 'NIK',
+                            name: 'NIK'
+                        },
+                        {
+                            data: 'Nama',
+                            name: 'Nama'
+                        },
+                        {
+                            data: 'TempatLahir',
+                            name: 'TempatLahir'
+                        },
+                        {
+                            data: 'TL',
+                            name: 'TL'
+                        },
+                        {
+                            data: 'JenisKelamin',
+                            name: 'JenisKelamin'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action'
+                        }
+                    ]
+                });
+            });
+        </script>
     @endpush
