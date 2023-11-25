@@ -137,7 +137,7 @@
                     dom: 'Bfrtip',
                     buttons: [
                         'excel', 'pdf'
-                    ]
+                    ],
                     stateSave: true,
                     order: [],
                     ajax: `{{ url('admin/dataremaja') }}`,
