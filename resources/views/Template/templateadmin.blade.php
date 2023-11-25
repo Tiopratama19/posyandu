@@ -27,6 +27,8 @@
     <link href="{{ asset('template1/theme/assets/css/app.min.css') }}" id="app-style" rel="stylesheet"
         type="text/css" />
 
+    <link href="{{ asset('alert/css/sweetalert2.css')}} " rel="stylesheet" />
+
     @stack('css')
 
 </head>
@@ -112,6 +114,9 @@
     <script
         src="{{ asset('template1/theme/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}">
     </script>
+
+
+    <script src="{{ asset('alert/js/sweetalert.js') }}"></script>
     <!-- dashboard init -->
     @stack('scripts')
 </body>

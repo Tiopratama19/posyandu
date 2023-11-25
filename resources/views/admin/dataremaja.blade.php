@@ -110,6 +110,18 @@
                     }
                 });
 
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 10000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+
                 var table = $('#datatable-buttons').dataTable({
                     autoWidth: true,
                     processing: true,
@@ -196,6 +208,48 @@
                         }
                     ]
                 });
+
+                $(this).on('click', '#buton_hapus', function (e) {
+                e.preventDefault();
+                let id = $(this).data('id');
+                Swal.fire({
+                    title: 'Peringatan',
+                    text: "Apakah anda yakin akan menghapus data ?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    buttonsStyling: true,
+                    confirmButtonClass: 'btn btn-danger btn-lg mr-2',
+                    cancelButtonClass: 'btn btn-primary btn-lg',
+                    confirmButtonText: 'Hapus <i class="fas fa-trash"></i>',
+                    cancelButtonText: 'Batal <i class="fas fa-close"> </i>'
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: `{{url('admin/deleteremaja')}}/${id}`,
+                            data: {
+                                _token: '{{csrf_token()}}'
+                            },
+                            dataType: "json",
+                            success: function (response) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil',
+                                    text: 'Data Berhasil Dihapus !',
+                                });
+
+                                window.location.href=`{{ url('admin/dataremaja') }}`;
+                            },
+                            error: function () {
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: 'Gagal menghapus data !'
+                                })
+                            }
+                        });
+                    }
+                })
+            });
             });
         </script>
     @endpush

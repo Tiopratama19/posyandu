@@ -15,7 +15,7 @@ class DataremajaController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function($remaja){
                 return '<a href="#" class="btn btn-squared btn-info mr-2 mb-2" data-id="'.$remaja->id. '" data-bs-toggle="modal" data-bs-target="#modelId" id="buton_edit"><i class="fa fa-pencil-alt"></i> Edit</a>
-                        <a href="#" class="btn btn-squared btn-danger mr-2 mb-2" data-id="'.$remaja->id. '" data-bs-toggle="modal" data-bs-target="#modelId" id="buton_edit"><i class="fa fa-trash-alt"></i> Hapus</a> ';
+                        <a href="#" class="btn btn-squared btn-danger mr-2 mb-2" data-id="'.$remaja->id. '" id="button_hapus"><i class="fa fa-trash-alt"></i> Hapus</a> ';
                 })
                 ->rawColumns(['action'])
                 ->make(true);
@@ -33,5 +33,13 @@ class DataremajaController extends Controller
         $data = $request->all();
         Dataremaja::create($data);
         return redirect('admin/dataremaja');
+    }
+
+    function delete($id)
+    {
+        $remaja = Dataremaja::whereId($id)->delete();
+        if ($remaja) {
+            return response()->json(['status' => 1], 201);
+        }
     }
 }
