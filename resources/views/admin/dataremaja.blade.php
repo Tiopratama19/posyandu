@@ -55,6 +55,12 @@
                                             <th>Tempat Lahir</th>
                                             <th>Tanggal Lahir</th>
                                             <th>Jenis Kelamin</th>
+                                            <th>BB</th>
+                                            <th>TB</th>
+                                            <th>TTD</th>
+                                            <th>LILA</th>
+                                            <th>LP</th>
+                                            <th>Anemia</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -128,6 +134,10 @@
                             sLast: "Terakhir",
                         },
                     },
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'excel', 'pdf'
+                    ]
                     stateSave: true,
                     order: [],
                     ajax: `{{ url('admin/dataremaja') }}`,
@@ -156,6 +166,31 @@
                             data: 'JenisKelamin',
                             name: 'JenisKelamin'
                         },
+                        {
+                            data: 'BB',
+                            name: 'BB'
+                        },
+                        {
+                            data: 'TB',
+                            name: 'TB'
+                        },
+                        {
+                            data: 'TTD',
+                            name: 'TTD'
+                        },
+                        {
+                            data: 'LILA',
+                            name: 'LILA'
+                        },
+                        {
+                            data: 'LP',
+                            name: 'LP'
+                        },
+                        {
+                            data: 'Anemia',
+                            name: 'Anemia'
+                        },
+
                         {
                             data: 'action',
                             name: 'action'
