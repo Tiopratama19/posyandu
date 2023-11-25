@@ -11,11 +11,11 @@ class DataremajaController extends Controller
         if (request()->ajax()) {
             $remaja = Dataremaja::orderBy('id', 'DESC')->get();
 
-            return DataTables()->of($tahunajaran)
+            return DataTables()->of($remaja)
             ->addIndexColumn()
-            ->addColumn('action', function($tahunajaran){
+            ->addColumn('action', function($remaja){
                 return '<a href="#" class="btn btn-squared btn-info mr-2 mb-2" data-id="'.$remaja->id.'" data-bs-toggle="modal" data-bs-target="#modelId" id="buton_edit"><i class="fas fa-pencil-alt"></i> Edit</a> ';
-                 })
+                })
                 ->rawColumns(['action'])
                 ->make(true);
         }
