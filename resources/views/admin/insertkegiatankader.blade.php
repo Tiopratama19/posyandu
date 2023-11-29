@@ -46,7 +46,7 @@ POSYANDU | Input Kegiatan Kader
                                     </div>
                                     <div class="card-body p-4">
                                         <div class="row">
-                                            <form action="/admin/insertkegiatankader" method="POST">
+                                            <form action="/admin/insertkegiatan" method="POST">
                                             @csrf
                                             <div class="col-lg-6">
                                                 <div>
@@ -64,7 +64,7 @@ POSYANDU | Input Kegiatan Kader
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="example-email-input" class="form-label">Uraian Kegiatan</label>
-                                                        <input class="form-control" name="UraianKegiatan" type="date" value="" id="example-email-input">
+                                                        <input class="form-control" name="UraianKegiatan" type="text" value="" id="example-email-input">
                                                     </div>
                                                     <span style="float:right">
                                                         <button type="Submit" class="btn btn-success">Submit</button>

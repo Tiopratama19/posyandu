@@ -231,26 +231,14 @@
                                 _token: '{{csrf_token()}}'
                             },
                             dataType: "json",
-                            beforeSend: function () {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Mohon Tunggu !',
-                                    html: 'Menghapus...', // add html attribute if you want or remove
-                                    allowOutsideClick: false,
-                                    onBeforeOpen: () => {
-                                        Swal.showLoading()
-                                    },
-                                });
-                            },
                             success: function (response) {
-                                swal.close();
-                                let oTable = $('#datatable-buttons').dataTable();
-                                oTable.fnDraw(false);
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Berhasil',
-                                    text: 'Remaja Berhasil Dihapus !',
+                                    text: 'Data Berhasil Dihapus !',
                                 });
+
+                                window.location.href=`{{ url('admin/dataremaja') }}`;
                             },
                             error: function () {
                                 Toast.fire({
@@ -262,6 +250,6 @@
                     }
                 })
             });
-        });
+            });
         </script>
     @endpush

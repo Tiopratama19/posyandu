@@ -47,10 +47,14 @@ POSYANDU | Input Proker Posyandu
                                     <div class="card-body p-4">
         
                                         <div class="row">
-                                            <form action="/admin/insertprokerposyandu" method="POST">
+                                            <form action="/admin/insertproker" method="POST">
                                             @csrf
                                             <div class="col-lg-6">
                                                 <div>
+                                                    <div class="mb-3">
+                                                        <label for="example-search-input" class="form-label">Tanggal</label>
+                                                        <input class="form-control" name="Tanggal" type="date" value="" id="example-search-input">
+                                                    </div>
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">No</label>
                                                         <input class="form-control" name="No" type="text" value="" id="example-text-input">
@@ -58,10 +62,6 @@ POSYANDU | Input Proker Posyandu
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Kegiatan</label>
                                                         <input class="form-control" name="Kegiatan" type="text" value="" id="example-text-input">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-search-input" class="form-label">Tanggal</label>
-                                                        <input class="form-control" name="Tanggal" type="date" value="" id="example-search-input">
                                                     </div>
                                                     <span style="float:right">
                                                         <button type="Submit" class="btn btn-success">Submit</button>

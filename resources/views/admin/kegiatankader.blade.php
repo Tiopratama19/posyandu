@@ -64,12 +64,6 @@ POSYANDU | Kegiatan Kader
                                                                 <td>{{$datakegiatan->Nama}}</td>
                                                                 <td>{{$datakegiatan->Jabatan}}</td>
                                                                 <td>{{$datakegiatan->UraianKegiatan}}</td>
-                                                                <td>
-                                                                    <a href="" class="btn btn-primary">Edit</a>
-                                                                    <span style="float:right">
-                                                                    <a href="" class="btn btn-danger">Hapus</a>
-                                                                    </span>
-                                                                </td>
                                                             </tr>
                                                             @endforeach
                                                             </tbody>

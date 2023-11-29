@@ -11,7 +11,6 @@ use App\Http\Controllers\ProkerposyanduController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Master\CounselingController;
-use App\Models\Dataremaja;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,16 +33,30 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.home');
         Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index']);
+        
         Route::get('/dataremaja', [DataremajaController::class, 'index']);
         Route::get('/tambah', [DataremajaController::class, 'tambah']);
         Route::post('/insert', [DataremajaController::class, 'insert']);
-        Route::get('/prokerposyandu', [ProkerposyanduController::class, 'index']);
-        Route::get('/insertprokerposyandu', [ProkerposyanduController::class, 'tambah']);
-        Route::get('/profile', [ProfileController::class, 'index']);
-        Route::get('/conseling', [CounselingController::class, 'index']);
-        Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
-        Route::post('/insertkegiatankader', [KegiatankaderController::class, 'insert']);
-        Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
         Route::delete('/deleteremaja/{id}', [DataremajaController::class, 'delete']);
+
+        
+        Route::get('/conseling', [CounselingController::class, 'index']);
+
+        
+        Route::get('/prokerposyandu',[ProkerposyanduController::class, 'index']);
+        Route::get('/tambahproker', [ProkerposyanduController::class, 'tambahproker']);
+        Route::post('/insertproker', [ProkerposyanduController::class, 'insertproker']);
+        Route::delete('/deleteproker/{id}', [ProkerposyanduController::class, 'delete']);
+
+        Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
+        Route::post('/insertkegiatan', [KegiatankaderController::class, 'insert']);
+        Route::get('/tambahkegiatan', [KegiatankaderController::class, 'tambahkegiatan']);
+        
+        
+        Route::get('/profile', [ProfileController::class, 'index']);
+        
+        Route::get('/conseling', [CounselingController::class, 'index']);
+        
+        Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
     });
 });

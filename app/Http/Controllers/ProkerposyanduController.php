@@ -8,15 +8,13 @@ use Illuminate\Http\Request;
 class ProkerposyanduController extends Controller
 {
     public function index(){
-        $tampildata=prokerposyandu::all();
-        return view("admin.prokerposyandu",compact('tampildata'));
+        $tampilproker = prokerposyandu::all();
+        return view("admin.prokerposyandu", compact("tampilproker"));
     }
-    //
-    public function tambah(){
+    public function tambahproker(){
         return view('admin.insertprokerposyandu');
     }
-    public function insert(Request $request)
-    {
+    public function insertproker(Request $request){
         $data = $request->all();
         prokerposyandu::create($data);
         return redirect('admin/prokerposyandu');

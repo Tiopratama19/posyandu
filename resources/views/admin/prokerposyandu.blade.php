@@ -1,9 +1,8 @@
 @extends('Template.templateadmin')
 @section('content')
-
-@push('title')
-POSYANDU | Proker Posyandu
-@endpush
+    @push('title')
+    POSYANDU | Proker Posyandu
+    @endpush
 
 @push('css')
     <!-- DataTables -->
@@ -42,27 +41,29 @@ POSYANDU | Proker Posyandu
                                                         <h4 class="card-title">Tabel Proker</h4>
                                                         <p class="card-title-desc">Masukkan program kerja dengan tepat dan benar.</p>
                                                         <span style="float:right">
-                                                        <a href="" class="btn btn-primary">Tambah Data</a>
+                                                        <a href="/admin/tambahproker" class="btn btn-primary">Tambah Data</a>
                                                         </span>
                                                     </div>
                                                     <div class="card-body">
                                                         <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                                             <thead>
                                                             <tr>
-                                                                <th>No</th>
+                                                                <th class="col-2">Tanggal</th>
+                                                                <th class="col-1">No</th>
                                                                 <th>Kegiatan</th>
-                                                                <th>Tanggal</th>
+                                                                <th class="col-2">Aksi</th>
                                                             </tr>
                                                             </thead>
-
                                                             <tbody>
+                                                            @foreach ($tampilproker as $dataproker)
                                                             <tr>
-                                                                <th></th>
-                                                                <th></th>
-                                                                <th></th>
+                                                                <td>{{$dataproker->Tanggal}}</td>
+                                                                <td>{{$dataproker->No}}</td>
+                                                                <td>{{$dataproker->Kegiatan}}</td>
+                                                                <td></td>
                                                             </tr>
+                                                            @endforeach
                                                             </tbody>
-
                                                         </table>
                                                     </div>
                                                 </div>
@@ -72,7 +73,7 @@ POSYANDU | Proker Posyandu
                                     </div> <!-- container-fluid -->
                 </div>
                                 <!-- End Page-content -->
-@endsection
+    @endsection
 
     @push('scripts')
         <!-- Required datatable js -->
@@ -97,4 +98,5 @@ POSYANDU | Proker Posyandu
 
         <!-- Datatable init js -->
         <script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>
+
     @endpush
