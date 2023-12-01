@@ -2,7 +2,7 @@
 @section('content')
 
 @push('title')
-POSYANDU | Input Proker Posyandu
+POSYANDU | Input Jadwal Konseling
 @endpush
 
 @push('css')
@@ -22,7 +22,7 @@ POSYANDU | Input Proker Posyandu
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Tambah Data</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Tambah Jadwal</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
@@ -37,33 +37,37 @@ POSYANDU | Input Proker Posyandu
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Silahkan Tambah Data</h4>
+                                        <h4 class="card-title">Silahkan Tambah Jadwal</h4>
                                         <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
                                             textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
                                         <span style="float:right">
-                                        <a href="/admin/prokerposyandu" class="btn btn-danger">Kembali</a>
+                                        <a href="/admin/jadwalkonseling" class="btn btn-danger">Kembali</a>
                                         </span>
                                     </div>
                                     <div class="card-body p-4">
-        
+
                                         <div class="row">
-                                            <form action="/admin/insertproker" method="POST">
+                                            <form action="/admin/insertjadwal" method="POST">
                                             @csrf
-                                            <div class="col-lg-6">
-                                                <div>
-                                                    <div class="mb-3">
-                                                        <label for="example-text-input" class="form-label">Tanggal</label>
-                                                        <input class="form-control" name="Tanggal" type="date" value="" id="example-text-input">
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-text-input" class="form-label">Tanggal Kegiatan</label>
+                                                            <input class="form-control" name="TanggalKegiatan" type="date" value="" id="example-email-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-search-input" class="form-label">Nama Kegiatan</label>
+                                                            <input class="form-control" name="NamaKegiatan" type="text" value="" id="example-search-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-search-input" class="form-label">Nama Bidan</label>
+                                                            <input class="form-control" name="NamaBidan" type="text" value="" id="example-search-input">
+                                                        </div>
+                                                        <span style="float:right">
+                                                            <button type="Submit" class="btn btn-success">Submit</button>
+                                                        </span>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="example-text-input" class="form-label">Kegiatan</label>
-                                                        <input class="form-control" name="Kegiatan" type="text" value="" id="example-text-input">
-                                                    </div>
-                                                    <span style="float:right">
-                                                        <button type="Submit" class="btn btn-success">Submit</button>
-                                                    </span>
                                                 </div>
-                                            </div>
                                             </form>
                                         </div>
                                     </div>
@@ -74,7 +78,7 @@ POSYANDU | Input Proker Posyandu
                 </div>
                 <!-- End Page-content -->
 
-                
+
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -101,5 +105,5 @@ POSYANDU | Input Proker Posyandu
         <script src="{{ asset('template1/themelibs/feather-icons/feather.min') }}"></script>
         <!-- pace js -->
         <script src="{{ asset('template1/themelibs/pace-js/pace.min') }}"></script>
-        <script src="{{ asset('template1/themejs/app') }}"></script> 
+        <script src="{{ asset('template1/themejs/app') }}"></script>
     @endpush

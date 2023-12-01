@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Counseling extends Model
+class Jadwalkonseling extends Model
 {
     use HasFactory;
-
-    protected $guarded = [];
-    protected $table = 'counseling_schedule';
+    protected $guarded = []; 
 }

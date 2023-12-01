@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kegiatankader extends Model
+class Kegiatankader extends Model
 {
     use HasFactory;
-    protected $guarded = []; 
+    protected $guarded = [];
 }

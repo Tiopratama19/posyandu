@@ -32,7 +32,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.home');
-        Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index']);
+        
         
         Route::get('/dataremaja', [DataremajaController::class, 'index'])->name('dataremaja');
         Route::get('/tambah', [DataremajaController::class, 'tambah'])->name('tambah');
@@ -42,23 +42,32 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/deletedata/{id}', [DataremajaController::class, 'deletedata'])->name('deletedata');
 
         
-        Route::get('/conseling', [CounselingController::class, 'index']);
-
+        Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index'])->name('jadwalkonseling');
+        Route::get('/tambahjadwal', [JadwalkonselingController::class, 'tambah'])->name('tambahjadwal');
+        Route::post('/insertjadwal', [JadwalkonselingController::class, 'insert'])->name('insertjadwal');
+        Route::get('/tampiljadwal/{id}', [JadwalkonselingController::class, 'tampildata'])->name('tampiljadwal');
+        Route::post('/updatejadwal/{id}', [JadwalkonselingController::class, 'updatedata'])->name('upadatejadwal');
+        Route::get('/deletejadwal/{id}', [JadwalkonselingController::class, 'deletedata'])->name('deletejadwal');
         
-        Route::get('/prokerposyandu',[ProkerposyanduController::class, 'index']);
-        Route::get('/tambahproker', [ProkerposyanduController::class, 'tambahproker']);
-        Route::post('/insertproker', [ProkerposyanduController::class, 'insertproker']);
-        Route::delete('/deleteproker/{id}', [ProkerposyanduController::class, 'delete']);
-
-        Route::get('/kegiatankader', [KegiatankaderController::class, 'index']);
-        Route::post('/insertkegiatan', [KegiatankaderController::class, 'insert']);
-        Route::get('/tambahkegiatan', [KegiatankaderController::class, 'tambahkegiatan']);
         
+        Route::get('/prokerposyandu',[ProkerposyanduController::class, 'index'])->name('prokerposyandu');
+        Route::get('/tambahproker', [ProkerposyanduController::class, 'tambah'])->name('tambahproker');
+        Route::post('/insertproker', [ProkerposyanduController::class, 'insert'])->name('insertproker');
+        Route::get('/tampilproker/{id}', [ProkerposyanduController::class, 'tampildata'])->name('tampilproker');
+        Route::post('/updateproker/{id}', [ProkerposyanduController::class, 'updatedata'])->name('upadateproker');
+        Route::get('/deleteproker/{id}', [ProkerposyanduController::class, 'deletedata'])->name('deleteproker');
+
+
+        Route::get('/kegiatankader', [KegiatankaderController::class, 'index'])->name('kegiatankader');
+        Route::get('/tambahkegiatan', [KegiatankaderController::class, 'tambah'])->name('tambahkegiatan');
+        Route::post('/insertkegiatan', [KegiatankaderController::class, 'insert'])->name('insertkegiatan');
+        Route::get('/tampilkegiatan/{id}', [KegiatankaderController::class, 'tampildata'])->name('tampilkegiatan');
+        Route::post('/updatekegiatan/{id}', [KegiatankaderController::class, 'updatedata'])->name('updatekegiatan');
+        Route::get('/deletekegiatan/{id}', [KegiatankaderController::class, 'deletedata'])->name('deletekegiatan');
         
         Route::get('/profile', [ProfileController::class, 'index']);
         
-        Route::get('/conseling', [CounselingController::class, 'index']);
-        
-        Route::post('/conseling/createOrUpdate', [CounselingController::class, 'createOrUpdate'])->name('admin.createKonseling');
-    });
-});
+            }
+        );
+    }
+);
