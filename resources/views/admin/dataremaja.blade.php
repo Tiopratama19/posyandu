@@ -6,14 +6,14 @@
 
     @push('css')
         <!-- DataTables -->
-        <link href="{{ asset('template1/theme/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
+        <!-- <link href="{{ asset('template1/theme/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
             rel="stylesheet" type="text/css" />
         <link href="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
-            rel="stylesheet" type="text/css" />
+            rel="stylesheet" type="text/css" /> -->
 
         <!-- Responsive datatable examples -->
-        <link href="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
-            rel="stylesheet" type="text/css" />
+        <!-- <link href="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+            rel="stylesheet" type="text/css" /> -->
     @endpush
 
 
@@ -45,6 +45,11 @@
                                     <a href="/admin/tambah" class="btn btn-primary">Tambah Data</a>
                                 </span>
                             </div>
+                            @if($message = Session::get('success'))
+                            <div class="alert alert-info" role="alert">
+                                {{$message}};
+                            </div>
+                            @endif
                             <div class="card-body">
                                 <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                     <thead>
@@ -64,8 +69,30 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($data as $index => $row)
                                     <tbody>
+                                    <th scope="row">{{$no++ }}</th>
+                                        <td>{{$row->NIK}}</td>
+                                        <td>{{$row->Nama}}</td>
+                                        <td>{{$row->TempatLahir}}</td>
+                                        <td>{{$row->TanggalLahir}}</td>
+                                        <td>{{$row->JenisKelamin}}</td>
+                                        <td>{{$row->BB}}</td>
+                                        <td>{{$row->TB}}</td>
+                                        <td>{{$row->TTD}}</td>
+                                        <td>{{$row->LILA}}</td>
+                                        <td>{{$row->LP}}</td>
+                                        <td>{{$row->Anemia}}</td>
+                                        <td>
+                                            <a href="/admin/tampildata/{{$row->id}}" class="btn btn-info">Edit</a>
+                                            <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->Nama}}">Hapus</a>
+                                            <!-- /deletedata/{{$row->id}} -->
+                                        </td>
                                     </tbody>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
@@ -77,179 +104,63 @@
         <!-- End Page-content -->
     @endsection
 
-    @push('scripts')
+@push('scripts')
         <!-- Required datatable js -->
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-        <!-- Buttons examples -->
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
-        </script>
-        <script src="{{ asset('template1/theme/assets/libs/jszip/jszip.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+        <!-- was delete -->
 
-        <!-- Responsive examples -->
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}">
-        </script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}">
-        </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script>
+  @if(Session::has('success'))
+  toastr.success("{{Session::get('success')}}")
+  @endif
+</script> -->
+<script>
 
-        <!-- Datatable init js -->
-        <script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>
+$('.delete').click( function() {
 
-        <script>
-            $(document).ready(function() {
+  var remajaid = $(this).attr('data-id');
+  var nama = $(this).attr('data-nama');
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+  const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
 
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 10000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                });
+swalWithBootstrapButtons.fire({
+  title: 'Apakah Kamu Yakin?',
+  text: "Anda tidak akan dapat mengembalikannya!Data pegawai dengan nama "+nama+" ",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Ya, hapus!',
+  cancelButtonText: 'Tidak, gajadi!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location="/admin/deletedata/"+remajaid+""
+    swalWithBootstrapButtons.fire(
+      'Dihapus!',
+      'Filemu berhasil dihapus.',
+      'success'
+    )
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Gajadi',
+      'Filemu aman :)',
+      'error'
+    )
+  }
+})
 
-                var table = $('#datatable-buttons').dataTable({
-                    autoWidth: true,
-                    processing: true,
-                    serverSide: true,
-                    destroy: true,
-                    responsive: true,
-                    language: {
-                        processing: '<span style="color:black;">Mohon Tunggu...</span><i class="fa fa-refresh fa-spin fa-3x fa-fw" style="color:#2510A3;"></i>',
-                        sEmptyTable: "Tidak Ada Data Yang Tersedia Pada Tabel Ini",
-                        sLengthMenu: "Tampilkan _MENU_ Baris",
-                        sZeroRecords: "Tidak Ditemukan Data Yang Sesuai",
-                        sInfo: "Menampilkan _START_ Sampai _END_ Dari _TOTAL_ Baris",
-                        sInfoEmpty: "Menampilkan 0 Sampai 0 Dari 0 Baris",
-                        sInfoFiltered: "(disaring dari _MAX_ entri keseluruhan)",
-                        sInfoPostFix: "",
-                        sSearch: "Cari:",
-                        sUrl: "",
-                        oPaginate: {
-                            sFirst: "Pertama",
-                            sPrevious: "Sebelumnya",
-                            sNext: "Selanjutnya",
-                            sLast: "Terakhir",
-                        },
-                    },
-                    dom: 'Bfrtip',
-                    buttons: [
-                        'excel', 'pdf'
-                    ],
-                    stateSave: true,
-                    order: [],
-                    ajax: `{{ url('admin/dataremaja') }}`,
-                    deferRender: true,
-                    columns: [{
-                            data: 'DT_RowIndex',
-                            name: 'DT_RowIndex'
-                        },
-                        {
-                            data: 'NIK',
-                            name: 'NIK'
-                        },
-                        {
-                            data: 'Nama',
-                            name: 'Nama'
-                        },
-                        {
-                            data: 'TempatLahir',
-                            name: 'TempatLahir'
-                        },
-                        {
-                            data: 'TanggalLahir',
-                            name: 'TanggalLahir'
-                        },
-                        {
-                            data: 'JenisKelamin',
-                            name: 'JenisKelamin'
-                        },
-                        {
-                            data: 'BB',
-                            name: 'BB'
-                        },
-                        {
-                            data: 'TB',
-                            name: 'TB'
-                        },
-                        {
-                            data: 'TTD',
-                            name: 'TTD'
-                        },
-                        {
-                            data: 'LILA',
-                            name: 'LILA'
-                        },
-                        {
-                            data: 'LP',
-                            name: 'LP'
-                        },
-                        {
-                            data: 'Anemia',
-                            name: 'Anemia'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action'
-                        }
-                    ]
-                });
+}); 
+</script>
 
-                $(this).on('click', '#buton_hapus', function (e) {
-                e.preventDefault();
-                let id = $(this).data('id');
-                Swal.fire({
-                    title: 'Peringatan',
-                    text: "Apakah anda yakin akan menghapus data ?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    buttonsStyling: true,
-                    confirmButtonClass: 'btn btn-danger btn-lg mr-2',
-                    cancelButtonClass: 'btn btn-primary btn-lg',
-                    confirmButtonText: 'Hapus <i class="fas fa-trash"></i>',
-                    cancelButtonText: 'Batal <i class="fas fa-close"> </i>'
-                }).then((result) => {
-                    if (result.value) {
-                        $.ajax({
-                            type: "DELETE",
-                            url: `{{url('admin/deleteremaja')}}/${id}`,
-                            data: {
-                                _token: '{{csrf_token()}}'
-                            },
-                            dataType: "json",
-                            success: function (response) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Berhasil',
-                                    text: 'Data Berhasil Dihapus !',
-                                });
-
-                                window.location.href=`{{ url('admin/dataremaja') }}`;
-                            },
-                            error: function () {
-                                Toast.fire({
-                                    icon: 'error',
-                                    title: 'Gagal menghapus data !'
-                                })
-                            }
-                        });
-                    }
-                })
-            });
-            });
-        </script>
-    @endpush
+@endpush

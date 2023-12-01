@@ -34,10 +34,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.home');
         Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index']);
         
-        Route::get('/dataremaja', [DataremajaController::class, 'index']);
-        Route::get('/tambah', [DataremajaController::class, 'tambah']);
-        Route::post('/insert', [DataremajaController::class, 'insert']);
-        Route::delete('/deleteremaja/{id}', [DataremajaController::class, 'delete']);
+        Route::get('/dataremaja', [DataremajaController::class, 'index'])->name('dataremaja');
+        Route::get('/tambah', [DataremajaController::class, 'tambah'])->name('tambah');
+        Route::post('/insert', [DataremajaController::class, 'insert'])->name('insert');
+        Route::get('/tampildata/{id}', [DataremajaController::class, 'tampildata'])->name('tampildata');
+        Route::post('/updatedata/{id}', [DataremajaController::class, 'updatedata'])->name('upadatedata');
+        Route::get('/deletedata/{id}', [DataremajaController::class, 'deletedata'])->name('deletedata');
 
         
         Route::get('/conseling', [CounselingController::class, 'index']);
