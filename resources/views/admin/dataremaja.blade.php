@@ -185,7 +185,7 @@
     </script>
 @endpush
 
-{{-- @push('scripts')
+@push('scripts')
     <script src="assets/libs/jquery/jquery.min.js"></script>
         <script src="{{ asset('template1/theme/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('template1/theme/assets/libs/metismenu/metisMenu.min.js') }}"></script>
@@ -195,7 +195,7 @@
         <!-- pace js -->
         <script src="{{ asset('template1/theme/assets/libs/pace-js/pace.min.js') }}"></script>
 
-        <!-- Required datatable js -->
+        {{-- <!-- Required datatable js -->
         <script src="{{ asset('template1/theme/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('template1/theme/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
         <!-- Buttons examples -->
@@ -206,7 +206,7 @@
         <script src="{{ asset('template1/theme/assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
         <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
         <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script> --}}
 
         <!-- Responsive examples -->
         <script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -216,4 +216,4 @@
         <script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>    
 
         <script src="{{ asset('template1/theme/assets/js/app.js' ) }}"></script>
-@endpush --}}
+@endpush
