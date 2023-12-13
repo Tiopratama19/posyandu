@@ -69,9 +69,14 @@ POSYANDU | Input Data Remaja
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="example-tel-input" class="form-label">Jenis Kelamin</label>
-                                                            <input class="form-control" name="JenisKelamin" type="text" value="{{$data->JenisKelamin}}" id="example-tel-input">
+                                                            <select class="form-select" name="JenisKelamin" aria-label="JenisKelamin">
+                                                                <option selected>Jenis Kelamin</option>
+                                                                <option value="Laki-laki">Laki-laki</option>
+                                                                <option value="Perempuan">Perempuan</option>
+                                                            </select>
+                                                            {{-- <input class="form-control" name="JenisKelamin" type="text" value="{{$data->JenisKelamin}}" id="example-tel-input"> --}}
                                                         </div>
-                                                        <div class="mb-3">
+                                                        {{-- <div class="mb-3">
                                                             <label for="example-email-input" class="form-label">Berat Badan</label>
                                                             <input class="form-control" name="BB" type="text" value="{{$data->BB}}" id="example-email-input">
                                                         </div>
@@ -96,7 +101,7 @@ POSYANDU | Input Data Remaja
                                                         <div class="mb-3">
                                                             <label for="example-email-input" class="form-label">Anemia</label>
                                                             <input class="form-control" name="Anemia" type="text" value="{{$data->Anemia}}" id="example-email-input">
-                                                        </div>
+                                                        </div> --}}
                                                         <span style="float:right">
                                                             <button type="Submit" class="btn btn-success">Submit</button>
                                                         </span>

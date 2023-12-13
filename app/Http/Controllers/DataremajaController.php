@@ -13,6 +13,13 @@ class DataremajaController extends Controller
         // dd($data);
         return view("admin.dataremaja", compact("data"));
     }
+    
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate(Dataremaja::rules());
+
+        $dataremaja = Dataremaja::create($validatedData);
+    }
 
     public function tambah()
     {

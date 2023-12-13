@@ -11,6 +11,7 @@ use App\Http\Controllers\ProkerposyanduController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Master\CounselingController;
+use App\Http\Controllers\RiwayatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('/updatedata/{id}', [DataremajaController::class, 'updatedata'])->name('upadatedata');
         Route::get('/deletedata/{id}', [DataremajaController::class, 'deletedata'])->name('deletedata');
 
+
+                Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
+                Route::get('/tambahriwayat', [RiwayatController::class, 'tambah'])->name('tambahriwayat');
+                Route::post('/insertriwayat', [RiwayatController::class, 'insert'])->name('insertriwayat');
+                Route::get('/tampilriwayat/{id}', [RiwayatController::class, 'tampildata'])->name('tampilriwayat');
+                Route::post('/updateriwayat/{id}', [RiwayatController::class, 'updatedata'])->name('upadateriwayat');
+                Route::get('/deleteriwayat/{id}', [RiwayatController::class, 'deletedata'])->name('deleteriwayat');
+                Route::get('/riwayat/{id}', [RiwayatController::class, 'riwayatdetail'])->name('riwayatdetail');
         
         Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index'])->name('jadwalkonseling');
         Route::get('/tambahjadwal', [JadwalkonselingController::class, 'tambah'])->name('tambahjadwal');

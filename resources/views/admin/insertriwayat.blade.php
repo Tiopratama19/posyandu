@@ -2,7 +2,7 @@
 @section('content')
 
 @push('title')
-POSYANDU | Input Data Remaja
+POSYANDU | Input Riwayat
 @endpush
 
 @push('css')
@@ -22,7 +22,7 @@ POSYANDU | Input Data Remaja
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Tambah Data</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Tambah Riwayat</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
@@ -37,21 +37,22 @@ POSYANDU | Input Data Remaja
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Silahkan Tambah Data</h4>
+                                        <h4 class="card-title">Silahkan Tambah Riwayat</h4>
                                         <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
                                             textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
                                         <span style="float:right">
-                                        <a href="/admin/dataremaja" class="btn btn-danger">Kembali</a>
+                                        <a href="/admin/riwayat" class="btn btn-danger">Kembali</a>
                                         </span>
                                     </div>
                                     <div class="card-body p-4">
 
                                         <div class="row">
-                                            <form action="/admin/insert" method="POST">
+                                            <form action="/admin/insertriwayat" method="POST">
                                             @csrf
+                                            <input type="hidden" name="id_dataremaja" value="{{request()->id_dataremaja}}">
                                                 <div class="col-lg-12">
                                                     <div class="col-lg-6">
-                                                        <div class="mb-3">
+                                                        {{-- <div class="mb-3">
                                                             <label for="example-text-input" class="form-label">NIK</label>
                                                             <input class="form-control" name="NIK" type="text" value="" id="example-text-input">
                                                         </div>
@@ -69,39 +70,52 @@ POSYANDU | Input Data Remaja
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="example-tel-input" class="form-label">Jenis Kelamin</label>
-                                                            <select class="form-select" name="JenisKelamin" aria-label="JenisKelamin">
-                                                                <option selected>Jenis Kelamin</option>
-                                                                <option value="Laki-laki">Laki-laki</option>
-                                                                <option value="Perempuan">Perempuan</option>
-                                                            </select>
-                                                            {{-- <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input"> --}}
+                                                            <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input">
+                                                        </div> --}}
+                                                        <div class="mb-3">
+                                                            <label for="example-search-input" class="form-label">Tanggal</label>
+                                                            <input class="form-control" name="Tanggal" type="date" value="" id="example-search-input">
                                                         </div>
-                                                        {{-- <div class="mb-3">
-                                                            <label for="example-email-input" class="form-label">Berat Badan</label>
+                                                        <label for="example-email-input" class="form-label">Berat Badan</label>
+                                                        <div class="input-group mb-3">
                                                             <input class="form-control" name="BB" type="text" value="" id="example-email-input">
+                                                            <span class="input-group-text" id="basic-addon1">kg</span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="example-email-input" class="form-label">Tinggi Badan</label>
+                                                        <label for="example-email-input" class="form-label">Tinggi Badan</label>
+                                                        <div class="input-group mb-3">
                                                             <input class="form-control" name="TB" type="text" value="" id="example-email-input">
+                                                            <span class="input-group-text" id="basic-addon1">cm</span>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="example-email-input" class="form-label">Tablet Tambah Darah</label>
-                                                            <input class="form-control" name="TTD" type="text" value="" id="example-email-input">
+                                                            <select class="form-select" name="TTD" aria-label="TTD">
+                                                                <option selected>Tablet Tambah Darah</option>
+                                                                <option value="Udah">Udah</option>
+                                                                <option value="Belum">Belum</option>
+                                                            </select>
+                                                            {{-- <input class="form-control" name="TTD" type="text" value="" id="example-email-input"> --}}
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="example-email-input" class="form-label">Lingkar Lengan Atas</label>
+                                                        <label for="example-email-input" class="form-label">Lingkar Lengan Atas</label>
+                                                        <div class="input-group mb-3">
                                                             <input class="form-control" name="LILA" type="text" value="" id="example-email-input">
+                                                            <span class="input-group-text" id="basic-addon1">cm</span>
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="example-email-input" class="form-label">Lingkar Perut</label>
+                                                        <label for="example-email-input" class="form-label">Lingkar Perut</label>
+                                                        <div class="input-group mb-3">
                                                             <input class="form-control" name="LP" type="text" value="" id="example-email-input">
+                                                            <span class="input-group-text" id="basic-addon1">cm</span>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="example-email-input" class="form-label">Anemia</label>
-                                                            <input class="form-control" name="Anemia" type="text" value="" id="example-email-input">
-                                                        </div> --}}
+                                                            <select class="form-select" name="Anemia" aria-label="Anemia">
+                                                                <option selected>Anemia</option>
+                                                                <option value="Udah">Udah</option>
+                                                                <option value="Belum">Belum</option>
+                                                            </select>
+                                                            {{-- <input class="form-control" name="Anemia" type="text" value="" id="example-email-input"> --}}
+                                                        </div>
                                                         <span style="float:right">
                                                             <button type="Submit" class="btn btn-success">Submit</button>
                                                         </span>

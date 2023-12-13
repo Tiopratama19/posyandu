@@ -18,12 +18,7 @@ return new class extends Migration
             $table->string('TempatLahir');
             $table->string('TanggalLahir');
             $table->string('JenisKelamin');
-            $table->string('BB');
-            $table->string('TB');
-            $table->string('TTD');
-            $table->string('LILA');
-            $table->string('LP');
-            $table->string('Anemia');
+            
             $table->timestamps();
         });
     }
