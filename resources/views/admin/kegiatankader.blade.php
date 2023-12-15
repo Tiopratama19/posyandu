@@ -1,6 +1,6 @@
 @extends('Template.templateadmin')
 @push('title')
-POSYANDU | Kegiatan Kader
+    POSYANDU | Kegiatan Kader
 @endpush
 
 @push('css')
@@ -14,6 +14,7 @@ POSYANDU | Kegiatan Kader
     rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
 @endpush
+
 @section('content')
 <div class="page-content">
 

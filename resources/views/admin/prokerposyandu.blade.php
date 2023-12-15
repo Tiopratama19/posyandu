@@ -1,6 +1,6 @@
 @extends('Template.templateadmin')
 @push('title')
-POSYANDU | Proker Posyandu
+    POSYANDU | Proker Posyandu
 @endpush
 
 @push('css')
@@ -13,6 +13,7 @@ POSYANDU | Proker Posyandu
 <link href="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
     rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
+
 @endpush
 @section('content')
 <div class="page-content">

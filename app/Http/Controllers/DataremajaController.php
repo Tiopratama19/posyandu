@@ -13,7 +13,6 @@ class DataremajaController extends Controller
         // dd($data);
         return view("admin.dataremaja", compact("data"));
     }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate(Dataremaja::rules());
@@ -46,6 +45,22 @@ class DataremajaController extends Controller
     }
 
     public function updatedata(Request $request,$id)
+    {
+        $data = Dataremaja::find($id);
+        $data->update($request->all());
+
+        return redirect()->route('dataremaja')->with('success' , 'Data Remaja telah diubah');
+    }
+
+    public function deletedata($id)
+    {
+        $data = Dataremaja::find($id);
+        $data->delete();
+
+        return redirect()->route('dataremaja')->with('success' , 'Data Remaja telah dihapus');
+    }
+
+    public function updatedata(Request $request, $id)
     {
         $data = Dataremaja::find($id);
         $data->update($request->all());

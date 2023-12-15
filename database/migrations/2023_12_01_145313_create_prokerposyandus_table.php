@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('prokerposyandus', function (Blueprint $table) {
             $table->id();
-            $table->string('No');
-            $table->string('Kegiatan');
             $table->date('Tanggal');
+            $table->string('Kegiatan');
             $table->timestamps();
         });
     }
