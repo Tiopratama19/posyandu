@@ -10,5 +10,5 @@ class Counseling extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $table = 'counseling_schedule';
+    protected $table = 'jadwalkonselings';
 }

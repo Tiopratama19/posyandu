@@ -7,39 +7,57 @@ use Illuminate\Http\Request;
 
 class DataremajaController extends Controller
 {
-    public function index (){
-        if (request()->ajax()) {
-            $remaja = Dataremaja::orderBy('id', 'DESC')->get();
-
-            return DataTables()->of($remaja)
-            ->addIndexColumn()
-            ->addColumn('action', function($remaja){
-                return '<a href="#" class="btn btn-squared btn-info mr-2 mb-2" data-id="'.$remaja->id. '" data-bs-toggle="modal" data-bs-target="#modelId" id="buton_edit"><i class="fa fa-pencil-alt"></i> Edit</a>
-                        <a href="#" class="btn btn-squared btn-danger mr-2 mb-2" data-id="'.$remaja->id. '" id="buton_hapus"><i class="fa fa-trash-alt"></i> Hapus</a> ';
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-
-        return view('admin.dataremaja');
-
+    public function index()
+    {
+        $data = Dataremaja::all();
+        // dd($data);
+        return view("admin.dataremaja", compact("data"));
     }
-    //
-    public function tambah (){
-        return view('admin.insertdataremaja');
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate(Dataremaja::rules());
+
+        $dataremaja = Dataremaja::create($validatedData);
     }
+
+    public function tambah()
+    {
+        return view("admin.insertdataremaja");
+    }
+
     public function insert(Request $request)
     {
-        $data = $request->all();
-        Dataremaja::create($data);
-        return redirect('admin/dataremaja');
+        $cek = Dataremaja::where('NIK', $request->NIK)->count();
+        if($cek > 0)
+        {
+            return redirect()->route('dataremaja')->with('success' , 'Nik sudah telah terdaftar');
+        }
+        $data = Dataremaja::create($request->all());
+        // dd($data);
+        return redirect()->route('dataremaja')->with('success' , 'Data Remaja telah ditambahkan');
     }
 
-    function delete($id)
+    public function tampildata($id)
     {
-        $remaja = Dataremaja::whereId($id)->delete();
-        if ($remaja) {
-            return response()->json(['status' => 1], 201);
-        }
+        $data = Dataremaja::find($id);
+        // dd($data);
+        return view('admin.tampildata', compact('data'));
+    }
+
+    public function updatedata(Request $request,$id)
+    {
+        $data = Dataremaja::find($id);
+        $data->update($request->all());
+
+        return redirect()->route('dataremaja')->with('success' , 'Data Remaja telah diubah');
+    }
+
+    public function deletedata($id)
+    {
+        $data = Dataremaja::find($id);
+        $data->delete();
+
+        return redirect()->route('dataremaja')->with('success' , 'Data Remaja telah dihapus');
     }
 }

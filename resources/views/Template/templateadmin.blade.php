@@ -77,11 +77,6 @@
     </div>
 
 
-    <!-- end main content-->
-    </div>
-    <!-- END layout-wrapper -->
-
-
     <!-- Right Sidebar -->
     @include('Template.rightSidebar')
     <!-- /Right-bar -->
@@ -101,9 +96,7 @@
     <script src="{{ asset('template1/theme/assets/libs/pace-js/pace.min.js') }}"></script>
 
 
-    <!-- App js -->
-    <script src="{{ asset('template1/theme/assets/js/app.js') }}"></script>
-
+    <script src="{{ asset('alert/js/sweetalert.js') }}"></script>
     <!-- apexcharts -->
     <script src="{{ asset('template1/theme/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
@@ -116,7 +109,11 @@
     </script>
 
 
-    <script src="{{ asset('alert/js/sweetalert.js') }}"></script>
+    <script src="{{ asset('template1/theme/assets/js/pages/dashboard.init.js')}}"></script>
+
+    <!-- App js -->
+    <script src="{{ asset('template1/theme/assets/js/app.js') }}"></script>
+
     <!-- dashboard init -->
     @stack('scripts')
 </body>

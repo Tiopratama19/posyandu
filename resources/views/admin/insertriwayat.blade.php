@@ -1,0 +1,178 @@
+@extends('Template.templateadmin')
+@section('content')
+
+@push('title')
+POSYANDU | Input Riwayat
+@endpush
+
+@push('css')
+<!-- DataTables -->
+<link href="{{ asset('template1/themelibs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+    type="text/css" />
+<link href="{{ asset('template1/themelibs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
+    rel="stylesheet" type="text/css" />
+<!-- Responsive datatable examples -->
+<link href="{{ asset('template1/themelibs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+    rel="stylesheet" type="text/css" />
+@endpush
+
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0 font-size-18">Tambah Riwayat</h4>
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                            <li class="breadcrumb-item active">Basic Elements</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Silahkan Tambah Riwayat</h4>
+                        <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
+                            textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
+                        <span style="float:right">
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Kembali</a>
+                        </span>
+                    </div>
+                    <div class="card-body p-4">
+
+                        <div class="row">
+                            <form action="/admin/insertriwayat" method="POST">
+                                @csrf
+                                <input type="hidden" name="id_dataremaja" value="{{request()->id_dataremaja}}">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-6">
+                                        {{-- <div class="mb-3">
+                                                            <label for="example-text-input" class="form-label">NIK</label>
+                                                            <input class="form-control" name="NIK" type="text" value="" id="example-text-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-search-input" class="form-label">Nama</label>
+                                                            <input class="form-control" name="Nama" type="text" value="" id="example-search-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-search-input" class="form-label">Tempat Lahir</label>
+                                                            <input class="form-control" name="TempatLahir" type="text" value="" id="example-search-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-email-input" class="form-label">Tanggal Lahir</label>
+                                                            <input class="form-control" name="TanggalLahir" type="date" value="" id="example-email-input">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="example-tel-input" class="form-label">Jenis Kelamin</label>
+                                                            <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input">
+                                                        </div> --}}
+                                        <div class="mb-3">
+                                            <label for="example-search-input" class="form-label">Tanggal</label>
+                                            <input class="form-control" name="Tanggal" type="date" value=""
+                                                id="example-search-input">
+                                        </div>
+                                        <label for="example-email-input" class="form-label">Berat Badan</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" name="BB" type="text" value="" maxlength="3"
+                                                onkeypress="return hanyaAngka(event)" id="example-email-input">
+                                            <span class="input-group-text" id="basic-addon1">kg</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="example-email-input" class="form-label">Tinggi Badan</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" name="TB" type="text" value="" maxlength="3"
+                                                onkeypress="return hanyaAngka(event)" id="example-email-input">
+                                            <span class="input-group-text" id="basic-addon1">cm</span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="example-email-input" class="form-label">Tablet Tambah
+                                                Darah</label>
+                                            <select class="form-select" name="TTD" aria-label="TTD">
+                                                <option selected>Tablet Tambah Darah</option>
+                                                <option value="Udah">Udah</option>
+                                                <option value="Belum">Belum</option>
+                                            </select>
+                                            {{-- <input class="form-control" name="TTD" type="text" value="" id="example-email-input"> --}}
+                                        </div>
+                                        <label for="example-email-input" class="form-label">Lingkar Lengan Atas</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" name="LILA" type="text" value="" maxlength="3"
+                                                onkeypress="return hanyaAngka(event)" id="example-email-input">
+                                            <span class="input-group-text" id="basic-addon1">cm</span>
+                                        </div>
+                                        <label for="example-email-input" class="form-label">Lingkar Perut</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" name="LP" type="text" value="" maxlength="3"
+                                                onkeypress="return hanyaAngka(event)" id="example-email-input">
+                                            <span class="input-group-text" id="basic-addon1">cm</span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="example-email-input" class="form-label">Anemia</label>
+                                            <select class="form-select" name="Anemia" aria-label="Anemia">
+                                                <option selected>Anemia</option>
+                                                <option value="Udah">Udah</option>
+                                                <option value="Belum">Belum</option>
+                                            </select>
+                                            {{-- <input class="form-control" name="Anemia" type="text" value="" id="example-email-input"> --}}
+                                        </div>
+                                        <span style="float:right">
+                                            <button type="Submit" class="btn btn-success">Submit</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+    </div> <!-- container-fluid -->
+</div>
+<!-- End Page-content -->
+
+
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <script>
+                    Posyandu.write(new Date().getFullYear())
+
+                </script> © Admin.
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    Desain & Develop by <a href="#!" class="text-decoration-underline">Tio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+@endsection
+
+@push('scripts')
+<script>
+    function hanyaAngka(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+
+    function harusHuruf(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && charCode > 32)
+            return false;
+        return true;
+    }
+
+</script>
+@endpush

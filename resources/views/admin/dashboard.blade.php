@@ -16,7 +16,7 @@ POSYANDU | Dashboard
                 </div>
             </div>
             <!-- end page title -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <!-- card -->
                     <div class="card card-h-100">
@@ -57,7 +57,7 @@ POSYANDU | Dashboard
                         </div><!-- end card body -->
                     </div><!-- end card -->
                 </div><!-- end col-->
-            </div> <!-- container-fluid -->
+            </div> <!-- container-fluid --> --}}
         </div>
         <!-- End Page-content -->
     </div>

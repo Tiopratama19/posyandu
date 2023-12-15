@@ -1,267 +1,225 @@
 @extends('Template.templateadmin')
+@push('title')
+POSYANDU | Data Remaja
+@endpush
+
+@push('css')
+<!-- DataTables -->
+<link href="{{ asset('template1/theme/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
+    rel="stylesheet" type="text/css" />
+<link href="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
+    rel="stylesheet" type="text/css" />
+<!-- Responsive datatable examples -->
+<link href="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+    rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
+@endpush
+
 @section('content')
-    @push('title')
-        POSYANDU | Data Remaja
-    @endpush
-
-    @push('css')
-        <!-- DataTables -->
-        <link href="{{ asset('template1/theme/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
-            rel="stylesheet" type="text/css" />
-        <link href="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
-            rel="stylesheet" type="text/css" />
-
-        <!-- Responsive datatable examples -->
-        <link href="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
-            rel="stylesheet" type="text/css" />
-    @endpush
-
-
-    <div class="page-content">
-        <div class="container-fluid">
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">Data Remaja</h4>
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Table</a></li>
-                                <li class="breadcrumb-item active">Jumlah Remaja</li>
-                            </ol>
-                        </div>
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0 font-size-18">Data Remaja</h4>
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Table</a></li>
+                            <li class="breadcrumb-item active">Jumlah Remaja</li>
+                        </ol>
                     </div>
                 </div>
             </div>
-            <!-- end page title -->
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Tabel Data Remaja</h4>
-                                <p class="card-title-desc">Pastikan data yang dimasukkan itu sudah tepat dan benar.</p>
-                                <span style="float:right">
-                                    <a href="/admin/tambah" class="btn btn-primary">Tambah Data</a>
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>NIK</th>
-                                            <th>Nama</th>
-                                            <th>Tempat Lahir</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>BB</th>
+        </div>
+        <!-- end page title -->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Tabel Data Remaja</h4>
+                            <p class="card-title-desc">Pastikan data yang dimasukkan itu sudah tepat dan benar.</p>
+                            <span style="float:right">
+                                <a href="/admin/tambah" class="btn btn-primary">Tambah Data</a>
+                            </span>
+                        </div>
+                        {{-- <div class="col-sm-2">
+                                    <label for="" class="form-label">Nama</label>
+                                    <input name="Nama" type="text" class="form-control" placeholder="Nama" value="{{isset($_GET['Nama']) ? $_GET['Nama'] : ''}}">
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="" class="form-label">NIK</label>
+                        <input name="NIK" type="text" class="form-control" placeholder="NIK"
+                            value="{{isset($_GET['NIK']) ? $_GET['NIK'] : ''}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="btn btn-primary mt-4">Search</button>
+                    </div> --}}
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-info" role="alert">
+                        {{ $message }};
+                    </div>
+                    @endif
+                    <div class="card-body">
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 display nowrap"
+                            style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>NIK</th>
+                                    <th>Nama</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Jenis Kelamin</th>
+                                    {{-- <th>BB</th>
                                             <th>TB</th>
                                             <th>TTD</th>
                                             <th>LILA</th>
                                             <th>LP</th>
-                                            <th>Anemia</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- end cardaa -->
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-            </div> <!-- container-fluid -->
-        </div>
-        <!-- End Page-content -->
-    @endsection
+                                            <th>Anemia</th> --}}
+                                    <th width="230px">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-    @push('scripts')
-        <!-- Required datatable js -->
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-        <!-- Buttons examples -->
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
-        </script>
-        <script src="{{ asset('template1/theme/assets/libs/jszip/jszip.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+                                @php
+                                $no = 1;
+                                @endphp
+                                @foreach ($data as $index => $row)
+                                <tr>
+                                    <th scope="row">{{ $no++ }}</th>
+                                    <td>{{ $row->NIK }}</td>
+                                    <td>{{ $row->Nama }}</td>
+                                    <td>{{ $row->TempatLahir }}</td>
+                                    <td>{{ $row->TanggalLahir }}</td>
+                                    <td>{{ $row->JenisKelamin }}</td>
+                                    {{-- <td>{{ $row->BB }}</td>
+                                    <td>{{ $row->TB }}</td>
+                                    <td>{{ $row->TTD }}</td>
+                                    <td>{{ $row->LILA }}</td>
+                                    <td>{{ $row->LP }}</td>
+                                    <td>{{ $row->Anemia }}</td> --}}
+                                    <td>
+                                        <a href="/admin/tampildata/{{ $row->id }}" class="btn btn-info">Edit</a>
+                                        <a href="/admin/riwayat/{{ $row->id }}" class="btn btn-primary">Riwayat</a>
+                                        <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}"
+                                            data-nama="{{ $row->Nama }}">Hapus</a>
+                                        <!-- /deletedata/{{ $row->id }} -->
+                                    </td>
+                                </tr>
 
-        <!-- Responsive examples -->
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}">
-        </script>
-        <script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}">
-        </script>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end cardaa -->
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+    </div> <!-- container-fluid -->
+</div>
+</div> <!-- End Page-content -->
+@endsection
 
-        <!-- Datatable init js -->
-        <script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>
 
-        <script>
-            $(document).ready(function() {
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
+<!-- Required datatable js -->
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="{{ url('/')}}/template1/theme/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<!-- Responsive examples -->
+<script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}">
+</script>
+<script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' ) }}">
+</script>
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+<!-- Datatable init js -->
+<script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>
+<!-- <script>
+        @if (Session::has('success'))
+            toastr.success("{{ Session::get('success') }}")
+        @endif
+    </script> -->
+<script>
+    $(document).ready(function () {
+        let minDate, maxDate;
 
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 10000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                });
+        // Custom filtering function which will search data in column four between two values
+        DataTable.ext.search.push(function (settings, data, dataIndex) {
+            let min = minDate.val();
+            let max = maxDate.val();
+            let date = new Date(data[4]);
 
-                var table = $('#datatable-buttons').dataTable({
-                    autoWidth: true,
-                    processing: true,
-                    serverSide: true,
-                    destroy: true,
-                    responsive: true,
-                    language: {
-                        processing: '<span style="color:black;">Mohon Tunggu...</span><i class="fa fa-refresh fa-spin fa-3x fa-fw" style="color:#2510A3;"></i>',
-                        sEmptyTable: "Tidak Ada Data Yang Tersedia Pada Tabel Ini",
-                        sLengthMenu: "Tampilkan _MENU_ Baris",
-                        sZeroRecords: "Tidak Ditemukan Data Yang Sesuai",
-                        sInfo: "Menampilkan _START_ Sampai _END_ Dari _TOTAL_ Baris",
-                        sInfoEmpty: "Menampilkan 0 Sampai 0 Dari 0 Baris",
-                        sInfoFiltered: "(disaring dari _MAX_ entri keseluruhan)",
-                        sInfoPostFix: "",
-                        sSearch: "Cari:",
-                        sUrl: "",
-                        oPaginate: {
-                            sFirst: "Pertama",
-                            sPrevious: "Sebelumnya",
-                            sNext: "Selanjutnya",
-                            sLast: "Terakhir",
-                        },
-                    },
-                    dom: 'Bfrtip',
-                    buttons: [
-                        'excel', 'pdf'
-                    ],
-                    stateSave: true,
-                    order: [],
-                    ajax: `{{ url('admin/dataremaja') }}`,
-                    deferRender: true,
-                    columns: [{
-                            data: 'DT_RowIndex',
-                            name: 'DT_RowIndex'
-                        },
-                        {
-                            data: 'NIK',
-                            name: 'NIK'
-                        },
-                        {
-                            data: 'Nama',
-                            name: 'Nama'
-                        },
-                        {
-                            data: 'TempatLahir',
-                            name: 'TempatLahir'
-                        },
-                        {
-                            data: 'TanggalLahir',
-                            name: 'TanggalLahir'
-                        },
-                        {
-                            data: 'JenisKelamin',
-                            name: 'JenisKelamin'
-                        },
-                        {
-                            data: 'BB',
-                            name: 'BB'
-                        },
-                        {
-                            data: 'TB',
-                            name: 'TB'
-                        },
-                        {
-                            data: 'TTD',
-                            name: 'TTD'
-                        },
-                        {
-                            data: 'LILA',
-                            name: 'LILA'
-                        },
-                        {
-                            data: 'LP',
-                            name: 'LP'
-                        },
-                        {
-                            data: 'Anemia',
-                            name: 'Anemia'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action'
-                        }
-                    ]
-                });
-
-                $(this).on('click', '#buton_hapus', function (e) {
-                e.preventDefault();
-                let id = $(this).data('id');
-                Swal.fire({
-                    title: 'Peringatan',
-                    text: "Apakah anda yakin akan menghapus data ?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    buttonsStyling: true,
-                    confirmButtonClass: 'btn btn-danger btn-lg mr-2',
-                    cancelButtonClass: 'btn btn-primary btn-lg',
-                    confirmButtonText: 'Hapus <i class="fas fa-trash"></i>',
-                    cancelButtonText: 'Batal <i class="fas fa-close"> </i>'
-                }).then((result) => {
-                    if (result.value) {
-                        $.ajax({
-                            type: "DELETE",
-                            url: `{{url('admin/deleteremaja')}}/${id}`,
-                            data: {
-                                _token: '{{csrf_token()}}'
-                            },
-                            dataType: "json",
-                            beforeSend: function () {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Mohon Tunggu !',
-                                    html: 'Menghapus...', // add html attribute if you want or remove
-                                    allowOutsideClick: false,
-                                    onBeforeOpen: () => {
-                                        Swal.showLoading()
-                                    },
-                                });
-                            },
-                            success: function (response) {
-                                swal.close();
-                                let oTable = $('#datatable-buttons').dataTable();
-                                oTable.fnDraw(false);
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Berhasil',
-                                    text: 'Remaja Berhasil Dihapus !',
-                                });
-                            },
-                            error: function () {
-                                Toast.fire({
-                                    icon: 'error',
-                                    title: 'Gagal menghapus data !'
-                                })
-                            }
-                        });
-                    }
-                })
-            });
+            if (
+                (min === null && max === null) ||
+                (min === null && date <= max) ||
+                (min <= date && max === null) ||
+                (min <= date && date <= max)
+            ) {
+                return true;
+            }
+            return false;
         });
-        </script>
-    @endpush
+
+        // DataTables initialisation
+        let table = new DataTable('#datatable');
+        // Create date inputs
+        minDate = new DateTime('#min', {
+            format: 'MMMM Do YYYY'
+        });
+        maxDate = new DateTime('#max', {
+            format: 'MMMM Do YYYY'
+        });
+        // Refilter the table
+        document.querySelectorAll('#min, #max').forEach((el) => {
+            el.addEventListener('change', () => table.draw());
+        });
+    });
+    $('.delete').click(function () {
+
+        var remajaid = $(this).attr('data-id');
+        var nama = $(this).attr('data-nama');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Apakah Kamu Yakin?',
+            text: 'Anda tidak akan dapat mengembalikannya!',
+            icon: 'warning',
+            showCancelButton: true,
+            buttonsStyling: true,
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Tidak, gajadi!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = "/admin/deletedata/" + remajaid + ""
+                swalWithBootstrapButtons.fire(
+                    'Dihapus!',
+                    'Filemu berhasil dihapus.',
+                    'Sukses'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Tidak Jadi',
+                    'File Aman',
+                    'Error'
+                )
+            }
+        })
+
+    });
+
+</script>
+@endpush
