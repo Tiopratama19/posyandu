@@ -38,8 +38,7 @@ POSYANDU | Input Data Remaja
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Silahkan Edit Data</h4>
-                        <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
-                            textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
+
                         <span style="float:right">
                             <a href="/admin/dataremaja" class="btn btn-danger">Kembali</a>
                         </span>
@@ -50,7 +49,7 @@ POSYANDU | Input Data Remaja
                             <form action="/admin/updatedata/{{ $data->id }}" method="POST">
                                 @csrf
                                 <div class="col-lg-12">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label for="example-text-input" class="form-label">NIK</label>
                                             <input class="form-control" name="NIK" type="text" value="{{$data->NIK}}"
@@ -74,9 +73,13 @@ POSYANDU | Input Data Remaja
                                         <div class="mb-3">
                                             <label for="example-tel-input" class="form-label">Jenis Kelamin</label>
                                             <select class="form-select" name="JenisKelamin" aria-label="JenisKelamin">
-                                                <option selected>Jenis Kelamin</option>
-                                                <option value="Laki-laki">Laki-laki</option>
-                                                <option value="Perempuan">Perempuan</option>
+                                                @if($data->JenisKelamin == 'Laki-laki')
+                                                <option selected value="Laki-laki" > Laki-laki</option>
+                                                <option value="Perempuan" > Perempuan</option>
+                                                @elseif($data->JenisKelamin == 'Perempuan')
+                                                <option value="Laki-laki" > Laki-laki</option>
+                                                <option selected value="Perempuan" > Perempuan</option>
+                                                @endif
                                             </select>
                                             {{-- <input class="form-control" name="JenisKelamin" type="text" value="{{$data->JenisKelamin}}"
                                             id="example-tel-input"> --}}

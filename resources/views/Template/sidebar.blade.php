@@ -27,14 +27,14 @@
         <li>
             <a href="{{ url('admin/prokerposyandu') }}">
                 <i data-feather="trello"></i>
-                <span data-key="t-tables">Proker Posyandu</span>
+                <span data-key="t-tables">Kegiatan & Edukasi</span>
             </a>
         </li>
 
         <li>
             <a href="{{ url('admin/kegiatankader') }}">
                 <i data-feather="sliders"></i>
-                <span data-key="t-tables">Kegiatan Kader</span>
+                <span data-key="t-tables">Kelola Anggota</span>
             </a>
         </li>
 

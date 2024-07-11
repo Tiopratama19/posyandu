@@ -18,16 +18,18 @@
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                What is Topic Listing?
+                                Apa itu posyandu remaja?
                             </button>
                         </h2>
 
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Topic Listing is free Bootstrap 5 CSS template. <strong>You are not allowed to
-                                    redistribute this template</strong> on any other template collection website
-                                without our permission. Please contact TemplateMo for more detail. Thank you.
+                                Posyandu remaja merupakan salah satu bentuk Upaya Kesehatan Bersumber Daya Masyarakat UKBM
+                                yang dikelola dan diselenggarakan dari, oleh, untuk dan bersama masyarakat termasuk remaja
+                                dalam penyelenggaraan pembangunan kesehatan, guna memberdayakan masyarakat dan memberikan
+                                kemudahan dalam memperoleh pelayanan kesehatan bagi remaja untuk  meningkatkan derajat
+                                kesehatan dan keterampilan hidup sehat remaja.
                             </div>
                         </div>
                     </div>
@@ -36,15 +38,14 @@
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                How to find a topic?
+                                Apa Motto Posyandu Mentari?
                             </button>
                         </h2>
 
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                You can search on Google with <strong>keywords</strong> such as templatemo
-                                portfolio, templatemo one-page layouts, photography, digital marketing, etc.
+                                "Kepemimpinan adalah kapasitas untuk menjadikan visi menjadi kegiatan."
                             </div>
                         </div>
                     </div>
@@ -53,16 +54,23 @@
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Does it need to paid?
+                                Visi Dan Misi
                             </button>
                         </h2>
 
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                You can modify any of this with custom CSS or overriding our default variables.
-                                It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                <strong>Visi :</strong>
+                                <p>
+                                    Mewujudkan langkah-langkah perubahan dan penuh harapan.
+                                </p>
+                                <strong>Misi :</strong>
+                                </p>
+                                    Mewujudkan Posyandu Remaja yang berintegritas tinggi,
+                                    Mewadahi kebutuhan Posyandu Remaja dalam kegiatan Posyandu Remaja atau seni dan budaya.
+                                <p>
+
                             </div>
                         </div>
                     </div>

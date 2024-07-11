@@ -47,14 +47,17 @@ POSYANDU | Edit Kegiatan
                     <div class="card-body p-4">
 
                         <div class="row">
-                            <form action="/admin/updatekegiatan/{{ $data->id }}" method="POST">
+                            <form id="updatekegiatan" method="POST">
                                 @csrf
                                 <div class="col-lg-12">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label for="example-text-input" class="form-label">Tanggal</label>
                                             <input class="form-control" name="Tanggal" type="date"
                                                 value="{{$data->Tanggal}}" id="example-email-input">
+                                        </div>
+                                        <div class="">
+                                            <input type="hidden" name="id" value="{{ $data->id }}" id="id">
                                         </div>
                                         <div class="mb-3">
                                             <label for="example-search-input" class="form-label">Nama</label>
@@ -70,6 +73,21 @@ POSYANDU | Edit Kegiatan
                                             <label for="example-search-input" class="form-label">Uraian Kegiatan</label>
                                             <input class="form-control" name="UraianKegiatan" type="text"
                                                 value="{{$data->UraianKegiatan}}" id="example-search-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="example-text-input" class="form-label">Caption</label>
+                                            <textarea class="form-control" id="Caption" placeholder="Enter the Caption"
+                                                rows="5" name="caption"> {{ $data->caption }}</textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <img src="{{ url('kader', $data->image) }}" width="200" height="200"
+                                                class="image_preview">
+
+                                            <div class="form-group mt-3">
+                                                <input class="form-control" type="file"
+                                                    value="{{ url('kader', $data->image) }}" name="image"
+                                                    id="image">
+                                            </div>
                                         </div>
                                         <span style="float:right">
                                             <button type="Submit" class="btn btn-success">Submit</button>
@@ -87,22 +105,33 @@ POSYANDU | Edit Kegiatan
 <!-- End Page-content -->
 
 
-<footer class="footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-                <script>
-                    Posyandu.write(new Date().getFullYear())
-
-                </script> © Admin.
-            </div>
-            <div class="col-sm-6">
-                <div class="text-sm-end d-none d-sm-block">
-                    Desain & Develop by <a href="#!" class="text-decoration-underline">Tio</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-</div>
 @endsection
+
+@push('scripts')
+@include('admin.js.image-upload-js')
+<script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+<script>
+    function hanyaAngka(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+
+    function harusHuruf(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && charCode > 32)
+            return false;
+        return true;
+    }
+    ClassicEditor
+        .create(document.querySelector('#Caption'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+@endpush
+

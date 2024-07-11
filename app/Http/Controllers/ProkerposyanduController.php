@@ -22,9 +22,27 @@ class ProkerposyanduController extends Controller
 
     public function insert(Request $request)
     {
-        $data = Prokerposyandu::create($request->all());
+        if($request->ajax()){
+            $request->validate([
+                'image'=>'required|mimes:jpg,jpeg,png,gif,svg'
+             ]);
+             if($image = $request->file('image')){
+                $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+                $image->move('edukasikegiatan', $imageName);
+             }
+             Prokerposyandu::create([
+                'Nama' => $request->Nama,
+                'Tanggal' => $request->Tanggal,
+                'Kegiatan' => $request->Kegiatan,
+                'Caption' => $request->Caption,
+                'image'=>$imageName,
+                'Status' => $request->Status
+             ]);
+             return response()->json([
+                'status'=>'success'
+             ]);
+        }
         // dd($data);
-        return redirect()->route('prokerposyandu')->with('success', 'Proker telah ditambahkan');
     }
 
     public function tampildata($id)
@@ -36,10 +54,38 @@ class ProkerposyanduController extends Controller
 
     public function updatedata(Request $request, $id)
     {
-        $data = Prokerposyandu::find($id);
-        $data->update($request->all());
 
-        return redirect()->route('prokerposyandu')->with('success', 'Proker telah diubah');
+        if (empty($request->file('image'))) {
+            $data = Prokerposyandu::find($id);
+            $data->update([
+                'Nama' => $request->Nama,
+                'Tanggal' => $request->Tanggal,
+                'Kegiatan' => $request->Kegiatan,
+                'Caption' => $request->Caption,
+                'Status' => $request->Status
+            ]);
+            return response()->json([
+                'status'=>'success'
+            ]);
+        } else {
+            if($image = $request->file('image')){
+                $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+                $image->move('edukasikegiatan', $imageName);
+             }
+
+            $data = Prokerposyandu::find($id);
+            $data->update([
+                'Nama' => $request->Nama,
+                'Tanggal' => $request->Tanggal,
+                'Kegiatan' => $request->Kegiatan,
+                'Caption' => $request->Caption,
+                'image'=>$imageName,
+                'Status' => $request->Status
+            ]);
+            return response()->json([
+                'status'=>'success'
+            ]);
+        }
     }
 
     public function deletedata($id)

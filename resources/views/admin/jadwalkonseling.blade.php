@@ -4,15 +4,14 @@
 @endpush
 
 @push('css')
-<!-- DataTables -->
-<link href="{{ asset('template1/theme/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
-    rel="stylesheet" type="text/css" />
-<link href="{{ asset('template1/theme/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
-    rel="stylesheet" type="text/css" />
-<!-- Responsive datatable examples -->
-<link href="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
-    rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"
+    integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 @endpush
 
 @section('content')
@@ -51,19 +50,7 @@
                     @endif
 
                     <div class="card-body">
-                        {{-- <table border="0" cellspacing="5" cellpadding="5">
-                            <tbody>
-                                <tr>
-                                    <td>Minimum date:</td>
-                                    <td><input type="text" class="form-control" id="min" name="min"></td>
-                                </tr>
-                                <tr>
-                                    <td>Maximum date:</td>
-                                    <td><input type="text" class="form-control" id="max" name="max"></td>
-                                </tr>
-                            </tbody>
-                        </table> --}}
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 display nowrap"
+                        <table id="datatable" class="table table-striped nowrap dt-responsive nowrap w-100 display nowrap"
                             style="width:100%">
                             <thead>
                                 <tr>
@@ -107,19 +94,14 @@
 @endsection
 
 @push('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
-<script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
-<!-- Required datatable js -->
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-<script src="{{ url('/')}}/template1/theme/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<!-- Responsive examples -->
-<script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}">
-</script>
-<script src="{{ asset('template1/theme/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' ) }}">
-</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-<!-- Datatable init js -->
-<script src="{{ asset('template1/theme/assets/js/pages/datatables.init.js') }}"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"
+    integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- <script>
         @if (Session::has('success'))
             toastr.success("{{ Session::get('success') }}")

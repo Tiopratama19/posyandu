@@ -1,20 +1,14 @@
 @extends('Template.templateadmin')
-@section('content')
 
 @push('title')
 POSYANDU | Input Proker Posyandu
 @endpush
 
 @push('css')
-<!-- DataTables -->
-<link href="{{ asset('template1/themelibs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
-    type="text/css" />
-<link href="{{ asset('template1/themelibs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
-    rel="stylesheet" type="text/css" />
-<!-- Responsive datatable examples -->
-<link href="{{ asset('template1/themelibs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
-    rel="stylesheet" type="text/css" />
+
 @endpush
+
+@section('content')
 
 <div class="page-content">
     <div class="container-fluid">
@@ -38,8 +32,6 @@ POSYANDU | Input Proker Posyandu
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Silahkan Tambah Data</h4>
-                        <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
-                            textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
                         <span style="float:right">
                             <a href="/admin/prokerposyandu" class="btn btn-danger">Kembali</a>
                         </span>
@@ -47,52 +39,108 @@ POSYANDU | Input Proker Posyandu
                     <div class="card-body p-4">
 
                         <div class="row">
-                            <form action="/admin/insertproker" method="POST">
+                            <form id="insertproker" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="col-lg-6">
-                                    <div>
-                                        <div class="mb-3">
-                                            <label for="example-text-input" class="form-label">Tanggal</label>
-                                            <input class="form-control" name="Tanggal" type="date" value=""
-                                                id="example-text-input">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="example-text-input" class="form-label">Kegiatan</label>
-                                            <input class="form-control" name="Kegiatan" type="text" value=""
-                                                id="example-text-input">
-                                        </div>
-                                        <span style="float:right">
-                                            <button type="Submit" class="btn btn-success">Submit</button>
-                                        </span>
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="example-tel-input" class="form-label">Tipe</label>
+                                        <select class="form-select" name="Status" aria-label="JenisKelamin" onchange="handleSelectChange(event)">
+                                            <option selected>Pilih Salah Satu</option>
+                                            <option value="Proker">Kegiatan</option>
+                                            <option value="Edukasi">Edukasi</option>
+                                        </select>
+                                        {{-- <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input"> --}}
                                     </div>
+
+                                    <div class="">
+                                        <input type="hidden" name="id"  id="id">
+                                    </div>
+                                    <div class="mb-3" id="nama">
+                                        <label for="example-text-input" class="form-label">Edukasi</label>
+                                        <input class="form-control" name="Nama" type="text" value=""
+                                            id="example-text-input">
+                                    </div>
+
+                                    <div class="mb-3" id="kegiatan">
+                                        <label for="example-text-input" class="form-label">Kegiatan</label>
+                                        <input class="form-control" name="Kegiatan" type="text" value=""
+                                            id="example-text-input">
+                                    </div>
+                                    <div class="mb-3" id="tanggal">
+                                        <label for="example-text-input" class="form-label">Tanggal</label>
+                                        <input class="form-control" name="Tanggal" type="date" value=""
+                                            id="example-text-input">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="example-text-input" class="form-label">Caption</label>
+                                        <textarea class="form-control" id="Caption" placeholder="Enter the Caption"
+                                            rows="5" name="Caption"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <img src="{{ asset('1200px-No_Preview_image_2.png') }}" width="200" height="200"
+                                            class="image_preview">
+
+                                        <div class="form-group mt-3">
+                                            <input class="form-control" type="file" name="image" id="image">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button style="float: right;" type="Submit" class="btn btn-success">Submit</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
                 </div>
-            </div> <!-- end col -->
-        </div>
-    </div> <!-- container-fluid -->
-</div>
-<!-- End Page-content -->
-
-
-<footer class="footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-                <script>
-                    Posyandu.write(new Date().getFullYear())
-
-                </script> © Admin.
-            </div>
-            <div class="col-sm-6">
-                <div class="text-sm-end d-none d-sm-block">
-                    Desain & Develop by <a href="#!" class="text-decoration-underline">Tio</a>
-                </div>
             </div>
         </div>
     </div>
-</footer>
 </div>
+
 @endsection
+
+
+@push('scripts')
+<script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+@include('admin.js.image-upload-js')
+<script>
+    $(document).ready(function () {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+
+    });
+
+</script>
+<script>
+     function handleSelectChange(event) {
+            // Ambil nilai yang dipilih
+            var selectedValue = event.target.value;
+            // Lakukan sesuatu dengan nilai yang dipilih
+           if (selectedValue == 'Proker') {
+                $("#nama").hide();
+                $("#tanggal").show();
+                $("#kegiatan").show();
+           } else if(selectedValue == 'Edukasi') {
+                $("#nama").show();
+                $("#tanggal").hide();
+                $("#kegiatan").hide();
+           }
+        }
+
+    ClassicEditor
+        .create(document.querySelector('#Caption'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+</script>
+@endpush

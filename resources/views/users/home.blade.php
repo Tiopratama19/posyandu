@@ -3,9 +3,9 @@
         <div class="row">
 
             <div class="col-lg-8 col-12 mx-auto">
-                <h1 class="text-white text-center">Discover. Learn. Enjoy</h1>
+                <h1 class="text-white text-center">Selamat Datang Di Website Posyandu Remaja</h1>
 
-                <h6 class="text-center">platform for creatives around the world</h6>
+                <h6 class="text-center">Sebuah platform edukasi untuk masyarakat Kampung Cupu</h6>
             </div>
 
         </div>
@@ -19,7 +19,7 @@
 
             <div class="col-lg-4 col-12 mb-4 mb-lg-0">
                 <div class="custom-block bg-white shadow-lg">
-                    <a href="topics-detail.html">
+                    <a href="/admin/Template/users/edukasi/bahayarokok">
                         <div class="d-flex">
                             <div>
                                 <h5 class="mb-2">Web Design</h5>
@@ -28,7 +28,7 @@
                                     TemplateMo is one of the best websites.</p>
                             </div>
 
-                            <span class="badge bg-design rounded-pill ms-auto">14</span>
+                            {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
                         </div>
 
                         <img src="{{url('/')}}/fe/images/topics/undraw_Remote_design_team_re_urdx.png"
@@ -54,10 +54,10 @@
                                 <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                             </div>
 
-                            <span class="badge bg-finance rounded-pill ms-auto">25</span>
+                            {{-- <span class="badge bg-finance rounded-pill ms-auto">25</span> --}}
                         </div>
 
-                        <div class="social-share d-flex">
+                        {{-- <div class="social-share d-flex">
                             <p class="text-white me-4">Share:</p>
 
                             <ul class="social-icon">
@@ -67,8 +67,8 @@
 
                                 <li class="social-icon-item">
                                     <a href="#" class="social-icon-link bi-facebook"></a>
-                                </li>Designms-auto"></a>
-                        </div>
+                                </li></a>
+                        </div> --}}
 
                         <div class="section-overlay"></div>
                     </div>

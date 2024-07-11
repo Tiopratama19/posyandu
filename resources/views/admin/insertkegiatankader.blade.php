@@ -38,22 +38,24 @@ POSYANDU | Input Kegiatan Kader
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Silahkan Tambah Data</h4>
-                        <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
-                            textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
+
                         <span style="float:right">
                             <a href="/admin/kegiatankader" class="btn btn-danger">Kembali</a>
                         </span>
                     </div>
                     <div class="card-body p-4">
                         <div class="row">
-                            <form action="/admin/insertkegiatan" method="POST">
+                            <form id="insertkegiatan" method="POST">
                                 @csrf
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div>
                                         <div class="mb-3">
                                             <label for="example-text-input" class="form-label">Tanggal</label>
                                             <input class="form-control" name="Tanggal" type="date" value=""
                                                 id="example-text-input">
+                                        </div>
+                                        <div class="">
+                                            <input type="hidden" name="id" id="id">
                                         </div>
                                         <div class="mb-3">
                                             <label for="example-search-input" class="form-label">Nama</label>
@@ -69,6 +71,19 @@ POSYANDU | Input Kegiatan Kader
                                             <label for="example-email-input" class="form-label">Uraian Kegiatan</label>
                                             <input class="form-control" name="UraianKegiatan" type="text" value=""
                                                 id="example-email-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="example-text-input" class="form-label">Caption</label>
+                                            <textarea class="form-control" id="Caption" placeholder="Enter the Caption"
+                                                rows="5" name="caption"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <img src="{{ asset('1200px-No_Preview_image_2.png') }}" width="200" height="200"
+                                                class="image_preview">
+
+                                            <div class="form-group mt-3">
+                                                <input class="form-control" type="file" name="image" id="image">
+                                            </div>
                                         </div>
                                         <span style="float:right">
                                             <button type="Submit" class="btn btn-success">Submit</button>
@@ -86,27 +101,12 @@ POSYANDU | Input Kegiatan Kader
 <!-- End Page-content -->
 
 
-<footer class="footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-                <script>
-                    Posyandu.write(new Date().getFullYear())
-
-                </script> © Admin.
-            </div>
-            <div class="col-sm-6">
-                <div class="text-sm-end d-none d-sm-block">
-                    Desain & Develop by <a href="#!" class="text-decoration-underline">Tio</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 </div>
 @endsection
 
 @push('scripts')
+@include('admin.js.image-upload-js')
+<script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
 <script>
     function hanyaAngka(evt) {
         var charCode = (evt.which) ? evt.which : event.keyCode
@@ -121,6 +121,13 @@ POSYANDU | Input Kegiatan Kader
             return false;
         return true;
     }
-
+    ClassicEditor
+        .create(document.querySelector('#Caption'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>
 @endpush

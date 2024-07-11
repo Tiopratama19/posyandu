@@ -17,10 +17,8 @@
 
     <!-- preloader css -->
     <link rel="stylesheet" href="{{ asset('template1/theme/assets/css/preloader.min.css') }}" type="text/css" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Bootstrap Css -->
-    <link href="{{ asset('template1/theme/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
-        type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('template1/theme/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
@@ -28,7 +26,7 @@
         type="text/css" />
 
     <link href="{{ asset('alert/css/sweetalert2.css')}} " rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     @stack('css')
 
 </head>
@@ -57,8 +55,7 @@
         @yield('content')
         <!-- End Page-content -->
 
-
-        <footer class="footer">
+        {{-- <footer class="footer">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
@@ -73,7 +70,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
     </div>
 
 
@@ -84,35 +81,35 @@
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- JAVASCRIPT -->
-    <script src="{{ asset('template1/theme/assets/libs/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/metismenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/node-waves/waves.min.js') }}"></script>
-    <script src="{{ asset('template1/theme/assets/libs/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ URL::to('template1/theme/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="{{ URL::to('template1/theme/assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ URL::to('template1/theme/assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ URL::to('template1/theme/assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ URL::to('template1/theme/assets/libs/feather-icons/feather.min.js') }}"></script>
     <!-- pace js -->
-    <script src="{{ asset('template1/theme/assets/libs/pace-js/pace.min.js') }}"></script>
+    <script src="{{ URL::to('template1/theme/assets/libs/pace-js/pace.min.js') }}"></script>
 
 
-    <script src="{{ asset('alert/js/sweetalert.js') }}"></script>
+    <script src="{{ URL::to('alert/js/sweetalert.js') }}"></script>
     <!-- apexcharts -->
-    <script src="{{ asset('template1/theme/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ URL::to('template1/theme/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
     <!-- Plugins js-->
     <script
-        src="{{ asset('template1/theme/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}">
+        src="{{ URL::to('template1/theme/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}">
     </script>
     <script
-        src="{{ asset('template1/theme/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}">
+        src="{{ URL::to('template1/theme/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}">
     </script>
 
 
-    <script src="{{ asset('template1/theme/assets/js/pages/dashboard.init.js')}}"></script>
+    <script src="{{ URL::to('template1/theme/assets/js/pages/dashboard.init.js')}}"></script>
 
     <!-- App js -->
-    <script src="{{ asset('template1/theme/assets/js/app.js') }}"></script>
+    <script src="{{ URL::to('template1/theme/assets/js/app.js') }}"></script>
 
     <!-- dashboard init -->
     @stack('scripts')

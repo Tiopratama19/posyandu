@@ -38,19 +38,25 @@ POSYANDU | Input Data Remaja
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Silahkan Tambah Data</h4>
-                        <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
-                            textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
                         <span style="float:right">
                             <a href="/admin/dataremaja" class="btn btn-danger">Kembali</a>
                         </span>
                     </div>
                     <div class="card-body p-4">
-
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <div class="row">
                             <form action="/admin/insert" method="POST">
                                 @csrf
                                 <div class="col-lg-12">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label for="example-text-input" class="form-label">NIK</label>
                                             <input class="form-control" name="NIK" type="text" value="" maxlength="16"

@@ -14,29 +14,29 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="design-tab" data-bs-toggle="tab"
                         data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane"
-                        aria-selected="true">Design</button>
+                        aria-selected="true">Bahaya Rokok</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
                         data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane"
-                        aria-selected="false">Marketing</button>
+                        aria-selected="false">Bahaya Narkoba</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane"
-                        type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Finance</button>
+                        type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Stunting</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane"
-                        type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Music</button>
+                        type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Bahaya Seks Bebas</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="education-tab" data-bs-toggle="tab"
                         data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane"
-                        aria-selected="false">Education</button>
+                        aria-selected="false">Kesehatan Reproduksi</button>
                 </li>
             </ul>
         </div>
@@ -52,18 +52,18 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                 <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
+                                    <a href="/bahayarokok">
                                         <div class="d-flex">
                                             <div>
-                                                <h5 class="mb-2">Web Design</h5>
+                                                <h5 class="mb-2">Nikotin</h5>
 
-                                                <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
+                                                <p class="mb-0">Seseorang yang kecanduan zat ini akan menjadi bergantungan.</p>
                                             </div>
 
-                                            <span class="badge bg-design rounded-pill ms-auto">14</span>
+                                            {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
                                         </div>
 
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Remote_design_team_re_urdx.png"
+                                        <img src="{{url('/')}}/fe/images/topics/nikotin.jpg"
                                             class="custom-block-image img-fluid" alt="">
                                     </a>
                                 </div>
@@ -71,7 +71,7 @@
 
                             <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                 <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
+                                    <a href="/bahayarokok">
                                         <div class="d-flex">
                                             <div>
                                                 <h5 class="mb-2">Graphic</h5>
@@ -90,7 +90,7 @@
 
                             <div class="col-lg-4 col-md-6 col-12">
                                 <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
+                                    <a href="/bahayarokok">
                                         <div class="d-flex">
                                             <div>
                                                 <h5 class="mb-2">Logo Design</h5>

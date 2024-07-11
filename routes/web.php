@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Master\CounselingController;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\Laporan\DataRemajaController as RemajaController;
+
 // Add 16/12/2023
 use App\Http\Controllers\Users\{
     LandingController
@@ -29,11 +31,11 @@ use App\Http\Controllers\Users\{
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Add 16/12/2023
-Route::get('/', [LandingController::class, 'index']);
-// End
+//Add 16/12/2023
+Route::get('/home', [LandingController::class, 'index']);
+//End
 
-Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('/postLogin', [AuthController::class, 'postLogin'])->name('admin.login');
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout', [LogoutadminController::class, 'index'])->name('admin.logoutPage');
@@ -85,7 +87,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
         Route::get('/profile', [ProfileController::class, 'index']);
 
-            }
-        );
+
+        Route::get('/filterdataremaja', [DataremajaController::class, 'filterGetDataRemaja']);
+
+     });
+            Route::prefix('laporan')->group(function () {
+                Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
+                Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
+
+            });
     }
 );
