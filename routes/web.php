@@ -91,10 +91,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/filterdataremaja', [DataremajaController::class, 'filterGetDataRemaja']);
 
      });
-            Route::prefix('laporan')->group(function () {
-                Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
-                Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
+        Route::prefix('laporan')->group(function () {
+            Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
+            Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
 
-            });
+        });
     }
 );
