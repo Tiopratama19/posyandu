@@ -32,10 +32,10 @@ use App\Http\Controllers\Users\{
 |
 */
 //Add 16/12/2023
-Route::get('/home', [LandingController::class, 'index']);
+Route::get('/', [LandingController::class, 'index']);
 //End
 
-Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/postLogin', [AuthController::class, 'postLogin'])->name('admin.login');
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout', [LogoutadminController::class, 'index'])->name('admin.logoutPage');
