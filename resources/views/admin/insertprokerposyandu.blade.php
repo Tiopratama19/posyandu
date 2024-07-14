@@ -71,6 +71,20 @@ POSYANDU | Input Proker Posyandu
                                         <input class="form-control" name="Tanggal" type="date" value=""
                                             id="example-text-input">
                                     </div>
+
+                                    <div class="mb-3" id="StatusLanding">
+                                        <label for="example-tel-input" class="form-label">Jenis Edukasi</label>
+                                        <select class="form-select" name="StatusLanding" aria-label="JenisKelamin" required>
+                                            <option>Pilih Salah Satu</option>
+                                            <option value="Bahaya Rokok" >Bahaya Rokok</option>
+                                            <option value="Bahaya Narkoba">Bahaya Narkoba</option>
+                                            <option value="Stunting">Stunting</option>
+                                            <option value="Bahaya Seks Bebas">Bahaya Seks Bebas</option>
+                                            <option value="Kesehatan Reproduksi">Kesehatan Reproduksi</option>
+
+                                        </select>
+                                        {{-- <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input"> --}}
+                                    </div>
                                     <div class="mb-3">
                                         <label for="example-text-input" class="form-label">Caption</label>
                                         <textarea class="form-control" id="Caption" placeholder="Enter the Caption"
@@ -126,11 +140,13 @@ POSYANDU | Input Proker Posyandu
                 $("#nama").hide();
                 $("#tanggal").show();
                 $("#kegiatan").show();
+                $("#StatusLanding").hide();
            } else if(selectedValue == 'Edukasi') {
                 $("#nama").show();
                 $("#tanggal").hide();
                 $("#kegiatan").hide();
-           }
+                $("#StatusLanding").show();
+            }
         }
 
     ClassicEditor

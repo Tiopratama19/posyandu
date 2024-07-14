@@ -12,7 +12,7 @@ POSYANDU | Proker Posyandu
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.bootstrap5.css">
 
 @endpush
 @section('content')
@@ -108,8 +108,7 @@ POSYANDU | Proker Posyandu
                             </div>
                             <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
                                 <table id="datatable2"
-                                    class="table table-striped nowrap dt-responsive nowrap w-100 display nowrap"
-                                    style="width:100%">
+                                    class="table table-striped nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -131,7 +130,7 @@ POSYANDU | Proker Posyandu
                                                 <td><img src="{{ url('edukasikegiatan', $row->image) }}" style="height: 100px; width:100px;"></td>
                                                 <td>{{ $row->Nama }}</td>
 
-                                                 <td>{!! html_entity_decode($row->Caption) !!}</td>
+                                                 <td>{!! html_entity_decode(substr($row->Caption, 0,  20)) !!}</td>
 
                                                 <td>
                                                     <a href="/admin/tampilproker/{{ $row->id }}"
@@ -165,6 +164,8 @@ POSYANDU | Proker Posyandu
 
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+<script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js"></script>
+<script src="https://cdn.datatables.net/responsive/3.0.2/js/responsive.bootstrap5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"
     integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -177,8 +178,12 @@ POSYANDU | Proker Posyandu
 
 <script>
     $(document).ready(function () {
-        $('#datatable').DataTable();
-        $('#datatable2').DataTable();
+        $('#datatable').DataTable({
+            responsive: true
+        });
+        $('#datatable2').DataTable({
+            responsive: true
+        });
 
     });
 

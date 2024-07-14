@@ -40,6 +40,7 @@ Route::post('/postLogin', [AuthController::class, 'postLogin'])->name('admin.log
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout', [LogoutadminController::class, 'index'])->name('admin.logoutPage');
 
+Route::get('/detail/{id}', [LandingController::class, 'detail']);
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
@@ -91,10 +92,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/filterdataremaja', [DataremajaController::class, 'filterGetDataRemaja']);
 
      });
-            Route::prefix('laporan')->group(function () {
-                Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
-                Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
+        Route::prefix('laporan')->group(function () {
+            Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
+            Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
 
-            });
+        });
     }
 );

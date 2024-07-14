@@ -36,7 +36,8 @@ class ProkerposyanduController extends Controller
                 'Kegiatan' => $request->Kegiatan,
                 'Caption' => $request->Caption,
                 'image'=>$imageName,
-                'Status' => $request->Status
+                'Status' => $request->Status,
+                'StatusLanding' => $request->StatusLanding
              ]);
              return response()->json([
                 'status'=>'success'
@@ -62,7 +63,8 @@ class ProkerposyanduController extends Controller
                 'Tanggal' => $request->Tanggal,
                 'Kegiatan' => $request->Kegiatan,
                 'Caption' => $request->Caption,
-                'Status' => $request->Status
+                'Status' => $request->Status,
+                'StatusLanding' => $request->StatusLanding
             ]);
             return response()->json([
                 'status'=>'success'
@@ -80,7 +82,8 @@ class ProkerposyanduController extends Controller
                 'Kegiatan' => $request->Kegiatan,
                 'Caption' => $request->Caption,
                 'image'=>$imageName,
-                'Status' => $request->Status
+                'Status' => $request->Status,
+                'StatusLanding' => $request->StatusLanding
             ]);
             return response()->json([
                 'status'=>'success'

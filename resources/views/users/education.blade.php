@@ -25,12 +25,14 @@
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane"
-                        type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Stunting</button>
+                        type="button" role="tab" aria-controls="finance-tab-pane"
+                        aria-selected="false">Stunting</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane"
-                        type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Bahaya Seks Bebas</button>
+                        type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Bahaya Seks
+                        Bebas</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
@@ -50,299 +52,132 @@
                     <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel"
                         aria-labelledby="design-tab" tabindex="0">
                         <div class="row">
+                            @foreach ($prokerposyandu as $item)
+                            @if ($item->StatusLanding == "Bahaya Rokok")
                             <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                 <div class="custom-block bg-white shadow-lg">
-                                    <a href="/bahayarokok">
+                                    <a href="{{ url('/detail', $item->id) }}">
                                         <div class="d-flex">
                                             <div>
-                                                <h5 class="mb-2">Nikotin</h5>
+                                                <h5 class="mb-2">{{ $item->Nama }}</h5>
+                                                <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
 
-                                                <p class="mb-0">Seseorang yang kecanduan zat ini akan menjadi bergantungan.</p>
                                             </div>
 
                                             {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
                                         </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/nikotin.jpg"
-                                            class="custom-block-image img-fluid" alt="">
+                                        <img src="{{ url('edukasikegiatan', $item->image) }}"
+                                        class="custom-block-image img-fluid" alt="">
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <a href="/bahayarokok">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="mb-2">Graphic</h5>
-
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <span class="badge bg-design rounded-pill ms-auto">75</span>
-                                        </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Redesign_feedback_re_jvm0.png"
-                                            class="custom-block-image img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <a href="/bahayarokok">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="mb-2">Logo Design</h5>
-
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <span class="badge bg-design rounded-pill ms-auto">100</span>
-                                        </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/colleagues-working-cozy-office-medium-shot.png"
-                                            class="custom-block-image img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab"
                         tabindex="0">
                         <div class="row">
+                            @foreach ($prokerposyandu as $item)
+                            @if ($item->StatusLanding == "Bahaya Narkoba")
                             <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                 <div class="custom-block bg-white shadow-lg">
                                     <a href="topics-detail.html">
                                         <div class="d-flex">
                                             <div>
-                                                <h5 class="mb-2">Advertising</h5>
+                                                <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                             </div>
-
-                                            <span class="badge bg-advertising rounded-pill ms-auto">30</span>
                                         </div>
 
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_online_ad_re_ol62.png"
+                                        <img src="{{ url('edukasikegiatan', $item->image) }}"
                                             class="custom-block-image img-fluid" alt="">
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="mb-2">Video Content</h5>
-
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <span class="badge bg-advertising rounded-pill ms-auto">65</span>
-                                        </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Group_video_re_btu7.png"
-                                            class="custom-block-image img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="mb-2">Viral Tweet</h5>
-
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <span class="badge bg-advertising rounded-pill ms-auto">50</span>
-                                        </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_viral_tweet_gndb.png"
-                                            class="custom-block-image img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab"
                         tabindex="0">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
+                            @foreach ($prokerposyandu as $item)
+                            @if ($item->StatusLanding == "Stunting")
+                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                 <div class="custom-block bg-white shadow-lg">
                                     <a href="topics-detail.html">
                                         <div class="d-flex">
                                             <div>
-                                                <h5 class="mb-2">Investment</h5>
+                                                <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                             </div>
-
-                                            <span class="badge bg-finance rounded-pill ms-auto">30</span>
                                         </div>
 
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Finance_re_gnv2.png"
+                                        <img src="{{ url('edukasikegiatan', $item->image) }}"
                                             class="custom-block-image img-fluid" alt="">
                                     </a>
                                 </div>
                             </div>
+                            @endif
+                            @endforeach
 
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="custom-block custom-block-overlay">
-                                    <div class="d-flex flex-column h-100">
-                                        <img src="{{url('/')}}/fe/images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.html"
-                                            class="custom-block-image img-fluid" alt="">
-
-                                        <div class="custom-block-overlay-text d-flex">
-                                            <div>
-                                                <h5 class="text-white mb-2">Finance</h5>
-
-                                                <p class="text-white">Lorem ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Sint animi necessitatibus aperiam
-                                                    repudiandae nam omnis</p>
-
-                                                <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn
-                                                    More</a>
-                                            </div>
-
-                                            <span class="badge bg-finance rounded-pill ms-auto">25</span>
-                                        </div>
-
-                                        <div class="social-share d-flex">
-                                            <p class="text-white me-4">Share:</p>
-
-                                            <ul class="social-icon">
-                                                <li class="social-icon-item">
-                                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                                </li>
-
-                                                <li class="social-icon-item">
-                                                    <a href="#" class="social-icon-link bi-facebook"></a>
-                                                </li>
-
-                                                <li class="social-icon-item">
-                                                    <a href="#" class="social-icon-link bi-pinterest"></a>
-                                                </li>
-                                            </ul>
-
-                                            <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
-                                        </div>
-
-                                        <div class="section-overlay"></div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab"
                         tabindex="0">
                         <div class="row">
+                            @foreach ($prokerposyandu as $item)
+                            @if ($item->StatusLanding == "Bahaya Seks Bebas")
                             <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                 <div class="custom-block bg-white shadow-lg">
                                     <a href="topics-detail.html">
                                         <div class="d-flex">
                                             <div>
-                                                <h5 class="mb-2">Composing Song</h5>
+                                                <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                             </div>
-
-                                            <span class="badge bg-music rounded-pill ms-auto">45</span>
                                         </div>
 
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Compose_music_re_wpiw.png"
+                                        <img src="{{ url('edukasikegiatan', $item->image) }}"
                                             class="custom-block-image img-fluid" alt="">
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="mb-2">Online Music</h5>
-
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <span class="badge bg-music rounded-pill ms-auto">45</span>
-                                        </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_happy_music_g6wc.png"
-                                            class="custom-block-image img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="mb-2">Podcast</h5>
-
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <span class="badge bg-music rounded-pill ms-auto">20</span>
-                                        </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Podcast_audience_re_4i5q.png"
-                                            class="custom-block-image img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab"
                         tabindex="0">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
+                            @foreach ($prokerposyandu as $item)
+                            @if ($item->StatusLanding == "Kesehatan Reproduksi")
+                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                 <div class="custom-block bg-white shadow-lg">
                                     <a href="topics-detail.html">
                                         <div class="d-flex">
                                             <div>
-                                                <h5 class="mb-2">Graduation</h5>
+                                                <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                             </div>
-
-                                            <span class="badge bg-education rounded-pill ms-auto">80</span>
                                         </div>
 
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Graduation_re_gthn.png"
+                                        <img src="{{ url('edukasikegiatan', $item->image) }}"
                                             class="custom-block-image img-fluid" alt="">
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <a href="topics-detail.html">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="mb-2">Educator</h5>
-
-                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <span class="badge bg-education rounded-pill ms-auto">75</span>
-                                        </div>
-
-                                        <img src="{{url('/')}}/fe/images/topics/undraw_Educator_re_ju47.png"
-                                            class="custom-block-image img-fluid" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
