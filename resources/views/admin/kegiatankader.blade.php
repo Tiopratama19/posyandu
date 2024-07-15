@@ -1,6 +1,6 @@
 @extends('Template.templateadmin')
 @push('title')
-    POSYANDU | Kegiatan Kader
+    POSYANDU | Anggota Kader
 @endpush
 
 @push('css')
