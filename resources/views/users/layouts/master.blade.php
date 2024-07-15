@@ -67,6 +67,14 @@
                         </li>
 
                         <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Informasi Kegiatan</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Tentang Kami</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
                             <a href="#" class="site-footer-link">Kontak</a>
                         </li>
                     </ul>

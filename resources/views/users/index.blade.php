@@ -15,6 +15,7 @@
     @include('users.education')
     @include('users.conseling')
     @include('users.kader')
+    @include('users.kegiatan')
     @include('users.about')
     @include('users.contact')
 @endsection

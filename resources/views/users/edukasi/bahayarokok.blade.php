@@ -76,11 +76,15 @@ https://templatemo.com/tm-590-topic-listing
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_5">Tentang Kami</a>
+                            <a class="nav-link click-scroll" href="index.html#section_5">Informasi Kegiatan</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_6">Kontak</a>
+                            <a class="nav-link click-scroll" href="index.html#section_6">Tentang Kami</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="index.html#section_7">Kontak</a>
                         </li>
 
                         <li class="nav-item dropdown">

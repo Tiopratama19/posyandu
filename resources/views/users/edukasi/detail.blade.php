@@ -74,11 +74,16 @@ https://templatemo.com/tm-590-topic-listing
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_5">Tentang Kami</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_5">Informasi
+                                Kegiatan</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_6">Kontak</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_6">Tentang Kami</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_7">Kontak</a>
                         </li>
                         {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink"
@@ -228,6 +233,14 @@ https://templatemo.com/tm-590-topic-listing
 
                         <li class="site-footer-link-item">
                             <a href="#" class="site-footer-link">Informasi Kader</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Informasi Kegiatan</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Tentang Kami</a>
                         </li>
 
                         <li class="site-footer-link-item">
