@@ -63,9 +63,9 @@
                                     <a class="nav-link px-3 active" data-bs-toggle="tab" href="#overview"
                                         role="tab">Profile Singkat</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link px-3" data-bs-toggle="tab" href="#post" role="tab">Post</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         </div>
                         <!-- end tab pane -->
 
-                        <div class="tab-pane" id="post" role="tabpanel">
+                        {{-- <div class="tab-pane" id="post" role="tabpanel">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="blog-post">
@@ -166,20 +166,18 @@
                                 </div>
                                 <!-- end card body -->
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- end tab pane -->
                     </div>
                     <!-- end tab content -->
                 </div>
                 <!-- end col -->
 
-                <div class="col-xl-4 col-lg-4">
-
+                {{-- <div class="col-xl-4 col-lg-4">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title mb-0">Anggota Kader</h5>
                         </div>
-
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table align-middle table-nowrap">
@@ -293,7 +291,7 @@
                         </div>
                     </div>
                     <!-- end card -->
-                </div>
+                </div> --}}
                 <!-- end col -->
             </div>
             <!-- end row -->
