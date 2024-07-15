@@ -67,18 +67,18 @@
                                 @if ($item->StatusLanding == 'Ketua')
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                         <div class="custom-block bg-white shadow-lg">
-                                            <a href="{{ url('/detail', $item->id) }}">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">{{ $item->Nama }}</h5>
-                                                        <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
+                                            {{-- <a href="{{ url('/detail', $item->id) }}"> --}}
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">{{ $item->Nama }}</h5>
+                                                    <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
 
-                                                    </div>
-
-                                                    {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
                                                 </div>
-                                                <img src="{{ url('edukasikegiatan', $item->image) }}"
-                                                    class="custom-block-image img-fluid" alt="">
+
+                                                {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
+                                            </div>
+                                            <img src="{{ url('edukasikegiatan', $item->image) }}"
+                                                class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -94,17 +94,17 @@
                                 @if ($item->StatusLanding == 'Bahaya Narkoba')
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">{{ $item->Nama }}</h5>
+                                            {{-- <a href="topics-detail.html"> --}}
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                        <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
-                                                    </div>
+                                                    <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                                 </div>
+                                            </div>
 
-                                                <img src="{{ url('edukasikegiatan', $item->image) }}"
-                                                    class="custom-block-image img-fluid" alt="">
+                                            <img src="{{ url('edukasikegiatan', $item->image) }}"
+                                                class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -120,17 +120,17 @@
                                 @if ($item->StatusLanding == 'Stunting')
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">{{ $item->Nama }}</h5>
+                                            {{-- <a href="topics-detail.html"> --}}
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                        <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
-                                                    </div>
+                                                    <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                                 </div>
+                                            </div>
 
-                                                <img src="{{ url('edukasikegiatan', $item->image) }}"
-                                                    class="custom-block-image img-fluid" alt="">
+                                            <img src="{{ url('edukasikegiatan', $item->image) }}"
+                                                class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -147,17 +147,17 @@
                                 @if ($item->StatusLanding == 'Bahaya Seks Bebas')
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">{{ $item->Nama }}</h5>
+                                            {{-- <a href="topics-detail.html"> --}}
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                        <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
-                                                    </div>
+                                                    <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                                 </div>
+                                            </div>
 
-                                                <img src="{{ url('edukasikegiatan', $item->image) }}"
-                                                    class="custom-block-image img-fluid" alt="">
+                                            <img src="{{ url('edukasikegiatan', $item->image) }}"
+                                                class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -173,17 +173,17 @@
                                 @if ($item->StatusLanding == 'Kesehatan Reproduksi')
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">{{ $item->Nama }}</h5>
+                                            {{-- <a href="topics-detail.html"> --}}
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">{{ $item->Nama }}</h5>
 
-                                                        <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
-                                                    </div>
+                                                    <p class="mb-0">{!! html_entity_decode($item->Caption) !!}</p>
                                                 </div>
+                                            </div>
 
-                                                <img src="{{ url('edukasikegiatan', $item->image) }}"
-                                                    class="custom-block-image img-fluid" alt="">
+                                            <img src="{{ url('edukasikegiatan', $item->image) }}"
+                                                class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
