@@ -1,7 +1,7 @@
 <section class="explore-section section-padding" id="section_4">
     <div class="container">
         <div class="col-12 text-center">
-            <h2 class="mb-4">Informasi Kader</h1>
+            <h2 class="mb-4">Informasi Anggota</h1>
         </div>
 
     </div>

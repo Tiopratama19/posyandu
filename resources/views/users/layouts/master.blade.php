@@ -63,7 +63,7 @@
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">Informasi Kader</a>
+                            <a href="#" class="site-footer-link">Informasi Anggota</a>
                         </li>
 
                         <li class="site-footer-link-item">

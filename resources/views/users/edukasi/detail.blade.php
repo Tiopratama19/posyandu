@@ -70,7 +70,7 @@ https://templatemo.com/tm-590-topic-listing
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_4">Informasi Kader</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_4">Informasi Anggota</a>
                         </li>
 
                         <li class="nav-item">

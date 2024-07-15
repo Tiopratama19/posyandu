@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_4">Informasi Kader</a>
+                    <a class="nav-link click-scroll" href="#section_4">Informasi Anggota</a>
                 </li>
 
                 <li class="nav-item">
