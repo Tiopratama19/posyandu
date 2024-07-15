@@ -1,7 +1,7 @@
-<section class="explore-section section-padding" id="section_2">
+<section class="explore-section section-padding" id="section_4">
     <div class="container">
         <div class="col-12 text-center">
-            <h2 class="mb-4">Edukasi</h1>
+            <h2 class="mb-4">Informasi Kader</h1>
         </div>
 
     </div>
@@ -13,32 +13,44 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="design-tab" data-bs-toggle="tab"
                         data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane"
-                        aria-selected="true">Bahaya Rokok</button>
+                        aria-selected="true">Ketua</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
                         data-bs-target="#marketing-tab-pane" type="button" role="tab"
-                        aria-controls="marketing-tab-pane" aria-selected="false">Bahaya Narkoba</button>
+                        aria-controls="marketing-tab-pane" aria-selected="false">Sekretaris</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane"
                         type="button" role="tab" aria-controls="finance-tab-pane"
-                        aria-selected="false">Stunting</button>
+                        aria-selected="false">Bendahara</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane"
+                        type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Div.Agama
+                    </button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane"
-                        type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Bahaya Seks
-                        Bebas</button>
+                        type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Div.Budaya
+                    </button>
                 </li>
 
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="education-tab" data-bs-toggle="tab"
-                        data-bs-target="#education-tab-pane" type="button" role="tab"
-                        aria-controls="education-tab-pane" aria-selected="false">Kesehatan Reproduksi</button>
+                    <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane"
+                        type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Div.Humas
                 </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane"
+                        type="button" role="tab" aria-controls="finance-tab-pane"
+                        aria-selected="false">Div.Konseling</button>
+                </li>
+
             </ul>
         </div>
     </div>
@@ -52,7 +64,7 @@
                         aria-labelledby="design-tab" tabindex="0">
                         <div class="row">
                             @foreach ($prokerposyandu as $item)
-                                @if ($item->StatusLanding == 'Bahaya Rokok')
+                                @if ($item->StatusLanding == 'Ketua')
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                         <div class="custom-block bg-white shadow-lg">
                                             <a href="{{ url('/detail', $item->id) }}">
@@ -75,8 +87,8 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab"
-                        tabindex="0">
+                    <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel"
+                        aria-labelledby="marketing-tab" tabindex="0">
                         <div class="row">
                             @foreach ($prokerposyandu as $item)
                                 @if ($item->StatusLanding == 'Bahaya Narkoba')

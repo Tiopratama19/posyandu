@@ -1,5 +1,5 @@
 
-<section class="faq-section section-padding" id="section_4">
+<section class="faq-section section-padding" id="section_5">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-12">

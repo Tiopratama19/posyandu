@@ -18,11 +18,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
         rel="stylesheet">
 
-    <link href="{{url('/')}}/fe/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/fe/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="{{url('/')}}/fe/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ url('/') }}/fe/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="{{url('/')}}/fe/css/templatemo-topic-listing.css" rel="stylesheet">
+    <link href="{{ url('/') }}/fe/css/templatemo-topic-listing.css" rel="stylesheet">
     <!--
 
 TemplateMo 590 topic listing
@@ -39,8 +39,10 @@ https://templatemo.com/tm-590-topic-listing
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ url('/') }}/fe/logo/posyandu.png" style="max-width: 100%;
-                    height: 100px; filter: contrast(300%);" alt="">
+                    <img src="{{ url('/') }}/fe/logo/posyandu.png"
+                        style="max-width: 100%;
+                    height: 100px; filter: contrast(300%);"
+                        alt="">
                 </a>
 
                 <div class="d-lg-none ms-auto me-4">
@@ -68,13 +70,16 @@ https://templatemo.com/tm-590-topic-listing
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_4">Tentang Kami</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_4">Informasi Kader</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_5">Kontak</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_5">Tentang Kami</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_6">Kontak</a>
+                        </li>
                         {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
@@ -88,7 +93,9 @@ https://templatemo.com/tm-590-topic-listing
                     </ul>
 
                     <div class="d-none d-lg-block">
-                        <a href="{{ url('login') }}"><button class="btn btn-outline-light" style="filter: contrast(100%);">Masuk <i class="bi bi-box-arrow-in-right"></i></button></a>
+                        <a href="{{ url('login') }}"><button class="btn btn-outline-light"
+                                style="filter: contrast(100%);">Masuk <i
+                                    class="bi bi-box-arrow-in-right"></i></button></a>
                     </div>
                 </div>
             </div>
@@ -102,25 +109,29 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="col-lg-5 col-12 mb-5">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
+                                {{-- <li class="breadcrumb-item"><a href="">Kenapa Rokok Berbahaya</a></li> --}}
 
-                                <li class="breadcrumb-item active" aria-current="page">Web Design</li>
+                                <li class="breadcrumb-item active" aria-current="page">Kandungan rokok yang paling
+                                    sering disinggung adalah nikotin yang memiliki efek candu.
+                                    Nikotin berfungsi sebagai perantara dalam sistem saraf otak yang menyebabkan
+                                    berbagai
+                                    reaksi,
+                                    termasuk efek menyenangkan dan menenangkan.
+                                    Nikotin yang dihisap perokok akan terserap masuk ke aliran darah,
+                                    kemudian merangsang tubuh untuk memproduksi lebih banyak hormon adrenalin,
+                                    sehingga menyebabkan peningkatan tekanan darah, denyut jantung, dan pernapasan.</li>
                             </ol>
                         </nav>
-
                         <h2 class="text-white">Introduction to <br> Web Design 101</h2>
-
                         <div class="d-flex align-items-center mt-5">
-                            <a href="#topics-detail" class="btn custom-btn custom-border-btn smoothscroll me-4">Read
-                                More</a>
-
+                            <a href="#topics-detail" class="btn custom-btn custom-border-btn smoothscroll me-4"></a>
                             <a href="#top" class="custom-icon bi-bookmark smoothscroll"></a>
                         </div>
                     </div>
 
                     <div class="col-lg-5 col-12">
                         <div class="topics-detail-block bg-white shadow-lg">
-                            <img src="images/topics/undraw_Remote_design_team_re_urdx.png"
+                            <img src="images/public/edukasikegiatan/1720712688-668ffdf0111e2.jpg"
                                 class="topics-detail-block-image img-fluid">
                         </div>
                     </div>
@@ -130,7 +141,7 @@ https://templatemo.com/tm-590-topic-listing
         </header>
 
 
-        <section class="topics-detail-section section-padding" id="topics-detail">
+        {{-- <section class="topics-detail-section section-padding" id="topics-detail">
             <div class="container">
                 <div class="row">
 
@@ -158,23 +169,25 @@ https://templatemo.com/tm-590-topic-listing
 
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-
+        {{-- 
         <section class="section-padding section-bg">
             <div class="container">
                 <div class="row justify-content-center">
 
                     <div class="col-lg-5 col-12">
-                        <img src="images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid" alt="">
+                        <img src="images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid"
+                            alt="">
                     </div>
 
                     <div class="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
                         <form class="custom-form subscribe-form" action="#" method="post" role="form">
                             <h4 class="mb-4 pb-2">Get Newsletter</h4>
 
-                            <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*"
-                                class="form-control" placeholder="Email Address" required="">
+                            <input type="email" name="subscribe-email" id="subscribe-email"
+                                pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address"
+                                required="">
 
                             <div class="col-lg-12 col-12">
                                 <button type="submit" class="form-control">Subscribe</button>
@@ -184,7 +197,7 @@ https://templatemo.com/tm-590-topic-listing
 
                 </div>
             </div>
-        </section>
+        </section> --}}
     </main>
     <footer class="site-footer section-padding">
         <div class="container">
@@ -211,6 +224,10 @@ https://templatemo.com/tm-590-topic-listing
 
                         <li class="site-footer-link-item">
                             <a href="#" class="site-footer-link">Jadwal Konseling</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Informasi Kader</a>
                         </li>
 
                         <li class="site-footer-link-item">
@@ -251,7 +268,8 @@ https://templatemo.com/tm-590-topic-listing
                     </div> -->
 
                     <p class="copyright-text">Copyright © 2023 Posyandu Remaja.
-                        <br><br>Desain: <a rel="nofollow" href="https://templatemo.com/" target="_blank">Tio M.P.B</a>
+                        <br><br>Desain: <a rel="nofollow" href="https://templatemo.com/" target="_blank">Tio
+                            M.P.B</a>
                     </p>
 
                 </div>
@@ -261,10 +279,10 @@ https://templatemo.com/tm-590-topic-listing
     </footer>
 
     <!-- JAVASCRIPT FILES -->
-    <script src="{{url('/')}}/fe/js/jquery.min.js"></script>
-    <script src="{{url('/')}}/fe/js/bootstrap.bundle.min.js"></script>
-    <script src="{{url('/')}}/fe/js/jquery.sticky.js"></script>
-    <script src="{{url('/')}}/fe/js/custom.js"></script>
+    <script src="{{ url('/') }}/fe/js/jquery.min.js"></script>
+    <script src="{{ url('/') }}/fe/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url('/') }}/fe/js/jquery.sticky.js"></script>
+    <script src="{{ url('/') }}/fe/js/custom.js"></script>
 
 </body>
 

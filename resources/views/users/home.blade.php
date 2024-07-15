@@ -28,8 +28,8 @@
                                     TemplateMo is one of the best websites.</p>
                             </div> --}}
 
-                            {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
-                        {{-- </div>
+            {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
+            {{-- </div>
 
                         <img src="{{url('/')}}/fe/images/topics/undraw_Remote_design_team_re_urdx.png"
                             class="custom-block-image img-fluid" alt="">
@@ -38,12 +38,12 @@
             </div> --}}
 
             {{-- <div class="col-lg-6 col-12"> --}}
-                {{-- <div class="custom-block custom-block-overlay">
+            {{-- <div class="custom-block custom-block-overlay">
                     <div class="d-flex flex-column h-100">
                         <img src="{{url('/')}}/fe/images/businesswoman-using-tablet-analysis.jpg"
                             class="custom-block-image img-fluid" alt=""> --}}
 
-                        {{-- <div class="custom-block-overlay-text d-flex">
+            {{-- <div class="custom-block-overlay-text d-flex">
                             <div>
                                 <h5 class="text-white mb-2">Finance</h5>
 
@@ -55,9 +55,9 @@
                             </div>
 
                             {{-- <span class="badge bg-finance rounded-pill ms-auto">25</span> --}}
-                        {{-- </div> --}} --}}
+            {{-- </div> --}} --}}
 
-                        {{-- <div class="social-share d-flex">
+            {{-- <div class="social-share d-flex">
                             <p class="text-white me-4">Share:</p>
 
                             <ul class="social-icon">
@@ -70,11 +70,11 @@
                                 </li></a>
                         </div> --}}
 
-                        <div class="section-overlay"></div>
-                    </div>
-                </div>
-            </div>
-
+            <div class="section-overlay"></div>
         </div>
+    </div>
+    </div>
+
+    </div>
     </div>
 </section>

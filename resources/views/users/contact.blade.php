@@ -1,4 +1,4 @@
-<section class="contact-section section-padding section-bg" id="section_5">
+<section class="contact-section section-padding section-bg" id="section_6">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-12 text-center">
