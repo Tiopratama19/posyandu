@@ -34,15 +34,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_4">Informasi Kegiatan</a>
+                    <a class="nav-link click-scroll" href="#section_5">Informasi Kegiatan</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_4">Tentang Kami</a>
+                    <a class="nav-link click-scroll" href="#section_6">Tentang Kami</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_6">Kontak</a>
+                    <a class="nav-link click-scroll" href="#section_7">Kontak</a>
                 </li>
 
                 {{-- <li class="nav-item dropdown">
