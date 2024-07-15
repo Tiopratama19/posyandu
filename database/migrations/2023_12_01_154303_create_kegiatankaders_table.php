@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('kegiatankaders', function (Blueprint $table) {
             $table->id();
-            $table->date('Tanggal');
+            $table->date('TanggalBergabung');
             $table->string('Nama');
             $table->string('Jabatan');
-            $table->string('UraianKegiatan');
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 @extends('Template.templateadmin')
 @section('content')
     @push('title')
-        POSYANDU | Input Kegiatan Kader
+        POSYANDU | Input Anggota Kader
     @endpush
 
     @push('css')
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">Tambah Data</h4>
+                        <h4 class="mb-sm-0 font-size-18">Tambah Anggota</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
@@ -36,7 +36,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Silahkan Tambah Data</h4>
+                            <h4 class="card-title">Silahkan Tambah Anggota</h4>
 
                             <span style="float:right">
                                 <a href="/admin/kegiatankader" class="btn btn-danger">Kembali</a>
@@ -49,7 +49,7 @@
                                     <div class="col-lg-12">
                                         <div>
                                             <div class="mb-3">
-                                                <label for="example-text-input" class="form-label">Tanggal</label>
+                                                <label for="example-text-input" class="form-label">Tanggal Bergabung</label>
                                                 <input class="form-control" name="Tanggal" type="date" value=""
                                                     id="example-text-input">
                                             </div>
@@ -65,11 +65,6 @@
                                                 <label for="example-search-input" class="form-label">Jabatan</label>
                                                 <input class="form-control" name="Jabatan" type="text" value=""
                                                     id="example-search-input" onkeypress='return harusHuruf(event)'>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="example-email-input" class="form-label">Uraian Kegiatan</label>
-                                                <input class="form-control" name="UraianKegiatan" type="text"
-                                                    value="" id="example-email-input">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="example-text-input" class="form-label">Caption</label>
