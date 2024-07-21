@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jul 2024 pada 17.25
+-- Waktu pembuatan: 21 Jul 2024 pada 19.51
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -170,6 +170,29 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pesertakonselings`
+--
+
+CREATE TABLE `pesertakonselings` (
+  `id` int(11) NOT NULL,
+  `nik` varchar(55) NOT NULL,
+  `nama` varchar(55) NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `id_konselings` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `pesertakonselings`
+--
+
+INSERT INTO `pesertakonselings` (`id`, `nik`, `nama`, `email`, `id_konselings`, `created_at`, `updated_at`) VALUES
+(1, '3203012503770011', 'admin', 'muhammadsigit.hd@gmail.com', 1, '2024-07-21 10:02:05', '2024-07-21 10:02:05');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `prokerposyandus`
 --
 
@@ -297,6 +320,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indeks untuk tabel `pesertakonselings`
+--
+ALTER TABLE `pesertakonselings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `prokerposyandus`
 --
 ALTER TABLE `prokerposyandus`
@@ -354,6 +383,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pesertakonselings`
+--
+ALTER TABLE `pesertakonselings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `prokerposyandus`
