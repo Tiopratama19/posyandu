@@ -16,13 +16,15 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&amp;family=Open+Sans&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&amp;family=Open+Sans&amp;display=swap"
+        rel="stylesheet">
 
-    <link href="{{url('/')}}/fe/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/fe/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="{{url('/')}}/fe/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ url('/') }}/fe/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="{{url('/')}}/fe/css/templatemo-topic-listing.css" rel="stylesheet">
+    <link href="{{ url('/') }}/fe/css/templatemo-topic-listing.css" rel="stylesheet">
 </head>
 
 <body id="top">
@@ -58,6 +60,18 @@
 
                         <li class="site-footer-link-item">
                             <a href="#" class="site-footer-link">Jadwal Konseling</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Informasi Anggota</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Informasi Kegiatan</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Tentang Kami</a>
                         </li>
 
                         <li class="site-footer-link-item">
@@ -109,11 +123,11 @@
 
 
     <!-- JAVASCRIPT FILES -->
-    <script src="{{url('/')}}/fe/js/jquery.min.js"></script>
-    <script src="{{url('/')}}/fe/js/bootstrap.bundle.min.js"></script>
-    <script src="{{url('/')}}/fe/js/jquery.sticky.js"></script>
-    <script src="{{url('/')}}/fe/js/click-scroll.js"></script>
-    <script src="{{url('/')}}/fe/js/custom.js"></script>
+    <script src="{{ url('/') }}/fe/js/jquery.min.js"></script>
+    <script src="{{ url('/') }}/fe/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url('/') }}/fe/js/jquery.sticky.js"></script>
+    <script src="{{ url('/') }}/fe/js/click-scroll.js"></script>
+    <script src="{{ url('/') }}/fe/js/custom.js"></script>
 
     @stack('js')
 

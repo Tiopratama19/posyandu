@@ -8,16 +8,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bahaya Rokok</title>
-
+    <title>Topic Detail Page</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&amp;family=Open+Sans&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
         rel="stylesheet">
 
     <link href="{{ url('/') }}/fe/css/bootstrap.min.css" rel="stylesheet">
@@ -37,15 +35,14 @@ https://templatemo.com/tm-590-topic-listing
 <body id="top">
 
     <main>
-        <a class="navbar-brand" href="#">
-            <img src="{{ url('/') }}/fe/logo/posyandu.png"
-                style="max-width: 100%;height: 100px; filter: contrast(300%);" alt="">
-        </a>
+
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="admin.users.education">
-                    <i class="bi-back"></i>
-                    <span>Bahaya Rokok</span>
+                <a class="navbar-brand" href="#">
+                    <img src="{{ url('/') }}/fe/logo/posyandu.png"
+                        style="max-width: 100%;
+                    height: 100px; filter: contrast(300%);"
+                        alt="">
                 </a>
 
                 <div class="d-lg-none ms-auto me-4">
@@ -59,35 +56,36 @@ https://templatemo.com/tm-590-topic-listing
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
+
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_1">Beranda</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_1">Beranda</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_2">Edukasi</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_2">Edukasi</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_3">Jadwal Konseling</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_3">Jadwal Konseling</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_4">Informasi Anggota</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_4">Informasi Anggota</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_5">Informasi Kegiatan</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_5">Informasi
+                                Kegiatan</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_6">Tentang Kami</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_6">Tentang Kami</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="index.html#section_7">Kontak</a>
+                            <a class="nav-link click-scroll" href="{{ url('/') }}/#section_7">Kontak</a>
                         </li>
-
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
 
@@ -96,11 +94,13 @@ https://templatemo.com/tm-590-topic-listing
 
                                 <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
 
                     <div class="d-none d-lg-block">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        <a href="{{ url('login') }}"><button class="btn btn-outline-light"
+                                style="filter: contrast(100%);">Masuk <i
+                                    class="bi bi-box-arrow-in-right"></i></button></a>
                     </div>
                 </div>
             </div>
@@ -113,25 +113,30 @@ https://templatemo.com/tm-590-topic-listing
 
                     <div class="col-lg-5 col-12 mb-5">
                         <nav aria-label="breadcrumb">
-                            {{-- <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index">Homepage</a></li>
+                            <ol class="breadcrumb">
+                                {{-- <li class="breadcrumb-item"><a href="">Kenapa Rokok Berbahaya</a></li> --}}
 
-                                    <li class="breadcrumb-item active" aria-current="page">Web Design</li>
-                                </ol> --}}
+                                <li class="breadcrumb-item active" aria-current="page">Kandungan rokok yang paling
+                                    sering disinggung adalah nikotin yang memiliki efek candu.
+                                    Nikotin berfungsi sebagai perantara dalam sistem saraf otak yang menyebabkan
+                                    berbagai
+                                    reaksi,
+                                    termasuk efek menyenangkan dan menenangkan.
+                                    Nikotin yang dihisap perokok akan terserap masuk ke aliran darah,
+                                    kemudian merangsang tubuh untuk memproduksi lebih banyak hormon adrenalin,
+                                    sehingga menyebabkan peningkatan tekanan darah, denyut jantung, dan pernapasan.</li>
+                            </ol>
                         </nav>
-
-                        <h2 class="text-white">Pengenalan<br> Bahaya Rokok</h2>
-
-                        {{-- <div class="d-flex align-items-center mt-5">
-                                <a href="#topics-detail" class="btn custom-btn custom-border-btn smoothscroll me-4">Read More</a>
-
-                                <a href="#top" class="custom-icon bi-bookmark smoothscroll"></a>
-                            </div> --}}
+                        <h2 class="text-white">Introduction to <br> Web Design 101</h2>
+                        <div class="d-flex align-items-center mt-5">
+                            <a href="#topics-detail" class="btn custom-btn custom-border-btn smoothscroll me-4"></a>
+                            <a href="#top" class="custom-icon bi-bookmark smoothscroll"></a>
+                        </div>
                     </div>
 
                     <div class="col-lg-5 col-12">
                         <div class="topics-detail-block bg-white shadow-lg">
-                            <img src="{{ url('/') }}/fe/images/topics/undraw_Remote_design_team_re_urdx.png"
+                            <img src="images/public/edukasikegiatan/1720712688-668ffdf0111e2.jpg"
                                 class="topics-detail-block-image img-fluid">
                         </div>
                     </div>
@@ -141,57 +146,44 @@ https://templatemo.com/tm-590-topic-listing
         </header>
 
 
-        <section class="topics-detail-section section-padding" id="topics-detail">
+        {{-- <section class="topics-detail-section section-padding" id="topics-detail">
             <div class="container">
                 <div class="row">
 
                     <div class="col-lg-8 col-12 m-auto">
-                        <h3 class="mb-4">Berikut Adalah Bahaya Dari Nikotin</h3>
+                        <h3 class="mb-4">{{ $prokerposyandu->Nama }}</h3>
 
-                        <p>Kandungan rokok yang paling sering disinggung adalah nikotin yang memiliki efek candu.
-                            Nikotin berfungsi sebagai perantara dalam sistem saraf otak yang menyebabkan berbagai
-                            reaksi,
-                            termasuk efek menyenangkan dan menenangkan.
-                            Nikotin yang dihisap perokok akan terserap masuk ke aliran darah,
-                            kemudian merangsang tubuh untuk memproduksi lebih banyak hormon adrenalin,
-                            sehingga menyebabkan peningkatan tekanan darah, denyut jantung, dan pernapasan.</p>
-                        <p><strong>There are so many ways to make money online</strong>. Below are several platforms you
-                            can use to find success. Keep in mind that there is no one path everyone can take. If that
-                            were the case, everyone would have a million dollars.</p>
-
-                        <blockquote>
-                            Freelancing your skills isn’t going to make you a millionaire overnight.
-                        </blockquote>
+                        <p>{!! html_entity_decode($prokerposyandu->Caption) !!}.</p>
 
                         <div class="row my-4">
                             <div class="col-lg-6 col-md-6 col-12">
-                                <img src="{{ url('/') }}/fe/images/businesswoman-using-tablet-analysis.jpg"
+                                <img src="images/businesswoman-using-tablet-analysis.jpg"
                                     class="topics-detail-block-image img-fluid">
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0 mt-md-0">
-                                <img src="{{ url('/') }}/fe/images/colleagues-working-cozy-office-medium-shot.jpg"
+                                <img src="images/colleagues-working-cozy-office-medium-shot.jpg"
                                     class="topics-detail-block-image img-fluid">
                             </div>
                         </div>
 
-                        <p>Nikotin yang terkandg di dalam rokok dapat merangsang otak melepas hormon dopamin membuat
-                            senang,
-                            sehingga menimbulkan efek ketergantungan.</p>
+                        <p>Most people start with freelancing skills they already have as a side hustle to build up
+                            income. This extra cash can be used for a vacation, to boost up savings, investing, build
+                            business.</p>
                     </div>
 
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-
+        {{-- 
         <section class="section-padding section-bg">
             <div class="container">
                 <div class="row justify-content-center">
 
                     <div class="col-lg-5 col-12">
-                        <img src="{{ url('/') }}/fe/images/rear-view-young-college-student.jpg"
-                            class="newsletter-image img-fluid" alt="">
+                        <img src="images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid"
+                            alt="">
                     </div>
 
                     <div class="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
@@ -210,17 +202,16 @@ https://templatemo.com/tm-590-topic-listing
 
                 </div>
             </div>
-        </section>
+        </section> --}}
     </main>
-
     <footer class="site-footer section-padding">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-3 col-12 mb-4 pb-2">
-                    <a class="navbar-brand mb-2" href="index">
+                    <a class="navbar-brand mb-2" href="index.html">
                         <i class="bi-back"></i>
-                        <span>Topic</span>
+                        <span>Posyandu</span>
                     </a>
                 </div>
 
@@ -233,7 +224,19 @@ https://templatemo.com/tm-590-topic-listing
                         </li>
 
                         <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Edukasi</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
                             <a href="#" class="site-footer-link">Jadwal Konseling</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Informasi Kader</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Informasi Kegiatan</a>
                         </li>
 
                         <li class="site-footer-link-item">
@@ -247,43 +250,44 @@ https://templatemo.com/tm-590-topic-listing
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-                    <h6 class="site-footer-title mb-3">Information</h6>
+                    <h6 class="site-footer-title mb-3">Informasi</h6>
 
                     <p class="text-white d-flex mb-1">
-                        <a href="tel: 305-240-9671" class="site-footer-link">
-                            305-240-9671
+                        <a href="tel: 083894328358" class="site-footer-link">
+                            083894328358
                         </a>
                     </p>
 
                     <p class="text-white d-flex">
-                        <a href="mailto:info@company.com" class="site-footer-link">
-                            info@company.com
+                        <a href="mailto:posyandumentari@gmail.com" class="site-footer-link">
+                            posyandumentari@gmail.com
                         </a>
                     </p>
                 </div>
 
-                {{-- <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                    <!-- <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             English</button>
 
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Thai</button></li>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">Thai</button></li>
 
-                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
+                            <li><button class="dropdown-item" type="button">Myanmar</button></li>
 
-                                <li><button class="dropdown-item" type="button">Arabic</button></li>
-                            </ul>
-                        </div> --}}
+                            <li><button class="dropdown-item" type="button">Arabic</button></li>
+                        </ul>
+                    </div> -->
 
-                <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Topic Listing Center. All rights reserved.
-                    <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a>
-                    Distribution <a href="https://themewagon.com">ThemeWagon</a>
-                </p>
+                    <p class="copyright-text">Copyright © 2023 Posyandu Remaja.
+                        <br><br>Desain: <a rel="nofollow" href="https://templatemo.com/" target="_blank">Tio
+                            M.P.B</a>
+                    </p>
+
+                </div>
 
             </div>
-
-        </div>
         </div>
     </footer>
 

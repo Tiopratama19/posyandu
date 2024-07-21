@@ -40,6 +40,7 @@ Route::post('/postLogin', [AuthController::class, 'postLogin'])->name('admin.log
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout', [LogoutadminController::class, 'index'])->name('admin.logoutPage');
 
+Route::get('/detail/{id}', [LandingController::class, 'detail']);
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
@@ -53,14 +54,20 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('/updatedata/{id}', [DataremajaController::class, 'updatedata'])->name('upadatedata');
         Route::get('/deletedata/{id}', [DataremajaController::class, 'deletedata'])->name('deletedata');
 
+        Route::controller(RiwayatController::class)->group(function () {
+            Route::get('/riwayat', 'index')->name('riwayat');
+            Route::get('/tambahriwayat', 'tambah')->name('tambahriwayat');
+            Route::post('/insertriwayat', 'insert')->name('insertriwayat');
+            Route::get('/tampilriwayat/{id}', 'tampildata')->name('tampilriwayat');
+            Route::post('/updateriwayat/{id}', 'updatedata')->name('upadateriwayat');
+            Route::get('/deleteriwayat/{id}', 'deletedata')->name('deleteriwayat');
 
-        Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
-        Route::get('/tambahriwayat', [RiwayatController::class, 'tambah'])->name('tambahriwayat');
-        Route::post('/insertriwayat', [RiwayatController::class, 'insert'])->name('insertriwayat');
-        Route::get('/tampilriwayat/{id}', [RiwayatController::class, 'tampildata'])->name('tampilriwayat');
-        Route::post('/updateriwayat/{id}', [RiwayatController::class, 'updatedata'])->name('upadateriwayat');
-        Route::get('/deleteriwayat/{id}', [RiwayatController::class, 'deletedata'])->name('deleteriwayat');
-        Route::get('/riwayat/{id}', [RiwayatController::class, 'riwayatdetail'])->name('riwayatdetail');
+            // edited
+            Route::get('/riwayat/{dataremaja}', 'riwayatdetail')->name('riwayatdetail');
+            Route::get('/riwayat/{dataremaja}/create', 'riwayatCreate')->name('dataremaja.riwayat-create');
+            Route::post('/riwayat/{dataremaja}', 'riwayatStore')->name('dataremaja.riwayat-store');
+        });
+
 
         Route::get('/jadwalkonseling', [JadwalkonselingController::class, 'index'])->name('jadwalkonseling');
         Route::get('/tambahjadwal', [JadwalkonselingController::class, 'tambah'])->name('tambahjadwal');
@@ -87,14 +94,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
         Route::get('/profile', [ProfileController::class, 'index']);
 
-
         Route::get('/filterdataremaja', [DataremajaController::class, 'filterGetDataRemaja']);
-
      });
-            Route::prefix('laporan')->group(function () {
-                Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
-                Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
 
-            });
-    }
-);
+    Route::prefix('laporan')->group(function () {
+        Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
+        Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
+
+    });
+});

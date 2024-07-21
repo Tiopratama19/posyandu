@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="{{ url('/') }}/fe/logo/posyandu.png" style="max-width: 100%;
+            <img src="{{ url('/') }}/fe/logo/posyandu.png"
+                style="max-width: 100%;
             height: 100px; filter: contrast(300%);" alt="">
         </a>
 
@@ -29,11 +30,19 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_4">Tentang Kami</a>
+                    <a class="nav-link click-scroll" href="#section_4">Informasi Anggota</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_5">Kontak</a>
+                    <a class="nav-link click-scroll" href="#section_5">Informasi Kegiatan</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_6">Tentang Kami</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_7">Kontak</a>
                 </li>
 
                 {{-- <li class="nav-item dropdown">
@@ -49,7 +58,8 @@
             </ul>
 
             <div class="d-none d-lg-block">
-                <a href="{{ url('login') }}"><button class="btn btn-outline-light" style="filter: contrast(100%);">Masuk <i class="bi bi-box-arrow-in-right"></i></button></a>
+                <a href="{{ url('login') }}"><button class="btn btn-outline-light"
+                        style="filter: contrast(100%);">Masuk <i class="bi bi-box-arrow-in-right"></i></button></a>
             </div>
         </div>
     </div>

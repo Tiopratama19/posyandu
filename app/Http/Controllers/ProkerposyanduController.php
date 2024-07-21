@@ -36,13 +36,43 @@ class ProkerposyanduController extends Controller
                 'Kegiatan' => $request->Kegiatan,
                 'Caption' => $request->Caption,
                 'image'=>$imageName,
-                'Status' => $request->Status
+                'Status' => $request->Status,
+                'StatusLanding' => $request->StatusLanding
              ]);
+
              return response()->json([
                 'status'=>'success'
              ]);
         }
-        // dd($data);
+
+        $request->validate([
+            'Tipe' => 'required',
+            'edukasi' => 'required',
+            'kegiatan' => 'nullable|required_if:Tipe,Proker',
+            'tanggal' => 'nullable|required_if:Tipe,Proker|date',
+            'jenis_edukasi' => 'nullable|required_if:Tipe,Edukasi',
+            'Caption' => 'required',
+            'image' => 'required|image',
+        ]);
+
+        $imageName = null;
+
+        if ($image = $request->file('image')){
+            $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $image->move('edukasikegiatan', $imageName);
+        }
+
+        Prokerposyandu::create([
+            'Tanggal' => $request->tanggal,
+            'Nama' => $request->edukasi,
+            'image' => $imageName,
+            'Kegiatan' => $request->kegiatan,
+            'Caption' => $request->Caption,
+            'Status' => $request->Tipe,
+            'StatusLanding' => $request->jenis_edukasi,
+        ]);
+
+        return to_route('prokerposyandu')->with('success', 'Proker telah ditambahkan');
     }
 
     public function tampildata($id)
@@ -62,7 +92,8 @@ class ProkerposyanduController extends Controller
                 'Tanggal' => $request->Tanggal,
                 'Kegiatan' => $request->Kegiatan,
                 'Caption' => $request->Caption,
-                'Status' => $request->Status
+                'Status' => $request->Status,
+                'StatusLanding' => $request->StatusLanding
             ]);
             return response()->json([
                 'status'=>'success'
@@ -80,7 +111,8 @@ class ProkerposyanduController extends Controller
                 'Kegiatan' => $request->Kegiatan,
                 'Caption' => $request->Caption,
                 'image'=>$imageName,
-                'Status' => $request->Status
+                'Status' => $request->Status,
+                'StatusLanding' => $request->StatusLanding
             ]);
             return response()->json([
                 'status'=>'success'

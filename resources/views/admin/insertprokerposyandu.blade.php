@@ -4,10 +4,6 @@
 POSYANDU | Input Proker Posyandu
 @endpush
 
-@push('css')
-
-@endpush
-
 @section('content')
 
 <div class="page-content">
@@ -39,42 +35,74 @@ POSYANDU | Input Proker Posyandu
                     <div class="card-body p-4">
 
                         <div class="row">
-                            <form id="insertproker" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('insertproker') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Tipe</label>
-                                        <select class="form-select" name="Status" aria-label="JenisKelamin" onchange="handleSelectChange(event)">
-                                            <option selected>Pilih Salah Satu</option>
-                                            <option value="Proker">Kegiatan</option>
-                                            <option value="Edukasi">Edukasi</option>
+                                        <select class="form-select" name="Tipe" aria-label="Tipe" required onchange="handleSelectChange(event)">
+                                            <option value="">Pilih Salah Satu</option>
+                                            <option @selected(old('Tipe') == 'Proker') value="Proker">Kegiatan</option>
+                                            <option @selected(old('Tipe') == 'Edukasi') value="Edukasi">Edukasi</option>
                                         </select>
-                                        {{-- <input class="form-control" name="JenisKelamin" type="text" value="" id="example-tel-input"> --}}
                                     </div>
 
                                     <div class="">
                                         <input type="hidden" name="id"  id="id">
                                     </div>
-                                    <div class="mb-3" id="nama">
-                                        <label for="example-text-input" class="form-label">Edukasi</label>
-                                        <input class="form-control" name="Nama" type="text" value=""
-                                            id="example-text-input">
+
+                                    <div class="mb-3" id="edukasi">
+                                        {{-- nama --}}
+                                        <label for="edukasiInput" class="form-label">Edukasi</label>
+                                        <input id="edukasiInput" class="form-control {{ $errors->has('edukasi') ? 'is-invalid' : '' }}" name="edukasi" value="{{ old('edukasi') }}">
+                                        @error('edukasi')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3" id="kegiatan">
+                                        {{-- kegiatan --}}
+                                        <label for="kegiatanInput" class="form-label">Kegiatan</label>
+                                        <input id="kegiatanInput" class="form-control {{ $errors->has('kegiatan') ? 'is-invalid' : '' }}" name="kegiatan" value="{{ old('kegiatan') }}">
+                                        @error('kegiatan')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    {{-- <div class="mb-3" id="kegiatan">
                                         <label for="example-text-input" class="form-label">Kegiatan</label>
                                         <input class="form-control" name="Kegiatan" type="text" value=""
                                             id="example-text-input">
-                                    </div>
-                                    <div class="mb-3" id="tanggal">
+                                    </div> --}}
+                                    {{-- <div class="mb-3" id="tanggal">
                                         <label for="example-text-input" class="form-label">Tanggal</label>
                                         <input class="form-control" name="Tanggal" type="date" value=""
                                             id="example-text-input">
+                                    </div> --}}
+
+                                    <div class="mb-3" id="tanggal">
+                                        {{-- tanggal --}}
+                                        <label for="tanggalInput" class="form-label">Tanggal</label>
+                                        <input id="tanggalInput" type="date" class="form-control {{ $errors->has('tanggal') ? 'is-invalid' : '' }}" name="tanggal" value="{{ old('tanggal') }}">
+                                        @error('tanggal')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3" id="StatusLanding">
+                                        <label for="example-tel-input" class="form-label">Jenis Edukasi</label>
+                                        <select class="form-select" name="jenis_edukasi">
+                                            <option value="">Pilih Salah Satu</option>
+                                            <option value="Bahaya Rokok" >Bahaya Rokok</option>
+                                            <option value="Bahaya Narkoba">Bahaya Narkoba</option>
+                                            <option value="Stunting">Stunting</option>
+                                            <option value="Bahaya Seks Bebas">Bahaya Seks Bebas</option>
+                                            <option value="Kesehatan Reproduksi">Kesehatan Reproduksi</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="example-text-input" class="form-label">Caption</label>
-                                        <textarea class="form-control" id="Caption" placeholder="Enter the Caption"
-                                            rows="5" name="Caption"></textarea>
+                                        <textarea class="form-control" id="Caption" placeholder="Enter the Caption" rows="5" name="Caption"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <img src="{{ asset('1200px-No_Preview_image_2.png') }}" width="200" height="200"
@@ -126,11 +154,13 @@ POSYANDU | Input Proker Posyandu
                 $("#nama").hide();
                 $("#tanggal").show();
                 $("#kegiatan").show();
+                $("#StatusLanding").hide();
            } else if(selectedValue == 'Edukasi') {
                 $("#nama").show();
                 $("#tanggal").hide();
                 $("#kegiatan").hide();
-           }
+                $("#StatusLanding").show();
+            }
         }
 
     ClassicEditor

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jul 2024 pada 19.37
+-- Waktu pembuatan: 14 Jul 2024 pada 14.57
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -181,6 +181,7 @@ CREATE TABLE `prokerposyandus` (
   `Kegiatan` varchar(255) DEFAULT NULL,
   `Caption` text DEFAULT NULL,
   `Status` enum('Proker','Edukasi','','') NOT NULL,
+  `StatusLanding` enum('Bahaya Rokok','Bahaya Narkoba','Stunting','Bahaya Seks Bebas','Kesehatan Reproduksi') DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -189,11 +190,15 @@ CREATE TABLE `prokerposyandus` (
 -- Dumping data untuk tabel `prokerposyandus`
 --
 
-INSERT INTO `prokerposyandus` (`id`, `Nama`, `Tanggal`, `image`, `Kegiatan`, `Caption`, `Status`, `created_at`, `updated_at`) VALUES
-(6, 'Tio Kntl', NULL, '1720714580-6690055463d12.jpg', NULL, '<p>a</p>', 'Edukasi', '2024-07-11 09:16:20', '2024-07-11 09:16:20'),
-(7, NULL, '2024-07-11', '1720714747-669005fbe4be4.jpg', 'asasa', '<p>asasa</p>', 'Proker', '2024-07-11 09:19:07', '2024-07-11 09:19:07'),
-(8, NULL, '2024-07-12', '1720715375-6690086f034f4.jpg', 'aa', '<p>asas</p>', 'Proker', '2024-07-11 09:29:35', '2024-07-11 09:29:35'),
-(9, 'Sigit ganteng', NULL, '1720715456-669008c0629b5.jpg', NULL, '<p>asas</p><figure class=\"table\"><table><tbody><tr><td>asa</td><td>asas</td><td>asas</td></tr><tr><td>asas</td><td>asa</td><td>asas</td></tr><tr><td>asa</td><td>sasas</td><td>asas</td></tr></tbody></table></figure>', 'Edukasi', '2024-07-11 09:30:56', '2024-07-11 09:30:56');
+INSERT INTO `prokerposyandus` (`id`, `Nama`, `Tanggal`, `image`, `Kegiatan`, `Caption`, `Status`, `StatusLanding`, `created_at`, `updated_at`) VALUES
+(6, 'Tio Kntl', NULL, '1720714580-6690055463d12.jpg', NULL, '<p>a</p>', 'Edukasi', 'Bahaya Narkoba', '2024-07-11 09:16:20', '2024-07-11 09:16:20'),
+(7, NULL, '2024-07-11', '1720714747-669005fbe4be4.jpg', 'asasa', '<p>asasa</p>', 'Proker', NULL, '2024-07-11 09:19:07', '2024-07-11 09:19:07'),
+(8, NULL, '2024-07-12', '1720715375-6690086f034f4.jpg', 'aa', '<p>asas</p>', 'Proker', NULL, '2024-07-11 09:29:35', '2024-07-11 09:29:35'),
+(9, 'Sigit ganteng', NULL, '1720715456-669008c0629b5.jpg', NULL, '<p>asas</p><figure class=\"table\"><table><tbody><tr><td>asa</td><td>asas</td><td>asas</td></tr><tr><td>asas</td><td>asa</td><td>asas</td></tr><tr><td>asa</td><td>sasas</td><td>asas</td></tr></tbody></table></figure>', 'Edukasi', 'Bahaya Narkoba', '2024-07-11 09:30:56', '2024-07-11 09:30:56'),
+(10, 'Bahaya Rokok 1', NULL, '1720952021-6693a4d55dc3b.jpg', NULL, '<p>AAAAAAAAAAA</p>', 'Edukasi', 'Bahaya Rokok', '2024-07-14 03:13:41', '2024-07-14 03:13:41'),
+(11, 'Memek', NULL, '1720952431-6693a66fcdeeb.jpg', NULL, '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'Edukasi', 'Bahaya Rokok', '2024-07-14 03:20:31', '2024-07-14 03:20:31'),
+(12, 'Sigit Ganteng', NULL, '1720953132-6693a92c9b831.jpg', NULL, '<ul><li>1111</li><li>22</li></ul><p>&nbsp;</p><p>2</p><p>3</p><p>&nbsp;</p><p>3</p><p>3</p><p>3</p>', 'Edukasi', 'Bahaya Rokok', '2024-07-14 03:30:45', '2024-07-14 03:32:12'),
+(13, 'Tio kntl', NULL, '1720953484-6693aa8c21dab.jpg', NULL, '<p>aaa</p>', 'Edukasi', 'Stunting', '2024-07-14 03:38:04', '2024-07-14 03:38:04');
 
 -- --------------------------------------------------------
 
@@ -360,7 +365,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `prokerposyandus`
 --
 ALTER TABLE `prokerposyandus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `riwayats`

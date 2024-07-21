@@ -2,17 +2,33 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// use App\Models\Counseling;
+use App\Models\Kegiatankader;
+use App\Models\Prokerposyandu;
+use App\Models\JadwalKonseling;
+use App\Http\Controllers\Controller;
+
 class LandingController extends Controller
 {
     function index()
     {
-        // $data = [
-        //     'counseling' => Counseling::orderBy('TanggalKegiatan', 'DESC')->paginate(3),
-        // ];
+        $data = [
+            'counseling' => JadwalKonseling::orderBy('TanggalKegiatan', 'DESC')->paginate(3),
+            'prokerposyandu' => Prokerposyandu::orderBy('created_at', 'ASC')->where('Status', 'Edukasi')->get(),
+            'anggota' => Kegiatankader::get()->groupBy('Jabatan'),
+        ];
 
-        return view('users.index');
+        return view('users.index', $data);
+    }
+
+    function detail($id)
+    {
+        $data = [
+            'prokerposyandu' => Prokerposyandu::orderBy('created_at', 'ASC')->where('Status', 'Edukasi')
+            ->where('id', $id)
+            ->first()
+        ];
+
+        return view('users.edukasi.detail', $data);
     }
 }
