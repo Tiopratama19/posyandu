@@ -54,6 +54,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('/updatedata/{id}', [DataremajaController::class, 'updatedata'])->name('upadatedata');
         Route::get('/deletedata/{id}', [DataremajaController::class, 'deletedata'])->name('deletedata');
 
+
         Route::controller(RiwayatController::class)->group(function () {
             Route::get('/riwayat', 'index')->name('riwayat');
             Route::get('/tambahriwayat', 'tambah')->name('tambahriwayat');
@@ -76,6 +77,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('/updatejadwal/{id}', [JadwalkonselingController::class, 'updatedata'])->name('upadatejadwal');
         Route::get('/deletejadwal/{id}', [JadwalkonselingController::class, 'deletedata'])->name('deletejadwal');
 
+        Route::get('/getpeserta/{id}', [JadwalKonselingController::class, 'getPeserta']);
+        Route::post('/tambahpeserta/{id}', [JadwalKonselingController::class, 'tambahpeserta']);
 
         Route::get('/prokerposyandu',[ProkerposyanduController::class, 'index'])->name('prokerposyandu');
         Route::get('/tambahproker', [ProkerposyanduController::class, 'tambah'])->name('tambahproker');

@@ -44,7 +44,8 @@
                                     <button class="btn btn-danger" id="button_close_print">Tutup <i
                                             class="fa fa-window-close"></i></button>
                                 </div>
-                                <form action="#">
+                                <form action="#" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3">
@@ -211,13 +212,13 @@
                 }
             });
             $(this).on('click', '#button_print', function(e) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal',
-                    text: 'Yahhh fitur ini sedang dalam pengembangan!',
-                });
-                // $('#cardPrint').show();
-                // $('#button_print').attr('disabled', true);
+                // Swal.fire({
+                //     icon: 'error',
+                //     title: 'Gagal',
+                //     text: 'Yahhh fitur ini sedang dalam pengembangan!',
+                // });
+                $('#cardPrint').show();
+                $('#button_print').attr('disabled', true);
             });
 
             $(this).on('click', '#button_close_print', function(e) {
@@ -358,17 +359,14 @@
                                     responseType: 'blob'
                                 },
                                 success: function(response) {
-                                    const {
-                                        filename,
-                                        downloadUrl
-                                    } = response;
+                                    const filename = response.filename;
+                                    const downloadUrl = response.downloadUrl;
 
                                     fetch(downloadUrl)
                                         .then(response => response.blob())
                                         .then(blob => {
                                             var link = document.createElement('a');
-                                            link.href = window.URL.createObjectURL(
-                                                blob);
+                                            link.href = window.URL.createObjectURL(blob);
                                             link.download = filename;
                                             document.body.appendChild(link);
                                             link.click();
@@ -382,8 +380,9 @@
                                         .catch(error => console.error(
                                             'Error downloading the PDF:', error));
                                 },
-                                error: function(blob) {
-                                    console.log(blob);
+                                error: function(xhr, status, error) {
+                                    console.error('AJAX Error:', status, error);
+                                    console.error('Response:', xhr.responseText);
                                 }
                             });
                         }

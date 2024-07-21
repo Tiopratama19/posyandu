@@ -25,6 +25,8 @@
     <link href="{{ url('/') }}/fe/css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="{{ url('/') }}/fe/css/templatemo-topic-listing.css" rel="stylesheet">
+
+    @stack('css')
 </head>
 
 <body id="top">

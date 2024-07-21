@@ -8,60 +8,81 @@ use Illuminate\Support\Facades\DB;
 use PDF;
 use Illuminate\Support\Facades\Response;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 class DataRemajaController extends Controller
 {
     function downloadDataremaja($tglawal, $tglakhir)
     {
         app()->setLocale('id');
 
-        // Convert dates to Carbon objects and then to the desired format
-        $date1 = Carbon::createFromFormat('D M d Y H:i:s T', $tglawal);
-        $date2 = Carbon::createFromFormat('D M d Y H:i:s T', $tglakhir);
+        try {
+            // Convert dates to Carbon objects and then to the desired format
+            $date1 = Carbon::createFromFormat('D M d Y H:i:s T', $tglawal);
+            $date2 = Carbon::createFromFormat('D M d Y H:i:s T', $tglakhir);
+        } catch (\Exception $e) {
+            Log::error('Invalid date format: ' . $e->getMessage());
+            return response()->json(['error' => 'Invalid date format'], 400);
+        }
+
         $tglawal_conv = $date1->format('Y-m-d');
         $tglakhir_conv = $date2->format('Y-m-d');
 
-        // Fetch data from database based on date range
-        $remaja = DB::table('dataremajas')
-            ->join('riwayats', 'dataremajas.id', '=', 'riwayats.id_dataremaja')
-            ->select(
-                'dataremajas.*',
-                'dataremajas.id as id_remajas',
-                'riwayats.*'
-            )
-            ->whereBetween('riwayats.tanggal', [$tglawal_conv, $tglakhir_conv])
-            ->get();
-
-        $response = [];
-        foreach ($remaja as $key => $value) {
-            // Fetch individual data based on ID
-            $getdataremaja = DB::table('dataremajas')
+        try {
+            // Fetch data from database based on date range
+            $remaja = DB::table('dataremajas')
                 ->join('riwayats', 'dataremajas.id', '=', 'riwayats.id_dataremaja')
                 ->select(
                     'dataremajas.*',
                     'dataremajas.id as id_remajas',
                     'riwayats.*'
                 )
-                ->where('dataremajas.id', $value->id_remajas)
-                ->first();
+                ->whereBetween('riwayats.tanggal', [$tglawal_conv, $tglakhir_conv])
+                ->get();
+        } catch (\Exception $e) {
+            Log::error('Database query failed: ' . $e->getMessage());
+            return response()->json(['error' => 'Database query failed'], 500);
+        }
 
-            // Example path to your SVG template and PDF generation
+        if ($remaja->isEmpty()) {
+            return response()->json(['error' => 'No data found for the given date range'], 404);
+        }
+
+        $response = [];
+
+        foreach ($remaja as $key => $value) {
+            $getdataremaja = $value;
             $svgPath = public_path('assetreport/1/1.svg');
+
+            if (!file_exists($svgPath)) {
+                Log::error('SVG template not found at path: ' . $svgPath);
+                return response()->json(['error' => 'SVG template not found'], 500);
+            }
+
             $svgContent = file_get_contents($svgPath);
 
-            // Example PDF generation with Laravel PDF (assuming you have it installed)
-            $customPaper = array(0, 0, 750, 2000);
-            $pdf = PDF::loadView('laporan.dataremaja', ['remaja' => $getdataremaja])->setPaper($customPaper, 'portrait');
+            try {
+                // Example PDF generation with Laravel PDF
+                $customPaper = [0, 0, 750, 2000];
+                $pdf = PDF::loadView('laporan.dataremaja', ['remaja' => $getdataremaja])->setPaper($customPaper, 'portrait');
 
-            $path = public_path('laporan/dataremaja');
-            $filename = $getdataremaja->Nama . '.pdf'; // Ensure a unique filename
-            $pdf->save($path . '/' . $filename);
+                $path = public_path('laporan/dataremaja');
+                $filename = $getdataremaja->Nama . '_' . time() . '.pdf'; // Ensure a unique filename
+                $pdf->save($path . '/' . $filename);
 
-            // Store filename and download URL in response array
-            $response[] = [
-                'filename' => $filename,
-                'downloadUrl' => route('download.pdf', ['filename' => $filename]) // Assuming route is defined
-            ];
+                // Store filename and download URL in response array
+                $response[] = [
+                    'filename' => $filename,
+                    'downloadUrl' => route('download.pdf', ['filename' => $filename]) // Assuming route is defined
+                ];
+            } catch (\Exception $e) {
+                Log::error('PDF generation failed: ' . $e->getMessage());
+                return response()->json(['error' => 'PDF generation failed'], 500);
+            }
         }
+
+        // Debugging: Print the response before returning it
+        Log::info('JSON Response: ' . json_encode($response, JSON_PRETTY_PRINT));
+
         // Return JSON response with filenames and download URLs
         return response()->json($response);
     }
@@ -72,14 +93,9 @@ class DataRemajaController extends Controller
 
         // Ensure the file exists before attempting to download
         if (file_exists($pdfPath)) {
-            return response()->download($pdfPath, $filename, [
-                'Content-Type' => 'application/pdf'
-            ]);
+            return response()->download($filePath, $filename, ['Content-Type: application/pdf']);
         } else {
-            // Handle file not found scenario
-            abort(404, 'File not found');
+            return response()->json(['error' => 'File not found.'], 404);
         }
     }
-
-
 }
