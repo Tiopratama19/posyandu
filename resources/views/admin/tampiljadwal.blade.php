@@ -38,8 +38,6 @@ POSYANDU | Edit Jadwal
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Silahkan Edit Jadwal</h4>
-                        <p class="card-title-desc">Here are examples of <code>.form-control</code> applied to each
-                            textual HTML5 <code>&lt;input&gt;</code> <code>type</code>.</p>
                         <span style="float:right">
                             <a href="/admin/jadwalkonseling" class="btn btn-danger">Kembali</a>
                         </span>
@@ -62,7 +60,7 @@ POSYANDU | Edit Jadwal
                                                 value="{{$data->NamaKegiatan}}" id="example-search-input">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="example-search-input" class="form-label">Nama Bidan</label>
+                                            <label for="example-search-input" class="form-label">Nama Petugas Kesehatan</label>
                                             <input class="form-control" name="NamaBidan" type="text"
                                                 value="{{$data->NamaBidan}}" id="example-search-input">
                                         </div>

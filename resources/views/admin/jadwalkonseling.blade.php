@@ -57,7 +57,7 @@
                                     <th width="50px">No</th>
                                     <th width="150px">Tanggal Kegiatan</th>
                                     <th>Nama Kegiatan</th>
-                                    <th>Nama Bidan</th>
+                                    <th>Nama Petugas Kesehatan</th>
                                     <th width="150px">Aksi</th>
                                 </tr>
                             </thead>

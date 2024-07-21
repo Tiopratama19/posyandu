@@ -62,7 +62,7 @@ POSYANDU | Input Jadwal Konseling
                                                 id="example-search-input">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="example-search-input" class="form-label">Nama Bidan</label>
+                                            <label for="example-search-input" class="form-label">Nama Petugas Kesehatan</label>
                                             <input class="form-control" name="NamaBidan" onkeypress='return harusHuruf(event)' type="text" value=""
                                                 id="example-search-input">
                                         </div>

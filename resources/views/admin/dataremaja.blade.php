@@ -130,7 +130,7 @@
                             <br />
 
                             <div class="card-body">
-                                <table id="datatable" class="table table-striped nowrap" style="width:100%">
+                                <table id="datatable" class="table table-striped dt-responsive nowrap w-100 display nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -158,7 +158,7 @@
                                                 <td>{{ $row->NIK }}</td>
                                                 <td>{{ $row->Nama }}</td>
                                                 <td>{{ $row->TempatLahir }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($row->TanggalLahir)->isoFormat('D MMMM Y') }}
+                                                <td>{{ \Carbon\Carbon::parse($row->TanggalLahir)->isoFormat('D MMMM YYYY') }}
                                                 </td>
                                                 <td>{{ $row->JenisKelamin }}</td>
                                                 {{-- <td>{{ $row->BB }}</td>

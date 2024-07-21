@@ -97,7 +97,7 @@ class DataremajaController extends Controller
 
               })
              ->addColumn('TanggalLahir', function($data){
-                return Carbon::parse($data->TanggalLahir)->isoFormat('D MMMM Y');
+                return Carbon::parse($data->TanggalLahir)->isoFormat('D MMMM YYYY');
              })
 
              ->rawColumns(['action', 'TanggalLahir'])

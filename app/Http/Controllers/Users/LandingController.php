@@ -14,7 +14,7 @@ class LandingController extends Controller
     {
         $data = [
             'counseling' => JadwalKonseling::orderBy('TanggalKegiatan', 'DESC')->paginate(3),
-            'prokerposyandu' => Prokerposyandu::orderBy('created_at', 'ASC')->where('Status', 'Edukasi')->get(),
+            'prokerposyandu' => Prokerposyandu::orderBy('created_at', 'ASC')->get(),
             'anggota' => Kegiatankader::get()->groupBy('Jabatan'),
         ];
 

@@ -51,7 +51,7 @@
                                 </div>
                             @endif
                             <div class="card-body">
-                                <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 display nowrap"
+                                <table id="datatable" class="table table-striped dt-responsive nowrap w-100 display nowrap"
                                     style="width:100%">
                                     <thead>
                                         <tr>
@@ -62,7 +62,7 @@
                                             <th>TTD</th>
                                             <th>LILA</th>
                                             <th>LP</th>
-                                            <th>Anemia</th>
+                                            <th>Riwayat Penyakit</th>
                                             <th width="230px">Aksi</th>
                                         </tr>
                                     </thead>

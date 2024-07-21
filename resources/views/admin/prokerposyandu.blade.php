@@ -68,7 +68,7 @@ POSYANDU | Proker Posyandu
                             <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel"
                                 aria-labelledby="simple-tab-0">
                                 <table id="datatable"
-                                    class="table table-striped nowrap dt-responsive nowrap w-100 display nowrap"
+                                    class="table table-striped dt-responsive nowrap w-100 display nowrap"
                                     style="width:100%">
                                     <thead>
                                         <tr>

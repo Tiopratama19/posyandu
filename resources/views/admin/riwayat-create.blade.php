@@ -99,7 +99,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="anemia" class="form-label">ANEMIA</label>
+                                    <label for="anemia" class="form-label">RIWAYAT PENYAKIT</label>
                                     <input id="anemia" class="form-control {{ $errors->has('anemia') ? 'is-invalid' : '' }}" name="anemia" type="text" value="{{ old('anemia') }}">
                                     @error('anemia')
                                         <div class="invalid-feedback">{{ $message }}</div>

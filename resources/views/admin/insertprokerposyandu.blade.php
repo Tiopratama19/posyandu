@@ -35,15 +35,15 @@ POSYANDU | Input Proker Posyandu
                     <div class="card-body p-4">
 
                         <div class="row">
-                            <form action="{{ route('insertproker') }}" method="POST" enctype="multipart/form-data">
+                            <form id="insertproker" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Tipe</label>
-                                        <select class="form-select" name="Tipe" aria-label="Tipe" required onchange="handleSelectChange(event)">
+                                        <select class="form-select" name="Status" aria-label="Status" required onchange="handleSelectChange(event)">
                                             <option value="">Pilih Salah Satu</option>
-                                            <option @selected(old('Tipe') == 'Proker') value="Proker">Kegiatan</option>
-                                            <option @selected(old('Tipe') == 'Edukasi') value="Edukasi">Edukasi</option>
+                                            <option @selected(old('Status') == 'Proker') value="Proker">Kegiatan</option>
+                                            <option @selected(old('Status') == 'Edukasi') value="Edukasi">Edukasi</option>
                                         </select>
                                     </div>
 
@@ -54,7 +54,7 @@ POSYANDU | Input Proker Posyandu
                                     <div class="mb-3" id="edukasi">
                                         {{-- nama --}}
                                         <label for="edukasiInput" class="form-label">Edukasi</label>
-                                        <input id="edukasiInput" class="form-control {{ $errors->has('edukasi') ? 'is-invalid' : '' }}" name="edukasi" value="{{ old('edukasi') }}">
+                                        <input id="edukasiInput" class="form-control {{ $errors->has('Nama') ? 'is-invalid' : '' }}" name="Nama" value="{{ old('Nama') }}">
                                         @error('edukasi')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -63,7 +63,7 @@ POSYANDU | Input Proker Posyandu
                                     <div class="mb-3" id="kegiatan">
                                         {{-- kegiatan --}}
                                         <label for="kegiatanInput" class="form-label">Kegiatan</label>
-                                        <input id="kegiatanInput" class="form-control {{ $errors->has('kegiatan') ? 'is-invalid' : '' }}" name="kegiatan" value="{{ old('kegiatan') }}">
+                                        <input id="kegiatanInput" class="form-control {{ $errors->has('Kegiatan') ? 'is-invalid' : '' }}" name="Kegiatan" value="{{ old('Kegiatan') }}">
                                         @error('kegiatan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -83,12 +83,21 @@ POSYANDU | Input Proker Posyandu
                                     <div class="mb-3" id="tanggal">
                                         {{-- tanggal --}}
                                         <label for="tanggalInput" class="form-label">Tanggal</label>
-                                        <input id="tanggalInput" type="date" class="form-control {{ $errors->has('tanggal') ? 'is-invalid' : '' }}" name="tanggal" value="{{ old('tanggal') }}">
+                                        <input id="tanggalInput" type="date" class="form-control {{ $errors->has('Tanggal') ? 'is-invalid' : '' }}" name="Tanggal" value="{{ old('Tanggal') }}">
                                         @error('tanggal')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-
+                                    <div class="mb-3" id="StatusLandingKegiatan">
+                                        <label for="example-tel-input" class="form-label">Jenis Kegiatan</label>
+                                        <select class="form-select" name="jenis_edukasi_kegiatan">
+                                            <option value="">Pilih Salah Satu</option>
+                                            <option value="Penyuluhan" >Penyuluhan</option>
+                                            <option value="Pembinaan Mental">Pembinaan Mental</option>
+                                            <option value="Pemeriksaan Kesehatan">Pemeriksaan Kesehatan</option>
+                                            <option value="Kunjungan Ke Rumah">Kunjungan Ke Rumah</option>
+                                        </select>
+                                    </div>
                                     <div class="mb-3" id="StatusLanding">
                                         <label for="example-tel-input" class="form-label">Jenis Edukasi</label>
                                         <select class="form-select" name="jenis_edukasi">
@@ -155,11 +164,16 @@ POSYANDU | Input Proker Posyandu
                 $("#tanggal").show();
                 $("#kegiatan").show();
                 $("#StatusLanding").hide();
+                $("#StatusLandingKegiatan").show();
+                $("#edukasi").hide();
+
            } else if(selectedValue == 'Edukasi') {
                 $("#nama").show();
                 $("#tanggal").hide();
                 $("#kegiatan").hide();
                 $("#StatusLanding").show();
+                $("#edukasi").hide();
+                $("#StatusLandingKegiatan").hide();
             }
         }
 

@@ -74,9 +74,19 @@
                                             <input class="form-control" name="Tanggal" value="{{ $data->Tanggal }}"
                                                 type="date" value="" id="example-text-input">
                                         </div>
+                                        <div class="mb-3" id="StatusLandingKegiatan">
+                                            <label for="example-tel-input" class="form-label">Jenis Kegiatan</label>
+                                            <select class="form-select" name="jenis_edukasi_kegiatan">
+                                                <option value="">Pilih Salah Satu</option>
+                                                <option value="Penyuluhan" {{ 'Penyuluhan' == $data->StatusKegiatan ? 'selected' : '' }}>Penyuluhan</option>
+                                                <option value="Pembinaan Mental" {{ 'Pembinaan Mental' == $data->StatusKegiatan ? 'selected' : '' }}>Pembinaan Mental</option>
+                                                <option value="Pemeriksaan Kesehatan" {{ 'Pemeriksaan Kesehatan' == $data->StatusKegiatan ? 'selected' : '' }}>Pemeriksaan Kesehatan</option>
+                                                <option value="Kunjungan Ke Rumah" {{ 'Kunjungan Ke Rumah' == $data->StatusKegiatan ? 'selected' : '' }}>Kunjungan Ke Rumah</option>
+                                            </select>
+                                        </div>
                                         <div class="mb-3" id="StatusLanding">
                                             <label for="example-tel-input" class="form-label">Jenis Edukasi</label>
-                                            <select class="form-select" name="StatusLanding" aria-label="JenisKelamin">
+                                            <select class="form-select" name="jenis_edukasi" aria-label="JenisKelamin">
                                                 <option value="">Pilih Salah Satu</option>
                                                 <option value="Bahaya Rokok"
                                                     {{ 'Bahaya Rokok' == $data->StatusLanding ? 'selected' : '' }}>Bahaya
@@ -149,11 +159,14 @@
             $("#tanggal").show();
             $("#kegiatan").show();
             $("#StatusLanding").hide();
+            $("#StatusLandingKegiatan").show();
+
         } else if (status == 'Edukasi') {
             $("#nama").show();
             $("#tanggal").hide();
             $("#kegiatan").hide();
             $("#StatusLanding").show();
+            $("#StatusLandingKegiatan").hide();
         }
 
         function handleSelectChange(event) {

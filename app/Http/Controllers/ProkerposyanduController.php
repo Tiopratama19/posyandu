@@ -37,7 +37,8 @@ class ProkerposyanduController extends Controller
                 'Caption' => $request->Caption,
                 'image'=>$imageName,
                 'Status' => $request->Status,
-                'StatusLanding' => $request->StatusLanding
+                'StatusLanding' => $request->jenis_edukasi,
+                'StatusKegiatan' => $request->jenis_edukasi_kegiatan
              ]);
 
              return response()->json([
@@ -47,10 +48,11 @@ class ProkerposyanduController extends Controller
 
         $request->validate([
             'Tipe' => 'required',
-            'edukasi' => 'required',
+            'edukasi' => 'nullable|required_if:Tipe,Edukasi',
             'kegiatan' => 'nullable|required_if:Tipe,Proker',
             'tanggal' => 'nullable|required_if:Tipe,Proker|date',
             'jenis_edukasi' => 'nullable|required_if:Tipe,Edukasi',
+            'jenis_edukasi_kegiatan' => 'nullable|required_if:Tipe,Kegiatan',
             'Caption' => 'required',
             'image' => 'required|image',
         ]);
@@ -70,6 +72,7 @@ class ProkerposyanduController extends Controller
             'Caption' => $request->Caption,
             'Status' => $request->Tipe,
             'StatusLanding' => $request->jenis_edukasi,
+            'StatusKegiatan' => $request->jenis_edukasi_kegiatan
         ]);
 
         return to_route('prokerposyandu')->with('success', 'Proker telah ditambahkan');
@@ -93,7 +96,8 @@ class ProkerposyanduController extends Controller
                 'Kegiatan' => $request->Kegiatan,
                 'Caption' => $request->Caption,
                 'Status' => $request->Status,
-                'StatusLanding' => $request->StatusLanding
+                'StatusLanding' => $request->jenis_edukasi,
+                'StatusKegiatan' => $request->jenis_edukasi_kegiatan,
             ]);
             return response()->json([
                 'status'=>'success'
@@ -112,7 +116,8 @@ class ProkerposyanduController extends Controller
                 'Caption' => $request->Caption,
                 'image'=>$imageName,
                 'Status' => $request->Status,
-                'StatusLanding' => $request->StatusLanding
+                'StatusLanding' => $request->jenis_edukasi,
+                'StatusKegiatan' => $request->jenis_edukasi_kegiatan
             ]);
             return response()->json([
                 'status'=>'success'
