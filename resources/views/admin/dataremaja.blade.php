@@ -44,7 +44,7 @@
                                     <button class="btn btn-danger" id="button_close_print">Tutup <i
                                             class="fa fa-window-close"></i></button>
                                 </div>
-                                <form action="#" enctype="multipart/form-data">
+                                <form  enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -52,10 +52,7 @@
                                                 <label class="form-label">Tanggal</label>
                                                 <input type="text" class="form-control" name="daterange" id="daterange">
                                             </div>
-
-
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
@@ -65,7 +62,7 @@
                 </div> <!-- end col -->
             </div>
             <!-- end row -->
-
+            <br>
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
@@ -81,18 +78,7 @@
                                             class="fa fa-print"></i></button>
                                 </div>
                             </div>
-                            {{-- <div class="col-sm-2">
-                                    <label for="" class="form-label">Nama</label>
-                                    <input name="Nama" type="text" class="form-control" placeholder="Nama" value="{{isset($_GET['Nama']) ? $_GET['Nama'] : ''}}">
-                    </div>
-                    <div class="col-sm-2">
-                        <label for="" class="form-label">NIK</label>
-                        <input name="NIK" type="text" class="form-control" placeholder="NIK"
-                            value="{{isset($_GET['NIK']) ? $_GET['NIK'] : ''}}">
-                    </div>
-                    <div class="col-sm-3">
-                        <button type="submit" class="btn btn-primary mt-4">Search</button>
-                    </div> --}}
+
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-info" role="alert">
                                     {{ $message }};
@@ -140,12 +126,7 @@
                                             <th>Tempat Lahir</th>
                                             <th>Tanggal Lahir</th>
                                             <th>Jenis Kelamin</th>
-                                            {{-- <th>BB</th>
-                                            <th>TB</th>
-                                            <th>TTD</th>
-                                            <th>LILA</th>
-                                            <th>LP</th>
-                                            <th>Anemia</th> --}}
+
                                             <th width="230px">Aksi</th>
                                         </tr>
                                     </thead>
@@ -162,12 +143,7 @@
                                                 <td>{{ \Carbon\Carbon::parse($row->TanggalLahir)->isoFormat('D MMMM YYYY') }}
                                                 </td>
                                                 <td>{{ $row->JenisKelamin }}</td>
-                                                {{-- <td>{{ $row->BB }}</td>
-                                    <td>{{ $row->TB }}</td>
-                                    <td>{{ $row->TTD }}</td>
-                                    <td>{{ $row->LILA }}</td>
-                                    <td>{{ $row->LP }}</td>
-                                    <td>{{ $row->Anemia }}</td> --}}
+
                                                 <td>
                                                     <a href="/admin/tampildata/{{ $row->id }}"
                                                         class="btn btn-info">Edit</a>
@@ -212,11 +188,7 @@
                 }
             });
             $(this).on('click', '#button_print', function(e) {
-                // Swal.fire({
-                //     icon: 'error',
-                //     title: 'Gagal',
-                //     text: 'Yahhh fitur ini sedang dalam pengembangan!',
-                // });
+
                 $('#cardPrint').show();
                 $('#button_print').attr('disabled', true);
             });
@@ -225,12 +197,6 @@
                 $('#cardPrint').hide();
                 $('#button_print').attr('disabled', false);
             });
-
-            // $(this).on('change', '#daterange', function (e) {
-            //     let tgl = $("#daterange").val();
-
-
-            // });
 
 
             $('.delete').click(function() {
@@ -355,34 +321,33 @@
                                 type: "GET",
                                 url: `{{ url('laporan/dataremaja') }}/${startDate}/${endDate}`,
                                 data: data,
-                                xhrFields: {
-                                    responseType: 'blob'
-                                },
+                                contentType: 'application/json',
                                 success: function(response) {
-                                    const filename = response.filename;
-                                    const downloadUrl = response.downloadUrl;
+                                    if (response.pdfUrls && response.pdfUrls.length > 0) {
+                                        response.pdfUrls.forEach(function(pdfUrl) {
+                                            downloadPdf(pdfUrl);
+                                        });
 
-                                    fetch(downloadUrl)
-                                        .then(response => response.blob())
-                                        .then(blob => {
-                                            var link = document.createElement('a');
-                                            link.href = window.URL.createObjectURL(blob);
-                                            link.download = filename;
-                                            document.body.appendChild(link);
-                                            link.click();
-                                            document.body.removeChild(link);
-                                            Swal.fire({
-                                                icon: 'success',
-                                                title: 'Berhasil',
-                                                text: 'Data Berhasil Digenerate !',
-                                            });
-                                        })
-                                        .catch(error => console.error(
-                                            'Error downloading the PDF:', error));
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Berhasil',
+                                            text: 'Data Berhasil Digenerate!',
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Gagal',
+                                            text: 'Tidak ada PDF yang dihasilkan!',
+                                        });
+                                    }
+
                                 },
                                 error: function(xhr, status, error) {
-                                    console.error('AJAX Error:', status, error);
-                                    console.error('Response:', xhr.responseText);
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Gagal',
+                                        text: 'Terjadi kesalahan saat mengirim permintaan!',
+                                    });
                                 }
                             });
                         }
@@ -396,6 +361,49 @@
             $('#saveBtn').click(function() {
                 console.log(startDate.format('D MMMM YYYY') + ' - ' + endDate.format('D MMMM YYYY'));
             });
+
+            function downloadPdf(url) {
+                var filename = '';
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.responseType = 'blob';
+
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        var disposition = xhr.getResponseHeader('Content-Disposition');
+                        if (disposition && disposition.indexOf('attachment') !== -1) {
+                            var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                            var matches = filenameRegex.exec(disposition);
+                            if (matches != null && matches[1]) {
+                                filename = matches[1].replace(/['"]/g, '');
+                            }
+                        }
+
+                        // Fallback filename if none found
+                        if (!filename) {
+                            filename = 'laporan.pdf';
+                        }
+
+                        var blob = new Blob([xhr.response], { type: 'application/pdf' });
+
+                        var link = document.createElement('a');
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = filename; // Use the parsed filename or default to 'laporan.pdf'
+
+                        // Trigger the download
+                        link.click();
+                    } else {
+                        // Handle error case
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: 'Gagal mengunduh PDF!',
+                        });
+                    }
+                };
+
+                xhr.send();
+            }
         });
     </script>
 

@@ -40,6 +40,9 @@ Route::post('/postLogin', [AuthController::class, 'postLogin'])->name('admin.log
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/logout', [LogoutadminController::class, 'index'])->name('admin.logoutPage');
 
+Route::get('/getpeserta/{id}', [JadwalKonselingController::class, 'getPeserta']);
+Route::post('/tambahpeserta/{id}', [JadwalKonselingController::class, 'tambahpeserta']);
+
 Route::get('/detail/{id}', [LandingController::class, 'detail']);
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
@@ -76,9 +79,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/tampiljadwal/{id}', [JadwalkonselingController::class, 'tampildata'])->name('tampiljadwal');
         Route::post('/updatejadwal/{id}', [JadwalkonselingController::class, 'updatedata'])->name('upadatejadwal');
         Route::get('/deletejadwal/{id}', [JadwalkonselingController::class, 'deletedata'])->name('deletejadwal');
-
-        Route::get('/getpeserta/{id}', [JadwalKonselingController::class, 'getPeserta']);
-        Route::post('/tambahpeserta/{id}', [JadwalKonselingController::class, 'tambahpeserta']);
 
         Route::get('/prokerposyandu',[ProkerposyanduController::class, 'index'])->name('prokerposyandu');
         Route::get('/tambahproker', [ProkerposyanduController::class, 'tambah'])->name('tambahproker');

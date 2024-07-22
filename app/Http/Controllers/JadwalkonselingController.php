@@ -56,7 +56,9 @@ class JadwalKonselingController extends Controller
 
     public function tambahpeserta(Request $request, $id)
     {
-        $peserta = PesertaKonseling::where('id_konselings', $id)->count();
+        $peserta = PesertaKonseling::where('id_konselings', $id)
+        ->where('nik', $request->nik)
+        ->count();
         if ($peserta == 0) {
               $pesertakonselingnew = New PesertaKonseling;
               $pesertakonselingnew->nik = $request->nik;
@@ -77,10 +79,10 @@ class JadwalKonselingController extends Controller
 
             return DataTables()->of($data)
             ->addColumn('nik', function($data){
-                return $this->sensor($data['nik']);
+                return $this->sensor($data->nik);
             })
             ->addColumn('email', function($data){
-                return $this->sensor($data['email']);
+                return $this->sensor($data->email);
             })
 
             ->rawColumns(['nik', 'email'])

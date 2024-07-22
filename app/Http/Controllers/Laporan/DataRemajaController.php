@@ -16,7 +16,6 @@ class DataRemajaController extends Controller
         app()->setLocale('id');
 
         try {
-            // Convert dates to Carbon objects and then to the desired format
             $date1 = Carbon::createFromFormat('D M d Y H:i:s T', $tglawal);
             $date2 = Carbon::createFromFormat('D M d Y H:i:s T', $tglakhir);
         } catch (\Exception $e) {
@@ -28,7 +27,6 @@ class DataRemajaController extends Controller
         $tglakhir_conv = $date2->format('Y-m-d');
 
         try {
-            // Fetch data from database based on date range
             $remaja = DB::table('dataremajas')
                 ->join('riwayats', 'dataremajas.id', '=', 'riwayats.id_dataremaja')
                 ->select(
@@ -48,6 +46,7 @@ class DataRemajaController extends Controller
         }
 
         $response = [];
+        $pdfPaths = [];
 
         foreach ($remaja as $key => $value) {
             $getdataremaja = $value;
@@ -61,41 +60,34 @@ class DataRemajaController extends Controller
             $svgContent = file_get_contents($svgPath);
 
             try {
-                // Example PDF generation with Laravel PDF
                 $customPaper = [0, 0, 750, 2000];
                 $pdf = PDF::loadView('laporan.dataremaja', ['remaja' => $getdataremaja])->setPaper($customPaper, 'portrait');
 
                 $path = public_path('laporan/dataremaja');
-                $filename = $getdataremaja->Nama . '_' . time() . '.pdf'; // Ensure a unique filename
+                $filename = $getdataremaja->Nama . '_' . time() . '.pdf';
                 $pdf->save($path . '/' . $filename);
 
-                // Store filename and download URL in response array
-                $response[] = [
-                    'filename' => $filename,
-                    'downloadUrl' => route('download.pdf', ['filename' => $filename]) // Assuming route is defined
-                ];
+                $pdfPaths[] = url('laporan/dataremaja/' . $filename);
             } catch (\Exception $e) {
                 Log::error('PDF generation failed: ' . $e->getMessage());
                 return response()->json(['error' => 'PDF generation failed'], 500);
             }
         }
-
-        // Debugging: Print the response before returning it
-        Log::info('JSON Response: ' . json_encode($response, JSON_PRETTY_PRINT));
-
-        // Return JSON response with filenames and download URLs
-        return response()->json($response);
-    }
-
-    function generate($filename)
-    {
-        $pdfPath = public_path('laporan/dataremaja/' . $filename);
-
-        // Ensure the file exists before attempting to download
-        if (file_exists($pdfPath)) {
-            return response()->download($filePath, $filename, ['Content-Type: application/pdf']);
+        if (!empty($pdfPaths)) {
+            return response()->json(['pdfUrls' => $pdfPaths]);
         } else {
-            return response()->json(['error' => 'File not found.'], 404);
+            return response()->json(['error' => 'No PDFs generated'], 500);
         }
     }
+
+    // function generate($filename)
+    // {
+    //     $file = public_path('laporan/dataremaja/' . $filename);
+
+    //     if (!file_exists($file)) {
+    //         return response()->json(['error' => 'File not found'], 404);
+    //     }
+
+    //     return response()->download($file);
+    // }
 }

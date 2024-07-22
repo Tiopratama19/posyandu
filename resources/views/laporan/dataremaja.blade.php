@@ -102,7 +102,7 @@
 <span id="tk_1" class="t s3">TTD </span><span id="tl_1" class="t s3">: {{ $remaja->TTD }}</span>
 <span id="tm_1" class="t s3">LILA </span><span id="tn_1" class="t s3">: {{ $remaja->LILA }}</span>
 <span id="to_1" class="t s3">LP </span><span id="tp_1" class="t s3">: {{ $remaja->LP }}</span>
-<span id="tq_1" class="t s3">ANEMIA </span><span id="tr_1" class="t s3">: {{ $remaja->Anemia }}</span></div>
+<span id="tq_1" class="t s3">RIWAYAT PENYAKIT </span><span id="tr_1" class="t s3">: {{ $remaja->Anemia }}</span></div>
 <!-- End text definitions -->
 
 
