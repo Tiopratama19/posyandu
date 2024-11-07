@@ -9,4 +9,4 @@ class Kegiatankader extends Model
 {
     use HasFactory;
     protected $guarded = [];
-}
+}   

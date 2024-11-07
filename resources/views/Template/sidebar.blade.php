@@ -32,7 +32,7 @@
         </li>
 
         <li>
-            <a href="{{ url('admin/kegiatankader') }}">
+            <a href="{{ route('anggota.index') }}">
                 <i data-feather="sliders"></i>
                 <span data-key="t-tables">Kelola Anggota</span>
             </a>

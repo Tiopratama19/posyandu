@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutadminController;
 use App\Http\Controllers\DataremajaController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProkerposyanduController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\Master\CounselingController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\Laporan\DataRemajaController as RemajaController;
@@ -80,7 +82,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('/updatejadwal/{id}', [JadwalkonselingController::class, 'updatedata'])->name('upadatejadwal');
         Route::get('/deletejadwal/{id}', [JadwalkonselingController::class, 'deletedata'])->name('deletejadwal');
 
-        Route::get('/prokerposyandu',[ProkerposyanduController::class, 'index'])->name('prokerposyandu');
+        Route::get('/prokerposyandu', [ProkerposyanduController::class, 'index'])->name('prokerposyandu');
         Route::get('/tambahproker', [ProkerposyanduController::class, 'tambah'])->name('tambahproker');
         Route::post('/insertproker', [ProkerposyanduController::class, 'insert'])->name('insertproker');
         Route::get('/tampilproker/{id}', [ProkerposyanduController::class, 'tampildata'])->name('tampilproker');
@@ -88,7 +90,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/deleteproker/{id}', [ProkerposyanduController::class, 'deletedata'])->name('deleteproker');
 
 
-        Route::get('/kegiatankader', [KegiatankaderController::class, 'index'])->name('kegiatankader');
+        Route::resource('informasi', InformasiController::class);
+        Route::resource('anggota', AnggotaController::class);
+
         Route::get('/tambahkegiatan', [KegiatankaderController::class, 'tambah'])->name('tambahkegiatan');
         Route::post('/insertkegiatan', [KegiatankaderController::class, 'insert'])->name('insertkegiatan');
         Route::get('/tampilkegiatan/{id}', [KegiatankaderController::class, 'tampildata'])->name('tampilkegiatan');
@@ -98,11 +102,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/profile', [ProfileController::class, 'index']);
 
         Route::get('/filterdataremaja', [DataremajaController::class, 'filterGetDataRemaja']);
-     });
+    });
 
     Route::prefix('laporan')->group(function () {
         Route::get('/dataremaja/{tglawal}/{tglakhir}', [RemajaController::class, 'downloadDataremaja']);
         Route::get('/dataremaja/generate/{filename}', [RemajaController::class, 'generate'])->name('download.pdf');
-
     });
 });

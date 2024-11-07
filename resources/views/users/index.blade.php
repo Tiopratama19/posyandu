@@ -7,9 +7,7 @@
 
 
 @push('css')
-
 @endpush
-
 
 @section('content')
     @include('users.home')
@@ -23,5 +21,4 @@
 
 
 @push('js')
-
 @endpush

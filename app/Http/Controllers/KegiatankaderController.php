@@ -22,25 +22,25 @@ class KegiatankaderController extends Controller
 
     public function insert(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $request->validate([
-                'image'=>'required|mimes:jpg,jpeg,png,gif,svg'
-             ]);
-             if($image = $request->file('image')){
-                $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+                'image' => 'required|mimes:jpg,jpeg,png,gif,svg,webp'
+            ]);
+            if ($image = $request->file('image')) {
+                $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
                 $image->move('kader', $imageName);
-             }
-             Kegiatankader::create([
+            }
+            Kegiatankader::create([
                 'Nama' => $request->Nama,
                 'Tanggal' => $request->Tanggal,
                 'Jabatan' => $request->Jabatan,
                 'UraianKegiatan' => $request->UraianKegiatan,
-                'image'=>$imageName,
+                'image' => $imageName,
                 'caption' => $request->caption
-             ]);
-             return response()->json([
-                'status'=>'success'
-             ]);
+            ]);
+            return response()->json([
+                'status' => 'success'
+            ]);
         }
         // dd($data);
         return redirect()->route('kegiatankader')->with('success', 'Kegiatan telah ditambahkan');
@@ -62,17 +62,17 @@ class KegiatankaderController extends Controller
                 'Tanggal' => $request->Tanggal,
                 'Jabatan' => $request->Jabatan,
                 'UraianKegiatan' => $request->UraianKegiatan,
-                'image'=>$imageName,
+                'image' => $imageName,
                 'caption' => $request->caption
             ]);
             return response()->json([
-                'status'=>'success'
+                'status' => 'success'
             ]);
         } else {
-            if($image = $request->file('image')){
-                $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            if ($image = $request->file('image')) {
+                $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
                 $image->move('edukasikegiatan', $imageName);
-             }
+            }
 
             $data = Kegiatankader::find($id);
             $data->update([
@@ -80,15 +80,13 @@ class KegiatankaderController extends Controller
                 'Tanggal' => $request->Tanggal,
                 'Jabatan' => $request->Jabatan,
                 'UraianKegiatan' => $request->UraianKegiatan,
-                'image'=>$imageName,
+                'image' => $imageName,
                 'caption' => $request->caption
             ]);
             return response()->json([
-                'status'=>'success'
+                'status' => 'success'
             ]);
         }
-
-
     }
 
     public function deletedata($id)
