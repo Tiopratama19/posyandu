@@ -23,8 +23,10 @@
                     <div class="tab-pane active" id="simple-tabpanel-0-a" role="tabpanel"
                         aria-labelledby="simple-tab-0">
 
-                        <form action="javascript:void(0)" id="data-master" enctype="multipart/form-data">
+                        <form action="{{ route('informasi.peserta.store') }}" id="data-master"
+                            enctype="multipart/form-data" method="post">
                             @csrf
+                            <input type="hidden" name="id_informasi" value="{{ $item->id }}">
                             <div class="mb-3">
                                 <label for="" class="form-label">Nik</label>
                                 <input type="text" name="nik" id="nik" class="form-control"

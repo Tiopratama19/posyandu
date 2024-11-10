@@ -45,6 +45,8 @@ Route::get('/logout', [LogoutadminController::class, 'index'])->name('admin.logo
 Route::get('/getpeserta/{id}', [JadwalKonselingController::class, 'getPeserta']);
 Route::post('/tambahpeserta/{id}', [JadwalKonselingController::class, 'tambahpeserta']);
 
+Route::post('/store-peserta', [LandingController::class, 'storePeserta'])->name('informasi.peserta.store');
+
 Route::get('/detail/{id}', [LandingController::class, 'detail']);
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 

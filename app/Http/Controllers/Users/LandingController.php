@@ -9,6 +9,7 @@ use App\Models\Anggota;
 use App\Models\Informasi;
 use App\Models\Jadwalkonseling;
 use App\Models\Kategori;
+use App\Models\PesertaKegiatan;
 use App\Models\Prokerposyandu;
 
 class LandingController extends Controller
@@ -35,5 +36,19 @@ class LandingController extends Controller
         ];
 
         return view('users.edukasi.detail', $data);
+    }
+
+    public function storePeserta(Request $request)
+    {
+        $validated = $request->validate([
+            'nama' => 'required',
+            'nik' => 'required',
+            'email' => 'required|email',
+            'id_informasi' => 'required',
+        ]);
+
+        PesertaKegiatan::create($validated);
+
+        return redirect()->back()->with('success', 'Peserta telah didaftarkan')->with('id_informasi', $request->id_informasi);
     }
 }
