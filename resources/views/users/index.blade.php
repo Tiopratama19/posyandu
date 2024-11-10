@@ -21,4 +21,7 @@
 
 
 @push('js')
+    <script>
+        $('.datatable-2').DataTable();
+    </script>
 @endpush

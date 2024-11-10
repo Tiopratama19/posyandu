@@ -90,6 +90,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('/deleteproker/{id}', [ProkerposyanduController::class, 'deletedata'])->name('deleteproker');
 
 
+        Route::get('/informasi/{id}/anggota', [InformasiController::class, 'peserta'])->name('informasi.peserta');
         Route::resource('informasi', InformasiController::class);
         Route::resource('anggota', AnggotaController::class);
 

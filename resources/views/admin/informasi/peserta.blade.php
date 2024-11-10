@@ -40,14 +40,11 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h4 class="card-title">Tabel Kegiatan dan Edukasi</h4>
-                                    <p class="card-title-desc">Daftar proker dan informasi.
+                                    <h4 class="card-title">Data Peserta Kegiatan</h4>
+                                    <p class="card-title-desc">{{ $item->judul }}.
                                     </p>
                                 </div>
-                                <span>
-                                    <a href="{{ route('anggota.create') }}" class="btn btn-primary">Tambah <i
-                                            class="fa fa-plus"></i></a>
-                                </span>
+
                             </div>
                         </div>
                         @if ($message = Session::get('success'))
@@ -60,101 +57,36 @@
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab"
                                         href="#simple-tabpanel-0" role="tab" aria-controls="simple-tabpanel-0"
-                                        aria-selected="true">Kegiatan</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab" href="#simple-tabpanel-1"
-                                        role="tab" aria-controls="simple-tabpanel-1" aria-selected="false">Edukasi</a>
+                                        aria-selected="true">Peserta</a>
                                 </li>
                             </ul>
                             <div class="tab-content pt-5" id="tab-content">
                                 <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel"
                                     aria-labelledby="simple-tab-0">
-                                    <table id="datatable"
-                                        class="table table-striped nowrap dt-responsive nowrap w-100 display nowrap"
-                                        style="width:100%">
+                                    <table id="datatable" class="table table-striped nowrap" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Poto</th>
-                                                <th>Tanggal</th>
-                                                <th>Kegiatan</th>
-                                                <th>Aksi</th>
+                                                <th>NIK</th>
+                                                <th>Nama</th>
+                                                <th>Email</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @php
                                                 $no = 1;
                                             @endphp
-                                            @foreach ($data as $index => $row)
-                                                @if ($row->jenis == 'kegiatan')
-                                                    <tr>
-                                                        <th scope="row">{{ $no++ }}</th>
-                                                        <td><img src="{{ asset('storage/' . $row->galeri) }}"
-                                                                style="height: 100px; width:100px;"></td>
-                                                        <td>{{ $row->start_date }}</td>
-                                                        <td>{{ $row->judul }}</td>
-                                                        <td>
-                                                            <form action="{{ route('informasi.destroy', $row->id) }}"
-                                                                method="post">
-                                                                @method('DELETE')
-                                                                @csrf
-                                                                <a href="{{ route('informasi.peserta', $row->id) }}"
-                                                                    class="btn btn-warning">Peserta</a>
-                                                                <a href="{{ route('informasi.edit', $row->id) }}"
-                                                                    class="btn btn-info">Edit</a>
-                                                                <button type="submit"
-                                                                    class="btn btn-danger delete">Hapus</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endif
+                                            @foreach ($item->peserta as $index => $row)
+                                                <tr>
+                                                    <th scope="row">{{ $no++ }}</th>
+                                                    <td>{{ $row->nik }}</td>
+                                                    <td>{{ $row->nama }}</td>
+                                                    <td>{{ $row->email }}</td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
-                                    <table id="datatable2" class="table table-striped nowrap" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Poto</th>
-                                                <th>Edukasi</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            @php
-                                                $no = 1;
-                                            @endphp
-                                            @foreach ($data as $index => $row)
-                                                @if ($row->jenis == 'edukasi')
-                                                    <tr>
-                                                        <th scope="row">{{ $no++ }}</th>
-                                                        <td><img src="{{ asset('storage/' . $row->galeri) }}"
-                                                                style="height: 100px; width:100px;"></td>
-                                                        <td>{{ $row->judul }}</td>
-
-                                                        <td>
-                                                            <form action="{{ route('informasi.destroy', $row->id) }}"
-                                                                method="post">
-                                                                @method('DELETE')
-                                                                @csrf
-                                                                <a href="{{ route('informasi.edit', $row->id) }}"
-                                                                    class="btn btn-info">Edit</a>
-                                                                <button type="submit"
-                                                                    class="btn btn-danger delete">Hapus</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endif
-                                            @endforeach
-                                        </tbody>
-
-                                    </table>
-                                </div>
-
                             </div>
                         </div>
                     </div>

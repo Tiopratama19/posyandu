@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModalKegiatan-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="max-width: 60%">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $item->judul }}</h1>
@@ -11,16 +11,17 @@
             <div class="modal-body">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab" href="#simple-tabpanel-0"
+                        <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab" href="#simple-tabpanel-0-a"
                             role="tab" aria-controls="simple-tabpanel-0" aria-selected="true">Daftar</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="simple-tab-1-a" data-bs-toggle="tab" href="#simple-tabpanel-1"
+                        <a class="nav-link" id="simple-tab-1-a" data-bs-toggle="tab" href="#simple-tabpanel-1-a"
                             role="tab" aria-controls="simple-tabpanel-1" aria-selected="false">Peserta</a>
                     </li>
                 </ul>
-                <div class="tab-content pt-5" id="tab-content">
-                    <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel" aria-labelledby="simple-tab-0">
+                <div class="tab-content" id="tab-content">
+                    <div class="tab-pane active" id="simple-tabpanel-0-a" role="tabpanel"
+                        aria-labelledby="simple-tab-0">
 
                         <form action="javascript:void(0)" id="data-master" enctype="multipart/form-data">
                             @csrf
@@ -49,7 +50,7 @@
                         </form>
                     </div>
                     <div class="tab-pane" id="simple-tabpanel-1-a" role="tabpanel" aria-labelledby="simple-tab-1">
-                        <table id="datatable" class="table table-striped dt-responsive nowrap w-100 display nowrap"
+                        <table class="table table-striped dt-responsive nowrap w-100 display nowrap datatable-2"
                             style="width:100%">
                             <thead>
                                 <tr>
@@ -60,6 +61,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($item->peserta as $key => $peserta)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $peserta->nik }}</td>
+                                        <td>{{ $peserta->nama }}</td>
+                                        <td>{{ $peserta->email }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

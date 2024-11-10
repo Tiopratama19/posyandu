@@ -13,6 +13,11 @@ class Informasi extends Model
 
     protected $guarded = [];
 
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
+    }
+
     public function peserta()
     {
         return $this->hasMany(PesertaKegiatan::class, 'id_informasi');

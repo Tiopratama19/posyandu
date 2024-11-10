@@ -37,6 +37,21 @@ class InformasiController extends Controller
         return view("admin.informasi.form", compact('form', 'item'));
     }
 
+    public function peserta($id)
+    {
+        $form = [
+            'title' => 'Edit Informasi',
+            'action' => route('informasi.update', $id),
+            'method' => 'PUT'
+        ];
+
+        $item = Informasi::with(['peserta'])->find($id);
+
+        // dd($item);
+
+        return view("admin.informasi.peserta", compact('form', 'item'));
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

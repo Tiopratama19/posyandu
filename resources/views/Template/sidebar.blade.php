@@ -25,7 +25,7 @@
         </li>
 
         <li>
-            <a href="{{ url('admin/prokerposyandu') }}">
+            <a href="{{ route('informasi.index') }}">
                 <i data-feather="trello"></i>
                 <span data-key="t-tables">Kegiatan & Edukasi</span>
             </a>

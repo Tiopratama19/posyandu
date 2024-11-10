@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Anggota;
 use App\Models\Informasi;
 use App\Models\Jadwalkonseling;
+use App\Models\Kategori;
 use App\Models\Prokerposyandu;
 
 class LandingController extends Controller
@@ -17,7 +18,9 @@ class LandingController extends Controller
         $data = [
             'counseling' => Jadwalkonseling::orderBy('TanggalKegiatan', 'DESC')->paginate(3),
             'prokerposyandu' => Informasi::where('jenis', 'kegiatan')->orderBy('created_at', 'ASC')->get(),
+            'edukasi' => Informasi::where('jenis', 'edukasi')->orderBy('created_at', 'ASC')->get(),
             'anggota' => Anggota::get()->groupBy('jabatan'),
+            'kategori' => Kategori::get(),
         ];
 
         return view('users.index', $data);
